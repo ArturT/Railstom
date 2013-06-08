@@ -40,4 +40,5 @@ pickle-email-*.html
 .generators
 .rspec
 .rvmrc
+.ruby-version
 .DS_Store

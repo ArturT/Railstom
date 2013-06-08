@@ -6,5 +6,5 @@ Rails Custom
 
 # App configuration
 
-* copy `.rvmrc.example` to `.rvmrc`
+* copy `.ruby-version.example` to `.ruby-version`
 * copy `config/database.yml.example` to `config/database.yml` and edit
