@@ -8,3 +8,10 @@ Rails Custom
 
 * copy `.ruby-version.example` to `.ruby-version`
 * copy `config/database.yml.example` to `config/database.yml` and edit
+
+Create databases and run:
+
+    $ rake db:create
+    $ rake db:schema:load
+    $ RAILS_ENV=test rake db:schema:load
+
