@@ -11,6 +11,33 @@ capybara-*.html
 /public/system/*
 /coverage/
 /spec/tmp/*
+/doc
 **.orig
 rerun.txt
 pickle-email-*.html
+
+# Database
+/config/database.yml
+
+# Ignore output of:
+# $ rails_best_practices -f html .
+/rails_best_practices_output.html
+
+# Ignore uploaded files
+/public/uploads
+
+# Other
+/spec/Spec.iml
+
+*.ipr
+*.iws
+*.iml
+*.rdoc
+
+.project
+.idea
+.rakeTasks
+.generators
+.rspec
+.rvmrc
+.DS_Store
