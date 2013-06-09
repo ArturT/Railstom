@@ -15,3 +15,8 @@ Create databases and run:
     $ rake db:schema:load
     $ RAILS_ENV=test rake db:schema:load
 
+
+Rename application:
+
+    $ rails g rename:app_to YourAppName
+
