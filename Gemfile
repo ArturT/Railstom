@@ -10,6 +10,7 @@ gem 'mysql2'
 gem 'jquery-rails'
 
 gem 'rename'
+gem 'figaro'
 
 # Gems used only for assets and not required
 # in production environments by default.

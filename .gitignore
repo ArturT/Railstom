@@ -16,19 +16,6 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 
-# Database
-/config/database.yml
-
-# Ignore output of:
-# $ rails_best_practices -f html .
-/rails_best_practices_output.html
-
-# Ignore uploaded files
-/public/uploads
-
-# Other
-/spec/Spec.iml
-
 *.ipr
 *.iws
 *.iml
@@ -42,3 +29,19 @@ pickle-email-*.html
 .rvmrc
 .ruby-version
 .DS_Store
+
+# Other
+/spec/Spec.iml
+
+# Database configuration
+/config/database.yml
+
+# Ignore output of:
+# $ rails_best_practices -f html .
+/rails_best_practices_output.html
+
+# Ignore uploaded files
+/public/uploads
+
+# Ignore application configuration
+/config/application.yml
