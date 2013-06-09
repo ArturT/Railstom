@@ -87,6 +87,8 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
+    rename (0.0.9)
+      rails (>= 3.0.0)
     sass (3.2.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -119,6 +121,7 @@ DEPENDENCIES
   less-rails
   mysql2
   rails (= 3.2.13)
+  rename
   sass-rails (~> 3.2.3)
   therubyracer
   uglifier (>= 1.0.3)
