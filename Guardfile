@@ -14,23 +14,14 @@ guard 'rspec', :bundler => true, :all_after_pass => false, :all_on_start => fals
 
   # Rails example
   watch(%r{^app/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
-  watch(%r{^app/(.*)(\.erb|\.haml)$})                 { |m| "spec/#{m[1]}#{m[2]}_spec.rb" }
+  watch(%r{^app/(.*)(\.erb|\.haml|\.slim)$})          { |m| "spec/#{m[1]}#{m[2]}_spec.rb" }
   watch(%r{^app/controllers/(.+)_(controller)\.rb$})  { |m| ["spec/routing/#{m[1]}_routing_spec.rb", "spec/#{m[2]}s/#{m[1]}_#{m[2]}_spec.rb", "spec/acceptance/#{m[1]}_spec.rb"] }
   watch(%r{^spec/support/(.+)\.rb$})                  { "spec" }
   watch('config/routes.rb')                           { "spec/routing" }
   watch('app/controllers/application_controller.rb')  { "spec/controllers" }
 
-  # Request specs
-  watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
-  watch(%r{^spec/requests/(.+)_spec\.rb$})            { |m| "spec/requests/#{m[1]}_spec.rb" }
-
   # Capybara feature specs
-  watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/features/#{m[1]}_spec.rb" }
-  watch(%r{^spec/features/(.+)_spec\.rb$})            { |m| "spec/features/#{m[1]}_spec.rb" }
-
-  # Views specs
-  watch(%r{^app/views/(.+)/})                         { |m| "spec/views/#{m[1]}" }
-  watch(%r{^spec/views/(.+)/.*\.(erb|haml)$})         { |m| "spec/views/#{m[1]}_spec.rb" }
+  watch(%r{^app/views/(.+)/.*\.(erb|haml|slim)$})     { |m| "spec/features/#{m[1]}_feature_spec.rb" }
 
   # Turnip features and steps
   watch(%r{^spec/acceptance/(.+)\.feature$})
