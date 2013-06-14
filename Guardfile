@@ -7,7 +7,7 @@ guard 'bundler' do
   # watch(/^.+\.gemspec/)
 end
 
-guard :rspec do
+guard 'rspec', :bundler => true, :all_after_pass => false, :all_on_start => false do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }
@@ -20,8 +20,17 @@ guard :rspec do
   watch('config/routes.rb')                           { "spec/routing" }
   watch('app/controllers/application_controller.rb')  { "spec/controllers" }
 
-  # Capybara features specs
+  # Request specs
+  watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
+  watch(%r{^spec/requests/(.+)_spec\.rb$})            { |m| "spec/requests/#{m[1]}_spec.rb" }
+
+  # Capybara feature specs
   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/features/#{m[1]}_spec.rb" }
+  watch(%r{^spec/features/(.+)_spec\.rb$})            { |m| "spec/features/#{m[1]}_spec.rb" }
+
+  # Views specs
+  watch(%r{^app/views/(.+)/})                         { |m| "spec/views/#{m[1]}" }
+  watch(%r{^spec/views/(.+)/.*\.(erb|haml)$})         { |m| "spec/views/#{m[1]}_spec.rb" }
 
   # Turnip features and steps
   watch(%r{^spec/acceptance/(.+)\.feature$})
