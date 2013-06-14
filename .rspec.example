@@ -1,4 +1,4 @@
 --color
 --drb
 --format documentation
-#--tag=~js # uncomment if you don't want to run capybara js specs in firefox
+#--tag=~js # uncomment if you dont want to run capybara js specs in firefox
