@@ -7,6 +7,7 @@ Rails Custom
 # App configuration
 
 * copy `.ruby-version.example` to `.ruby-version`
+* copy `.rspec.example` to `.rspec`
 * copy `config/database.yml.example` to `config/database.yml` and edit
 * copy `config/application.yml.example` to `config/application.yml` and edit
 
