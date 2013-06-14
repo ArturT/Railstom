@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'spork'
-require 'database_cleaner'
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 
@@ -75,6 +74,9 @@ Spork.prefork do
     #     --seed 1234
     config.order = "random"
 
+    # Symbols like [:js] will be treated as metadata keys with a value of `true`
+    config.treat_symbols_as_metadata_keys_with_true_values = true
+
     # FactoryGirl methods
     config.include FactoryGirl::Syntax::Methods
 
@@ -90,10 +92,12 @@ Spork.prefork do
 
     config.before(:each) do
       DatabaseCleaner.start
+      Capybara.current_driver = :selenium if example.metadata[:selenium]
     end
 
     config.after(:each) do
       DatabaseCleaner.clean
+      Capybara.use_default_driver if example.metadata[:selenium]
     end
 
     # Default js driver

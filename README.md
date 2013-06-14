@@ -31,3 +31,24 @@ To generate a fresh code coverage report in `coverage` directory, run:
 
     $ SIMPLECOV=1 RCOV=1 rspec spec
 
+
+## Testing
+
+### Features specs
+
+Example how to run js spec and how to open it in browser:
+
+    # spec/features/home_feature_spec.rb
+    feature 'Home Page' do
+      before { visit root_path }
+
+      # run with webkit without opening browser
+      scenario 'should have text Hello', :js do
+        page.should have_content 'Hello'
+      end
+
+      # run with selenium in firefox
+      scenario 'should have text World', :selenium do
+        page.should have_content 'World'
+      end
+    end
