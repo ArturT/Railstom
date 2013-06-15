@@ -97,6 +97,9 @@ group :assets do
   gem 'less-rails'
   gem 'coffee-rails', '~> 3.2.1'
 
+  gem 'compass-rails'
+  gem 'zurb-foundation'
+
   gem 'execjs'
   gem 'libv8'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
