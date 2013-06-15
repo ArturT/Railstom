@@ -1,6 +1,7 @@
 # Railstom
 
 [![Dependency Status](https://gemnasium.com/ArturT/Railstom.png)](https://gemnasium.com/ArturT/Railstom)
+[![Code Climate](https://codeclimate.com/github/ArturT/Railstom.png)](https://codeclimate.com/github/ArturT/Railstom)
 
 Rails Custom
 
