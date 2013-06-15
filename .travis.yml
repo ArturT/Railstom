@@ -5,15 +5,13 @@ rvm:
 bundler_args: --without development
 services:
   - redis-server
-env:
-  - RAILS_ENV=TEST
 before_script:
   - cp .rspec.example .rspec
   - cp config/application.yml.example config/application.yml
   - cp config/database.yml.example config/database.yml
   - mysql -e 'create database railstom_test;'
+  - RAILS_ENV=TEST rake db:test:prepare
 script:
-  - rake db:test:prepare
-  - rspec spec
+  - RAILS_ENV=TEST rspec spec
 notifications:
   email: false
