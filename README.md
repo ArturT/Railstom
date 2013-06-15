@@ -11,6 +11,52 @@ Rails Custom
 
 # App configuration
 
+## Dependencies
+
+### Libs
+
+#### Linux
+
+Install ImageMagick (for photo processing):
+
+    $ sudo apt-get install imagemagick
+
+#### MacOS
+
+    $ brew install v8
+    $ brew install imagemagick
+
+### Redis
+
+#### MacOS X
+
+    $ brew install redis
+    (...)
+    ==> Caveats
+    If this is your first install, automatically load on login with:
+        mkdir -p ~/Library/LaunchAgents
+        cp /usr/local/Cellar/redis/2.6.2/homebrew.mxcl.redis.plist ~/Library/LaunchAgents/
+        launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+
+    If this is an upgrade and you already have the homebrew.mxcl.redis.plist loaded:
+        launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+        cp /usr/local/Cellar/redis/2.6.2/homebrew.mxcl.redis.plist ~/Library/LaunchAgents/
+        launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+
+      To start redis manually:
+        redis-server /usr/local/etc/redis.conf
+
+      To access the server:
+        redis-cli
+    ==> Summary
+
+#### Debian
+
+    $ sudo apt-get install redis-server
+
+Will run on system boot. Use redis-cli to manage.
+
+
 ## Basic
 
 * copy `.ruby-version.example` to `.ruby-version`
@@ -50,6 +96,26 @@ Set your default template engine:
       # use one of those: :erb, :haml, :slim
       g.template_engine :slim
     end
+
+
+## Tools
+
+### Sidekiq
+
+To run sidekiq:
+
+    $ bundle exec sidekiq -C config/sidekiq.yml
+
+
+### MailCatcher
+
+To run mailcatcher:
+
+    $ mailcatcher
+    Starting MailCatcher
+    ==> smtp://127.0.0.1:1025
+    ==> http://127.0.0.1:1080
+    *** MailCatcher runs as a daemon by default. Go to the web interface to quit.
 
 
 ## Code coverage
