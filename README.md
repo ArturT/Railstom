@@ -1,5 +1,7 @@
 # Railstom
 
+[![Dependency Status](https://gemnasium.com/ArturT/Railstom.png)](https://gemnasium.com/ArturT/Railstom)
+
 Rails Custom
 
 
