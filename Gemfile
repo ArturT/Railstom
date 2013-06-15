@@ -97,7 +97,6 @@ group :assets do
   gem 'less-rails'
   gem 'coffee-rails', '~> 3.2.1'
 
-  gem 'compass-rails'
   gem 'zurb-foundation'
 
   gem 'execjs'
