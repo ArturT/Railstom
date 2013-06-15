@@ -13,7 +13,9 @@
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= yield(:metadata_title).presence || t('.metadata.title') %></title>
+    <meta name="description" content="<%= yield(:metadata_description).presence || t('.metadata.description') %>" />
+    <meta name="keywords" content="<%= yield(:metadata_keywords).presence || t('.metadata.keywords') %>" />
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/custom.modernizr" %>

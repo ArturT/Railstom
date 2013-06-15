@@ -1,0 +1,67 @@
+pl:
+  activemodel:
+    errors:
+      messages:
+        invalid_email_address: 'nieprawidłowy adres e-mail'
+
+  errors:
+    messages:
+      carrierwave_processing_error: 'Nie można zmienić wymiarów zdjęcia.'
+      carrierwave_integrity_error: 'To nie jest zdjęcie.'
+      carrierwave_download_error: 'Nie udało się pobrać zdjęcia.'
+
+  layouts:
+    application:
+      buttons:
+      languages:
+        pl: 'Polski'
+        en: 'Angielski'
+      words:
+        contact: 'Kontakt'
+        sign_in: 'Zaloguj się'
+        sign_out: 'Wyloguj się'
+        sign_up: 'Zarejestruj się'
+        close: 'Zamknij'
+        sign_in_via_email: 'Zaloguj się przez email'
+        my_account: 'Moje konto'
+        main_page: 'Strona główna'
+        characters_remaining: 'pozostałych znaków'
+        please_try_later: 'Proszę spróbować później.'
+      metadata:
+        title: 'Railstom'
+        description: ''
+        keywords: ''
+      sign_up_modal:
+        header: 'Zarejestruj się'
+        body: 'Możesz zalogować się przy pomocy konta Facebook.'
+        registration_form: 'Formularz rejestracyjny'
+        sign_in_via_facebook: 'Zaloguj się przez Facebook'
+  home:
+    index:
+      hello: "Witaj Świecie"
+  _my_account:
+    title: 'Moje konto'
+    account_settings: 'Ustawienia konta'
+    cancel_account: 'Inne'
+  registrations:
+    edit:
+      facebook:
+        reset_password:
+          message_html: 'Zalogowałeś się przy pomocy Facebooka. Jeśli chcesz logować się do serwisu używając także emaila i własnego wybranego hasła to możesz ustawić swoje hasło korzystając z %{reset_password_link}.'
+          link: 'formularza resetowania hasła'
+  cancel_accounts:
+    edit:
+      message: 'Jeśli chcesz całkowicie usunąć konto możesz to zrobić wpisując bieżące hasło przed potwierdzeniem operacji. Usunięcie konta jest nie odwracalne.'
+
+controllers:
+  application:
+    notice:
+      not_supported_language: 'Wybrano nieobsługiwany język. Zostałeś przekierowany do strony głównej.'
+      you_are_not_an_admin: 'Nie masz uprawnień administratora, przepraszamy.'
+      create_personal_or_company_profile: '<a href="%{url}">Utwórz profil osobisty lub profil Twojej firmy przed rozpoczęciem korzystania z portalu.</a>'
+  cancel_accounts:
+    flash:
+      not_valid_password: 'Podane hasło jest nieprawidłowe.'
+      not_set_password_html: |
+        Musisz <a href="%{url}">ustawić hasło</a> dla swojego konta przed wykonaniem poniższej operacji.
+      account_deleted: 'Twoje konto zostało usunięte.'

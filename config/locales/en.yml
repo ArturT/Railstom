@@ -2,4 +2,69 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  activemodel:
+    errors:
+      messages:
+        invalid_email_address: 'does not appear to be a valid e-mail address'
+
+  errors:
+    messages:
+      carrierwave_processing_error: 'Cannot resize image.'
+      carrierwave_integrity_error: 'Not an image.'
+      carrierwave_download_error: "Couldn't download image."
+
+  layouts:
+    application:
+      buttons:
+      languages:
+        pl: 'Polish'
+        en: 'English'
+      words:
+        contact: 'Contact'
+        sign_in: 'Sign in'
+        sign_out: 'Logout'
+        sign_up: 'Sign up'
+        close: 'Close'
+        sign_in_via_email: 'Sign in via email'
+        my_account: 'My account'
+        main_page: 'Main page'
+        characters_remaining: 'characters remaining'
+        please_try_later: 'Please try later.'
+      metadata:
+        title: 'Railstom'
+        description: ''
+        keywords: ''
+      sign_up_modal:
+        header: 'Sign up'
+        body: 'You can sign up for Weresu.me using your Facebook account.'
+        registration_form: 'Registration form'
+        sign_in_via_facebook: 'Login with Facebook'
+  home:
+    index:
+      hello: "Hello World"
+  _my_account:
+    title: 'My account'
+    account_settings: 'Account settings'
+    cancel_account: 'Other'
+  registrations:
+    edit:
+      facebook:
+        reset_password:
+          message_html: 'You signed in with facebook. You should use %{reset_password_link} to set your password.'
+          link: 'reset password form'
+  cancel_accounts:
+    edit:
+      message: 'Please use current password to confirm cancel account operation. This operation cannot be undone.'
+
+controllers:
+  application:
+    notice:
+      not_supported_language: "You've chosen not supported language. You've been redirected to index page."
+      you_are_not_an_admin: 'You are not an admin, sorry.'
+      create_personal_or_company_profile: '<a href="%{url}">Please create your personal or company profiles before you start using website.</a>'
+  cancel_accounts:
+    flash:
+      not_valid_password: 'Current password is not valid.'
+      not_set_password_html: |
+        You need to <a href="%{url}">set your password</a> first if you want to use below form.
+      account_deleted: 'Your account was deleted.'

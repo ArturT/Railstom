@@ -25,6 +25,17 @@ Rename application:
     $ rails g rename:app_to YourAppName
 
 
+Set your default metadata in `en.yml` and `pl.yml`:
+
+    # config/locale/en.yml
+    layouts:
+      application:
+        metadata:
+          title: 'Railstom'
+          description: ''
+          keywords: ''
+
+
 ## Additional configuration
 
 Set your default template engine:

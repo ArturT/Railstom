@@ -1,0 +1,27 @@
+pl:
+  simple_form:
+    "yes": 'Tak'
+    "no": 'Nie'
+    required:
+      text: 'wymagane'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Przejrzyj poniższą listę błędów:"
+    # Labels and hints examples
+    labels:
+      defaults:
+        password: 'Hasło'
+        password_confirmation: 'Potwierdź hasło'
+        current_password: 'Bieżące hasło'
+      user:
+        new:
+          email: 'E-mail logowania'
+        edit:
+          email: 'E-mail'
+    hints:
+      defaults:
+        username: 'Nazwa użytkownika do logowania.'
+        password: 'Proszę nie używać znaków specjalnych.'
