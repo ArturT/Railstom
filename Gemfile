@@ -47,6 +47,8 @@ gem 'devise-i18n-views'
 # twitter bootstrap
 #gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
+gem 'font-awesome-rails'
+
 # simple form
 gem 'simple_form'
 
