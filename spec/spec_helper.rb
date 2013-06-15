@@ -8,6 +8,11 @@ Spork.prefork do
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
 
+  if ENV['COVERALLS']
+    require 'coveralls'
+    Coveralls.wear!
+  end
+
   if ENV['SIMPLECOV']
     require 'simplecov'
     if ENV['RCOV']

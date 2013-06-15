@@ -154,6 +154,7 @@ group :test do
   gem 'guard-spork'
   gem 'simplecov', :require => false
   gem 'simplecov-rcov', :require => false
+  gem 'coveralls', :require => false
   gem 'database_cleaner'
   gem 'capybara'
   gem 'capybara-webkit'

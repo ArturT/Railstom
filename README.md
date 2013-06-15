@@ -1,6 +1,7 @@
 # Railstom
 
 [![Build Status](https://travis-ci.org/ArturT/Railstom.png?branch=master)](https://travis-ci.org/ArturT/Railstom)
+[![Coverage Status](https://coveralls.io/repos/ArturT/Railstom/badge.png)](https://coveralls.io/r/ArturT/Railstom)
 [![Dependency Status](https://gemnasium.com/ArturT/Railstom.png)](https://gemnasium.com/ArturT/Railstom)
 [![Code Climate](https://codeclimate.com/github/ArturT/Railstom.png)](https://codeclimate.com/github/ArturT/Railstom)
 

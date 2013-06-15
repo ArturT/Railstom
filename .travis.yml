@@ -10,8 +10,8 @@ before_script:
   - cp config/application.yml.example config/application.yml
   - cp config/database.yml.example config/database.yml
   - mysql -e 'create database railstom_test;'
-  - RAILS_ENV=TEST rake db:test:prepare
+  - rake db:test:prepare
 script:
-  - RAILS_ENV=TEST rspec spec
+  - COVERALLS=1 rspec spec
 notifications:
   email: false
