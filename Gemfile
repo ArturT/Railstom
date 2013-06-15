@@ -38,7 +38,7 @@ gem 'figaro'
 ################################################################################
 # Views stuff
 gem 'haml-rails'
-gem 'slim'
+gem 'slim-rails'
 
 gem 'devise'
 gem 'devise-async'

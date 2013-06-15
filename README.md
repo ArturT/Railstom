@@ -25,6 +25,17 @@ Rename application:
     $ rails g rename:app_to YourAppName
 
 
+## Additional configuration
+
+Set your default template engine:
+
+    # config/application.rb
+    config.generators do |g|
+      # use one of those: :erb, :haml, :slim
+      g.template_engine :slim
+    end
+
+
 ## Code coverage
 
 To generate a fresh code coverage report in `coverage` directory, run:
