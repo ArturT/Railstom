@@ -28,8 +28,10 @@ else
 
   puts "=> Preparing bundle archive"
   `cd ~ && tar -cjf #{file_name} .bundle`
+  puts "=> Bundle archive completed"
 
   Net::FTP.open(ENV['CI_FTP_HOST']) do |ftp|
+    ftp.passive = true
     ftp.login(ENV['CI_FTP_USER'], ENV['CI_FTP_PASS'])
 
     puts "=> Uploading the bundle"
