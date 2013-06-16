@@ -8,7 +8,7 @@ env:
   global:
     - BUNDLE_ARCHIVE="railstom-bundle-archive"
     - RAILS_ENV=test
-    - secure: QbvojoSul969MwTdSwSe9+9e0R8O9rrsHjfzoGhGn9mknma1gQ+XUoHDFW+g\n8GMETQ8S3DJT3YW8CXf8FSbXYZ8CIcrqxuFvcZAnpxvuz57KurUmaxXTbL1x\n2zdhMhIL/J02WmST29uB5dZSz0iuUwcRY2rsDiN0WNOjYpsEGl4=
+    - secure: "KJZBdPMdwCop6S0rVxt6kSC9BoRx3R3w9GB+5irwlPCoOYGjVk59FRXIHsJ3\nC/LHX6jZPUKULaD7s2pIU5ad31JHydXA0iPUQjUhCVZsxHchw+RfAV5uNVu0\nD89K1d21jAi4f8SvcHV2o36J2GljsoehYbtsCXuaV1UvOUdq0iA="
 services:
   - redis-server
 before_install:
