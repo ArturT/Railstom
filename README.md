@@ -89,6 +89,8 @@ Set your default metadata in `en.yml` and `pl.yml`:
 
 ## Additional configuration
 
+### Basic
+
 Set your default template engine:
 
     # config/application.rb
@@ -96,6 +98,29 @@ Set your default template engine:
       # use one of those: :erb, :haml, :slim
       g.template_engine :slim
     end
+
+
+### Travis CI
+
+Speed up Travis CI builds by caching the bundle to ftp ([based on s3 example](https://gist.github.com/matiaskorhonen/5203327)).
+
+Edit `.travis.yml` if you like.
+
+In development run:
+
+    $ gem install travis
+
+Log into Travis from inside your project respository directory:
+
+    $ travis login --auto
+
+Encrypt your ftp credentials inside the double quotes.
+Remember to create sudomain ftp-railstom in your example.com domain where you'll be able to store archived bundle.
+`CI_FTP_URL` is a url which will be used to download archived bundle tgz file.
+
+    $ travis encrypt CI_FTP_URL="ftp-railstom.example.com" CI_FTP_HOST="ftp.example.com" CI_FTP_USER="YOUR_FTP_USER" CI_FTP_PASS="YOUR_FTP_PASSWORD"
+
+Put secure token in env.global.secure in `.travis.yml`
 
 
 ## Tools

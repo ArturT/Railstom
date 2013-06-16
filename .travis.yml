@@ -1,10 +1,19 @@
+---
 language: ruby
 rvm:
-  - "1.9.3"
-  - "2.0.0"
-bundler_args: --without development
+  - 1.9.3
+  - 2.0.0
+bundler_args: --without development --path=~/.bundle
+env:
+  global:
+    - BUNDLE_ARCHIVE="railstom-bundle-archive"
+    - RAILS_ENV=test
+    - secure: QbvojoSul969MwTdSwSe9+9e0R8O9rrsHjfzoGhGn9mknma1gQ+XUoHDFW+g\n8GMETQ8S3DJT3YW8CXf8FSbXYZ8CIcrqxuFvcZAnpxvuz57KurUmaxXTbL1x\n2zdhMhIL/J02WmST29uB5dZSz0iuUwcRY2rsDiN0WNOjYpsEGl4=
 services:
   - redis-server
+before_install:
+  - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
+  - ./script/travis/bundle_install.sh
 before_script:
   - cp .rspec.example .rspec
   - cp config/application.yml.example config/application.yml
@@ -13,5 +22,7 @@ before_script:
   - rake db:test:prepare
 script:
   - COVERALLS=1 rspec spec
+after_script:
+  - ruby script/travis/bundle_cache.rb
 notifications:
   email: false
