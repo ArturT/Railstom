@@ -30,8 +30,8 @@ else
   `cd ~ && tar -cjf #{file_name} .bundle`
   puts "=> Bundle archive completed"
 
+  puts ENV['CI_FTP_HOST'].to_s[0..2]
   ftp = Net::FTP.new
-  ftp.passive = true
   ftp.connect(ENV['CI_FTP_HOST'])
   ftp.login(ENV['CI_FTP_USER'], ENV['CI_FTP_PASS'])
 
