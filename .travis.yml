@@ -19,9 +19,9 @@ before_script:
   - cp config/application.yml.example config/application.yml
   - cp config/database.yml.example config/database.yml
   - mysql -e 'create database railstom_test;'
-  - rake db:test:prepare
+  - bundle exec rake db:test:prepare
 script:
-  - COVERALLS=1 rspec spec
+  - COVERALLS=1 bundle exec rspec spec
 after_script:
   - ruby script/travis/bundle_cache.rb
 notifications:
