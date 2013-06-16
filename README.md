@@ -120,7 +120,9 @@ Remember to create sudomain ftp-railstom in your example.com domain where you'll
 
     $ travis encrypt CI_FTP_URL="ftp-railstom.example.com" CI_FTP_HOST="ftp.example.com" CI_FTP_USER="YOUR_FTP_USER" CI_FTP_PASS="YOUR_FTP_PASSWORD"
 
-Put secure token in env.global.secure in `.travis.yml`. Notice: Last generated secure token must be in `.travis.yml`. All previous tokens will be invalid.
+Put secure token in env.global.secure in `.travis.yml`.
+
+*Notice:* Last generated secure token must be in `.travis.yml`. All previous tokens will be invalid.
 
 
 ## Tools
