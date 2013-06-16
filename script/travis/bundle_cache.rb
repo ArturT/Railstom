@@ -9,6 +9,7 @@ file_name       = "#{ENV['BUNDLE_ARCHIVE']}-#{architecture}.tgz"
 file_path       = File.expand_path("~/#{file_name}")
 lock_file       = File.join(File.expand_path(ENV["TRAVIS_BUILD_DIR"]), "Gemfile.lock")
 digest_filename = "#{file_name}.sha2"
+digest_path     = File.expand_path("~/#{digest_filename}")
 old_digest      = File.expand_path("~/remote_#{digest_filename}")
 
 puts "Checking for changes"
@@ -30,17 +31,16 @@ else
   `cd ~ && tar -cjf #{file_name} .bundle`
   puts "=> Bundle archive completed"
 
-  puts "FTP HOST: #{ENV['CI_FTP_HOST'].to_s[0..2]}"
   ftp = Net::FTP.new
   ftp.connect(ENV['CI_FTP_HOST'])
   ftp.login(ENV['CI_FTP_USER'], ENV['CI_FTP_PASS'])
 
   puts "=> Uploading the bundle"
-  ftp.putbinaryfile(file_name, file_name, 1024)
+  ftp.putbinaryfile(file_path, file_name, 1024)
   puts "=> Completing upload"
 
   puts "=> Uploading the digest file"
-  ftp.putbinaryfile(digest_filename)
+  ftp.putbinaryfile(digest_path, digest_filename)
   puts "=> Completing upload"
 
   ftp.close
