@@ -31,6 +31,10 @@ else
   `cd ~ && tar -cjf #{file_name} .bundle`
   puts "=> Bundle archive completed"
 
+  puts "=> Create bundle digest file"
+  `cd ~ && echo '#{bundle_digest}' > #{digest_filename}`
+  puts "=> Bundle digest file created"
+
   ftp = Net::FTP.new
   ftp.passive = true
   ftp.connect(ENV['CI_FTP_HOST'])
