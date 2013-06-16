@@ -32,6 +32,7 @@ else
   puts "=> Bundle archive completed"
 
   ftp = Net::FTP.new
+  ftp.passive = true
   ftp.connect(ENV['CI_FTP_HOST'])
   ftp.login(ENV['CI_FTP_USER'], ENV['CI_FTP_PASS'])
 
