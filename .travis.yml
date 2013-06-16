@@ -6,7 +6,6 @@ rvm:
 bundler_args: --without development
 env:
   global:
-    - RAILS_ENV=test
     - COVERALLS=1
 services:
   - redis-server
