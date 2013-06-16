@@ -30,18 +30,20 @@ else
   `cd ~ && tar -cjf #{file_name} .bundle`
   puts "=> Bundle archive completed"
 
-  Net::FTP.open(ENV['CI_FTP_HOST']) do |ftp|
-    ftp.passive = true
-    ftp.login(ENV['CI_FTP_USER'], ENV['CI_FTP_PASS'])
+  ftp = Net::FTP.new
+  ftp.passive = true
+  ftp.connect(ENV['CI_FTP_HOST'])
+  ftp.login(ENV['CI_FTP_USER'], ENV['CI_FTP_PASS'])
 
-    puts "=> Uploading the bundle"
-    ftp.putbinaryfile(file_name, file_name, 1024)
-    puts "=> Completing upload"
+  puts "=> Uploading the bundle"
+  ftp.putbinaryfile(file_name, file_name, 1024)
+  puts "=> Completing upload"
 
-    puts "=> Uploading the digest file"
-    ftp.putbinaryfile(digest_filename)
-    puts "=> Completing upload"
-  end
+  puts "=> Uploading the digest file"
+  ftp.putbinaryfile(digest_filename)
+  puts "=> Completing upload"
+
+  ftp.close
 end
 
 puts "All done now."
