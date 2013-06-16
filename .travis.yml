@@ -1,17 +1,23 @@
+---
 language: ruby
 rvm:
-  - "1.9.3"
-  - "2.0.0"
+  - 1.9.3
+  - 2.0.0
 bundler_args: --without development
+env:
+  global:
+    - RAILS_ENV=test
 services:
   - redis-server
+before_install:
+  - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
 before_script:
   - cp .rspec.example .rspec
   - cp config/application.yml.example config/application.yml
   - cp config/database.yml.example config/database.yml
   - mysql -e 'create database railstom_test;'
-  - rake db:test:prepare
+  - bundle exec rake db:test:prepare
 script:
-  - COVERALLS=1 rspec spec
+  - COVERALLS=1 bundle exec rspec spec
 notifications:
   email: false
