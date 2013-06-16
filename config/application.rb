@@ -65,5 +65,7 @@ module Railstom
       # use one of those: :erb, :haml, :slim
       g.template_engine :slim
     end
+
+    config.action_mailer.default_url_options = { :host => Figaro.env.host }
   end
 end

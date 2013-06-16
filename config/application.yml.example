@@ -2,3 +2,10 @@
 
 # Use your own token. Run `rake secret` to get one.
 RAILS_SECRET_TOKEN: 3f792c4f45798c9cfa90f701e629e926f3901eeeff7a5051360660062f5909acb670a9ba3ea536c77359714b18aee92e77574e358bb31d7ca6be3dab8b99d6d4
+
+HOST: localhost:3000
+
+
+# Overwrite default variables for specific environment
+production:
+  HOST: railstom.example.com
