@@ -53,15 +53,15 @@ pl:
     edit:
       message: 'Jeśli chcesz całkowicie usunąć konto możesz to zrobić wpisując bieżące hasło przed potwierdzeniem operacji. Usunięcie konta jest nie odwracalne.'
 
-controllers:
-  application:
-    notice:
-      not_supported_language: 'Wybrano nieobsługiwany język. Zostałeś przekierowany do strony głównej.'
-      you_are_not_an_admin: 'Nie masz uprawnień administratora, przepraszamy.'
-      create_personal_or_company_profile: '<a href="%{url}">Utwórz profil osobisty lub profil Twojej firmy przed rozpoczęciem korzystania z portalu.</a>'
-  cancel_accounts:
-    flash:
-      not_valid_password: 'Podane hasło jest nieprawidłowe.'
-      not_set_password_html: |
-        Musisz <a href="%{url}">ustawić hasło</a> dla swojego konta przed wykonaniem poniższej operacji.
-      account_deleted: 'Twoje konto zostało usunięte.'
+  controllers:
+    application:
+      notice:
+        not_supported_language: 'Wybrano nieobsługiwany język. Zostałeś przekierowany do strony głównej.'
+        you_are_not_an_admin: 'Nie masz uprawnień administratora, przepraszamy.'
+        create_personal_or_company_profile: '<a href="%{url}">Utwórz profil osobisty lub profil Twojej firmy przed rozpoczęciem korzystania z portalu.</a>'
+    cancel_accounts:
+      flash:
+        not_valid_password: 'Podane hasło jest nieprawidłowe.'
+        not_set_password_html: |
+          Musisz <a href="%{url}">ustawić hasło</a> dla swojego konta przed wykonaniem poniższej operacji.
+        account_deleted: 'Twoje konto zostało usunięte.'
