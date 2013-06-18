@@ -1,0 +1,23 @@
+require 'spec_helper'
+
+describe Locale do
+  subject { Locale } # subject is a class, not an instance
+
+  before do
+    subject.stub(:supported_languages).and_return(['en', 'pl'])
+  end
+
+  describe '#supported_language?' do
+    it 'should accept string as language' do
+      expect(subject.supported_language?('en')).to be_true
+      expect(subject.supported_language?('pl')).to be_true
+      expect(subject.supported_language?('xy')).to be_false
+    end
+
+    it 'should accept symbol as language' do
+      expect(subject.supported_language?(:en)).to be_true
+      expect(subject.supported_language?(:pl)).to be_true
+      expect(subject.supported_language?(:xy)).to be_false
+    end
+  end
+end
