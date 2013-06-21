@@ -179,4 +179,4 @@ Example how to run js spec and how to open it in browser:
 
 Run a task on a remote server:
 
-   $ cap staging help:rake:invoke task=a_certain_task
+    $ cap staging help:rake:invoke task=a_certain_task
