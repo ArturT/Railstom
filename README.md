@@ -145,3 +145,38 @@ Example how to run js spec and how to open it in browser:
         page.should have_content 'World'
       end
     end
+
+
+
+# Deploy
+
+## Server config files
+
+    /script/examples/unicorn.cfg.rb
+    /script/examples/railstom-production-unicorn
+
+    /script/examples/vhost/railstom-production.com
+    /script/examples/vhost/www.railstom-production.com
+
+
+## First deploy
+
+    $ cap production deploy
+    $ cap production deploy:migrate
+    $ cap production deploy:start
+
+
+## Tips
+
+    $ cap production deploy:start
+    $ cap production deploy:restart
+    $ cap production deploy:stop
+
+    $ cap production sidekiq:start
+    $ cap production sidekiq:restart
+    $ cap production sidekiq:stop
+
+
+Run a task on a remote server:
+
+   $ cap staging help:rake:invoke task=a_certain_task

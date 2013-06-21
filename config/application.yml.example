@@ -4,21 +4,34 @@
 RAILS_SECRET_TOKEN: 3f792c4f45798c9cfa90f701e629e926f3901eeeff7a5051360660062f5909acb670a9ba3ea536c77359714b18aee92e77574e358bb31d7ca6be3dab8b99d6d4
 
 HOST: localhost:3000
-MAILER_SENDER: notification@railstom.example.com
-
-# Capistrano
-CAPISTRANO_APP_NAME=railstom # only lower case
-CAPISTRANO_REPOSITORY=git@github.com:ArturT/Railstom.git
-CAPISTRANO_RVM_RUBY_STRING=2.0.0
-CAPISTRANO_USER=rubyuser
-CAPISTRANO_APP_HOST_PRODUCTION=railstom.example.com
-CAPISTRANO_APP_HOST_STAGING=railstom.example.com
-CAPISTRANO_DEPLOY_TO=/var/www/
+MAILER_SENDER: notification@railstom-production.com
 
 # I18n
 SUPPORTED_LANGUAGES: en pl
 
+# Capistrano
+CAPISTRANO_APP_NAME: railstom # only lower case
+CAPISTRANO_REPOSITORY: git@github.com:ArturT/Railstom.git
+CAPISTRANO_RVM_RUBY_STRING: 2.0.0
+CAPISTRANO_USER: rubyuser
+CAPISTRANO_APP_HOST_PRODUCTION: railstom-production.com
+CAPISTRANO_APP_HOST_STAGING: railstom-staging.com
+CAPISTRANO_DEPLOY_TO: /home/rubyuser/rails_apps/
+
+# Redis
+REDIS_URL: redis://localhost:6379/0
+
 
 # Overwrite default variables for specific environment
+development:
+  SIDEKIQ_NAMESPACE: sidekiq-railstom-development
+
+test:
+  SIDEKIQ_NAMESPACE: sidekiq-railstom-test
+
+staging:
+  SIDEKIQ_NAMESPACE: sidekiq-railstom-staging
+
 production:
-  HOST: railstom.example.com
+  HOST: railstom-production.com
+  SIDEKIQ_NAMESPACE: sidekiq-railstom-production
