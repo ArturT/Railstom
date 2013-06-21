@@ -29,6 +29,10 @@
       <%= yield %>
     </div>
 
+    <div class="row">
+      <%= link_to t('layouts.application.words.contact'), lpage_path('contact') %>
+    </div>
+
     <!-- <%= Rails.env %> -->
     <%= javascript_include_tag "application" %>
   </body>
