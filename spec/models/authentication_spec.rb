@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 describe Authentication do
-  let(:authentication) { build(:authentication) }
-
-  subject { authentication }
+  subject(:authentication) { build(:authentication) }
 
   it { should be_valid }
   it { should belong_to(:user) }
