@@ -125,7 +125,6 @@ group :development do
   gem 'rb-fchange', :require => false
   gem 'terminal-notifier-guard', :require => false
   gem 'pry-rails'
-  gem 'foreigner'
   gem 'immigrant'
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -135,6 +134,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'foreigner'
   gem 'bullet'
   gem 'thin'
   gem 'rspec-rails'
