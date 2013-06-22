@@ -26,13 +26,22 @@ REDIS_URL: redis://localhost:6379/0
 development:
   SIDEKIQ_NAMESPACE: sidekiq-railstom-development
 
+  PROVIDER_FACEBOOK_APP_ID: ID
+  PROVIDER_FACEBOOK_APP_SECRET: SECRET_HASH
+
 test:
   SIDEKIQ_NAMESPACE: sidekiq-railstom-test
+
+  PROVIDER_FACEBOOK_APP_ID: ID
+  PROVIDER_FACEBOOK_APP_SECRET: SECRET_HASH
 
 staging:
   HOST: railstom-staging.com
 
   SIDEKIQ_NAMESPACE: sidekiq-railstom-staging
+
+  PROVIDER_FACEBOOK_APP_ID: ID
+  PROVIDER_FACEBOOK_APP_SECRET: SECRET_HASH
 
   MAILER_SENDER: Railstom Staging <notification@railstom-staging.com>
   MAILER_USER_NAME: notification@railstom-staging.com
@@ -43,6 +52,9 @@ production:
   HOST: railstom-production.com
 
   SIDEKIQ_NAMESPACE: sidekiq-railstom-production
+
+  PROVIDER_FACEBOOK_APP_ID: ID
+  PROVIDER_FACEBOOK_APP_SECRET: SECRET_HASH
 
   MAILER_SENDER: Railstom <notification@railstom-production.com>
   MAILER_USER_NAME: notification@railstom-production.com

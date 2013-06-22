@@ -11,4 +11,27 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :authentications, dependent: :destroy
+
+  def self.build_with_omniauth(auth)
+    user = self.new
+
+    user.email = auth['info']['email'] if auth['info']
+    user.generate_password
+    user.confirm
+
+    user
+  end
+
+  def confirm
+    self.confirmation_token = nil
+    self.confirmed_at = Time.now.utc
+  end
+
+  def generate_password
+    self.password = SecureRandom.urlsafe_base64[0..7]
+  end
+
+  def has_provider?(provider)
+    self.authentications.find_by_provider(provider).present?
+  end
 end
