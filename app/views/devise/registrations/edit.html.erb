@@ -1,23 +1,27 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2><%= t('.title', :resource => resource_name.to_s.humanize , :default => 'Edit #{resource_name.to_s.humanize}') %></h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= f.error_notification %>
+<% if @show_change_password_form %>
+  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, :required => true, :autofocus => true %>
+    <div class="form-inputs">
+      <%= f.input :email, :required => true, :autofocus => true, placeholder: 'email@example.com' %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <% end %>
 
-    <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
-    <%= f.input :password_confirmation, :required => false %>
-    <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
-  </div>
+      <%= f.input :password, :autocomplete => "off", :hint => t('.leave_blank_if_you_don_t_want_to_change_it', :default => "leave blank if you don't want to change it"), :required => false, placeholder: '******' %>
+      <%= f.input :password_confirmation, :required => false, placeholder: '******' %>
+      <%= f.input :current_password, :hint => t('.we_need_your_current_password_to_confirm_your_changes', :default => 'we need your current password to confirm your changes'), :required => true, placeholder: '******' %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
+    <div class="form-actions">
+      <%= f.button :submit, t('.update', :default => "Update") %>
+    </div>
+  <% end %>
+<% else %>
+  <%= t('registrations.edit.facebook.reset_password.message_html', reset_password_link: link_to(t('registrations.edit.facebook.reset_password.link'), reset_password_user_registration_path)) %>
 <% end %>
 
 <h3>Cancel my account</h3>
