@@ -4,7 +4,7 @@
 RAILS_SECRET_TOKEN: 3f792c4f45798c9cfa90f701e629e926f3901eeeff7a5051360660062f5909acb670a9ba3ea536c77359714b18aee92e77574e358bb31d7ca6be3dab8b99d6d4
 
 HOST: localhost:3000
-MAILER_SENDER: notification@railstom-production.com
+MAILER_SENDER: Railstom <notification@railstom-development.com>
 
 # I18n
 SUPPORTED_LANGUAGES: en pl
@@ -30,8 +30,21 @@ test:
   SIDEKIQ_NAMESPACE: sidekiq-railstom-test
 
 staging:
+  HOST: railstom-staging.com
+
   SIDEKIQ_NAMESPACE: sidekiq-railstom-staging
+
+  MAILER_SENDER: Railstom Staging <notification@railstom-staging.com>
+  MAILER_USER_NAME: notification@railstom-staging.com
+  MAILER_ADDRESS: railstom-staging.com
+  MAILER_PASSWORD: password
 
 production:
   HOST: railstom-production.com
+
   SIDEKIQ_NAMESPACE: sidekiq-railstom-production
+
+  MAILER_SENDER: Railstom <notification@railstom-production.com>
+  MAILER_USER_NAME: notification@railstom-production.com
+  MAILER_ADDRESS: railstom-production.com
+  MAILER_PASSWORD: password
