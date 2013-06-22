@@ -221,7 +221,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   config.omniauth :facebook, Figaro.env.provider_facebook_app_id, Figaro.env.provider_facebook_app_secret, {
-    :scope => 'email,user_birthday,user_about_me,user_education_history,user_work_history,user_hometown,user_interests,user_likes,user_location,user_photos,user_website',
+    :scope => Figaro.env.provider_facebook_scope,
     :client_options => {
       :ssl => {
         :ca_path => '/etc/ssl/certs'
