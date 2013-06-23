@@ -8,3 +8,25 @@
     destination -= up_limit if destination >= up_limit
     if current < allowed_min or current > allowed_max
       $("html,body").animate { scrollTop: destination }, "slow"
+
+
+@lazy_images_load = ->
+  $('img').waypoint (event, direction) ->
+    img = this
+    setTimeout ->
+      deferred = $(img).data('deferred')
+      src = $(img).attr('src')
+      if deferred? && src != deferred
+        $(img).animate
+          opacity: .01
+        , 250
+        , ->
+          img.src = deferred
+        .animate
+          opacity: 1
+        , 1000
+    , 250
+  ,
+    triggerOnce: true,
+    offset: ->
+      $.waypoints('viewportHeight') - $(this).height()

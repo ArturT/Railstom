@@ -1,6 +1,9 @@
 h1 = t('.hello')
 
-div.panel id="huge-box" style="height:500px"
+div.panel id="huge-box" style="height:1200px"
   | A huge box
+  div style="margin-top:900px"
+    = image_tag 'spinner.png', data: { deferred: image_path('check.png') }
 
-= link_to 'Go up', '#', 'go-to-by-scroll' => '#huge-box', 'allowed-margin' => 0, 'up-limit' => 20
+div.breadcrumbs
+  = link_to 'Go up', '#', 'go-to-by-scroll' => '#huge-box', 'allowed-margin' => 0, 'up-limit' => 20
