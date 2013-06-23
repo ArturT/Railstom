@@ -142,6 +142,9 @@ GEM
     formatador (0.2.4)
     formtastic (2.2.1)
       actionpack (>= 3.0)
+    foundation-icons-sass-rails (2.0.0)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     guard (1.8.1)
       formatador (>= 0.2.4)
       listen (>= 1.0.0)
@@ -466,6 +469,7 @@ DEPENDENCIES
   font-awesome-rails
   foreigner
   forgery
+  foundation-icons-sass-rails
   guard-bundler
   guard-rspec
   guard-spork

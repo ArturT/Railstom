@@ -100,6 +100,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   gem 'zurb-foundation'
+  gem 'foundation-icons-sass-rails'
 
   gem 'execjs'
   gem 'libv8'
