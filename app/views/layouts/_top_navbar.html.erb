@@ -41,7 +41,7 @@
           </li>
           <li class="divider"></li>
           <li class="has-form">
-            <%= link_to raw(%{#{t('layouts.application.words.sign_up')} <i class="icon-signin"></i>}), new_user_registration_path(), class: 'button' %>
+            <%= link_to raw(%{#{t('layouts.application.words.sign_up')} <i class="icon-signin"></i>}), '#', class: 'button', data: { 'reveal-id' => 'signUpModal' } %>
           </li>
         <% end %>
       </ul>

@@ -41,7 +41,7 @@ en:
         keywords: ''
       sign_up_modal:
         header: 'Sign up'
-        body: 'You can sign up for Weresu.me using your Facebook account.'
+        body: 'You can sign up using your Facebook account.'
         registration_form: 'Registration form'
         sign_in_via_facebook: 'Login with Facebook'
   home:
