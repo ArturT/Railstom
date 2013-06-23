@@ -31,7 +31,7 @@
           <li><%= link_to t('layouts.application.words.sign_out'), destroy_user_session_path, method: :delete %></li>
         <% else %>
           <!-- user is signed out -->
-          <li class="has-dropdown"><a href="#"><%= t('views.application.words.sign_in') %></a>
+          <li class="has-dropdown"><a href="#"><%= t('layouts.application.words.sign_in') %></a>
             <ul class="dropdown">
               <li><%= link_to raw(%{<i class="icon-facebook-sign"></i> #{t('layouts.application.sign_up_modal.sign_in_via_facebook')}}), user_omniauth_authorize_path(:facebook) %></li>
               <li><%= link_to raw(%{<i class="icon-envelope"></i> #{t('layouts.application.words.sign_in_via_email')}}), new_user_session_path %></li>
