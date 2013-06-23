@@ -1,0 +1,50 @@
+<div class="contain-to-grid">
+  <nav class="top-bar">
+    <ul class="title-area">
+      <!-- Title Area -->
+      <li class="name">
+        <h1><a href="<%= root_path %>"><i class="icon-terminal"></i> Railstom</a></h1>
+      </li>
+      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span><%= t('layouts.application.words.menu') %></span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Left Nav Section -->
+      <ul class="left">
+        <li class="divider"></li>
+        <li class="has-dropdown"><a href="#"><i class="icon-globe icon-large"></i> <%= I18n.locale %></a>
+          <ul class="dropdown">
+            <% Locale.supported_languages.each do |locale| %>
+              <li><%= link_to I18n.name_for_locale(locale), (request.get? ? url_for(locale: locale) : root_path(locale: locale)) %></li>
+            <% end %>
+          </ul>
+        </li>
+        <li class="divider"></li>
+      </ul>
+
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li class="divider"></li>
+        <% if user_signed_in? %>
+          <!-- user is signed in -->
+          <li><%= link_to t('layouts.application.words.sign_out'), destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <!-- user is signed out -->
+          <li class="has-dropdown"><a href="#"><%= t('views.application.words.sign_in') %></a>
+            <ul class="dropdown">
+              <li><%= link_to raw(%{<i class="icon-facebook-sign"></i> #{t('layouts.application.sign_up_modal.sign_in_via_facebook')}}), user_omniauth_authorize_path(:facebook) %></li>
+              <li><%= link_to raw(%{<i class="icon-envelope"></i> #{t('layouts.application.words.sign_in_via_email')}}), new_user_session_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to raw(%{<i class="icon-key"></i> #{t("devise.passwords.new.forgot_your_password")}}), new_user_password_path %></li>
+            </ul>
+          </li>
+          <li class="divider"></li>
+          <li class="has-form">
+            <%= link_to raw(%{#{t('layouts.application.words.sign_up')} <i class="icon-signin"></i>}), new_user_registration_path(), class: 'button' %>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+  </nav>
+</div>

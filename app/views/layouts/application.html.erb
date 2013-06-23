@@ -23,14 +23,19 @@
   </head>
 
   <body>
+    <%= render 'layouts/top_navbar' %>
     <%= render 'layouts/notice' %>
 
     <div class="row">
-      <%= yield %>
+      <div class="large-12 columns">
+        <%= yield %>
+      </div>
     </div>
 
     <div class="row">
-      <%= link_to t('layouts.application.words.contact'), lpage_path('contact') %>
+      <div class="large-12 columns">
+        <%= link_to t('layouts.application.words.contact'), lpage_path('contact') %>
+      </div>
     </div>
 
     <!-- <%= Rails.env %> -->

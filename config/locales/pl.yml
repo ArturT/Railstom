@@ -1,4 +1,8 @@
 pl:
+  i18n:
+    language:
+      name: 'Polish'
+
   activemodel:
     errors:
       messages:
@@ -27,6 +31,7 @@ pl:
         main_page: 'Strona główna'
         characters_remaining: 'pozostałych znaków'
         please_try_later: 'Proszę spróbować później.'
+        menu: 'Menu'
       metadata:
         title: 'Railstom'
         description: ''
