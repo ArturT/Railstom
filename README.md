@@ -89,6 +89,8 @@ Set your default metadata in `en.yml` and `pl.yml`:
 
 ## Additional configuration
 
+### Template engine
+
 Set your default template engine:
 
     # config/application.rb
@@ -96,6 +98,11 @@ Set your default template engine:
       # use one of those: :erb, :haml, :slim
       g.template_engine :slim
     end
+
+
+### I18n-js
+
+Edit `config/i18n-js.yml` to add a new translation namespace for [I18n-js](https://github.com/fnando/i18n-js#configuration).
 
 
 ## Tools
