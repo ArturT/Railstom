@@ -54,3 +54,9 @@ angular.module('App', [])
         when 'prepend' then element.prepend(icon)
         when 'append' then element.append(icon)
         else $(attrs.loadIcon).html(icon)
+
+
+# Test directive uses template from app/views/pages/templates/
+.directive 'testAngularTemplate', ->
+  restrict: 'E'
+  templateUrl: '/templates/test'
