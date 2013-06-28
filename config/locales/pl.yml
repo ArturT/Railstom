@@ -30,6 +30,7 @@ pl:
         my_account: 'Moje konto'
         main_page: 'Strona główna'
         characters_remaining: 'pozostałych znaków'
+        too_long_text: 'Zbyt długi tekst'
         please_try_later: 'Proszę spróbować później.'
         menu: 'Menu'
       metadata:

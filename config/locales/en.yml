@@ -33,6 +33,7 @@ en:
         my_account: 'My account'
         main_page: 'Main page'
         characters_remaining: 'characters remaining'
+        too_long_text: 'Too long text'
         please_try_later: 'Please try later.'
         menu: 'Menu'
       metadata:
