@@ -4,7 +4,7 @@
 
     <p class="lead"><%= t('layouts.application.sign_up_modal.body') %></p>
 
-    <%= link_to raw(%{<i class="icon-facebook-sign icon-large"></i> #{t('layouts.application.sign_up_modal.sign_in_via_facebook')}}), user_omniauth_authorize_path(:facebook), class: 'button' %>
+    <%= link_to raw(%{<i class="icon-facebook-sign icon-large"></i> #{t('layouts.application.sign_up_modal.sign_in_via_facebook')}}), user_omniauth_authorize_path(:facebook), class: 'button', data: { 'load-icon' => 'append', 'load-icon-size' => 'icon-large', 'load-icon-margin' => 'left:15px' } %>
     <%= link_to raw(%{#{t('layouts.application.sign_up_modal.registration_form')} <i class="icon-signin"></i>}), new_user_registration_path(), class: 'secondary' %>
 
     <a class="close-reveal-modal">&#215;</a>

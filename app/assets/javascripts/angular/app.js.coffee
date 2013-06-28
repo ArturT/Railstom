@@ -32,3 +32,25 @@ angular.module('App', [])
 
     element.bind 'input', ->
       characters_counter(counter_id, attrs.maxCharacters, element.context.value)
+
+
+# Example:
+# loadIcon="prepend" add icon prepend
+# loadIcon="append" add icon append
+# loadIcon="#id|.class" add the load icon to specify element
+# loadIconMargin="left:5px|right:10px" [optional] add specify margin on the left or right side of the icon
+# loadIconSize="icon-large" [optional] add class icon-large to the icon
+.directive 'loadIcon', ->
+  (scope, element, attrs) ->
+    $(element).click ->
+      if attrs.loadIconMargin?
+        style = "margin-#{attrs.loadIconMargin};"
+      else
+        style = ""
+
+      icon = """<i class="icon-spin icon-refresh #{attrs.loadIconSize}" style="#{style}"></i>"""
+
+      switch attrs.loadIcon
+        when 'prepend' then element.prepend(icon)
+        when 'append' then element.append(icon)
+        else $(attrs.loadIcon).html(icon)
