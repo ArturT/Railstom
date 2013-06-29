@@ -36,6 +36,9 @@ en:
         too_long_text: 'Too long text'
         please_try_later: 'Please try later.'
         menu: 'Menu'
+      placeholders:
+        email: 'email@example.com'
+        password: '******'
       metadata:
         title: 'Railstom'
         description: ''

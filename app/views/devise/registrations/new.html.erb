@@ -4,9 +4,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, :required => true, :autofocus => true, placeholder: 'email@example.com' %>
-    <%= f.input :password, :required => true, placeholder: '******' %>
-    <%= f.input :password_confirmation, :required => true, placeholder: '******' %>
+    <%= f.input :email, :required => true, :autofocus => true, placeholder: t('layouts.application.placeholders.email') %>
+    <%= f.input :password, :required => true, placeholder: t('layouts.application.placeholders.password') %>
+    <%= f.input :password_confirmation, :required => true, placeholder: t('layouts.application.placeholders.password') %>
   </div>
 
   <div class="form-actions">

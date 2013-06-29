@@ -5,15 +5,15 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :email, :required => true, :autofocus => true, placeholder: 'email@example.com' %>
+      <%= f.input :email, :required => true, :autofocus => true, placeholder: t('layouts.application.placeholders.email') %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
 
-      <%= f.input :password, :autocomplete => "off", :hint => t('.leave_blank_if_you_don_t_want_to_change_it', :default => "leave blank if you don't want to change it"), :required => false, placeholder: '******' %>
-      <%= f.input :password_confirmation, :required => false, placeholder: '******' %>
-      <%= f.input :current_password, :hint => t('.we_need_your_current_password_to_confirm_your_changes', :default => 'we need your current password to confirm your changes'), :required => true, placeholder: '******' %>
+      <%= f.input :password, :autocomplete => "off", :hint => t('.leave_blank_if_you_don_t_want_to_change_it', :default => "leave blank if you don't want to change it"), :required => false, placeholder: t('layouts.application.placeholders.password') %>
+      <%= f.input :password_confirmation, :required => false, placeholder: t('layouts.application.placeholders.password') %>
+      <%= f.input :current_password, :hint => t('.we_need_your_current_password_to_confirm_your_changes', :default => 'we need your current password to confirm your changes'), :required => true, placeholder: t('layouts.application.placeholders.password') %>
     </div>
 
     <div class="form-actions">
