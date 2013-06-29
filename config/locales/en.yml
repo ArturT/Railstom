@@ -74,3 +74,8 @@ en:
         not_set_password_html: |
           You need to <a href="%{url}">set your password</a> first if you want to use below form.
         account_deleted: 'Your account was deleted.'
+    omniauth_callbacks:
+      flash:
+        already_linked_account: 'Already linked that account!'
+        successfully_linked_account: 'Successfully linked that account!'
+        invalid_provider: 'Invalid data from provider!'

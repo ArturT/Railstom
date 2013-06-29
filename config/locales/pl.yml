@@ -71,3 +71,8 @@ pl:
         not_set_password_html: |
           Musisz <a href="%{url}">ustawić hasło</a> dla swojego konta przed wykonaniem poniższej operacji.
         account_deleted: 'Twoje konto zostało usunięte.'
+    omniauth_callbacks:
+      flash:
+        already_linked_account: 'Już połączyłeś to konto!'
+        successfully_linked_account: 'Pomyślnie połączono to konto!'
+        invalid_provider: 'Niepoprawne dane of dostawcy!'

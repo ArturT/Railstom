@@ -30,7 +30,7 @@ describe OmniauthCallbacksController do
         end
 
         it { should redirect_to(root_path) }
-        its('flash notice') { flash[:notice].should == "Already linked that account!" }
+        its('flash notice') { flash[:notice].should == I18n.t('controllers.omniauth_callbacks.flash.already_linked_account') }
       end
 
       context 'authentication is not linked to user' do
@@ -43,7 +43,7 @@ describe OmniauthCallbacksController do
         end
 
         it { should redirect_to(root_path) }
-        its('flash notice') { flash[:notice].should == "Successfully linked that account!" }
+        its('flash notice') { flash[:notice].should == I18n.t('controllers.omniauth_callbacks.flash.successfully_linked_account') }
       end
     end
 
@@ -78,7 +78,7 @@ describe OmniauthCallbacksController do
           end
 
           it { should redirect_to(new_user_registration_path) }
-          its('flash notice') { flash[:notice].should == "Invalid data from provider!" }
+          its('flash notice') { flash[:notice].should == I18n.t('controllers.omniauth_callbacks.flash.invalid_provider') }
         end
       end
     end
