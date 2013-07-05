@@ -169,6 +169,13 @@ Example how to run js spec and how to open it in browser:
     end
 
 
+### Railstom specs
+
+If you don't need specs related to Railstom you can just turn them off. Put this in your `.rspec` file to ignore specs with tag `railstom`.
+
+    # .rspec
+    --tag=~railstom
+
 
 # Deploy
 
