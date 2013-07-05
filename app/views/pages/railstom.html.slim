@@ -1,0 +1,19 @@
+div.panel id="huge-box" style="min-height:1400px"
+
+  h2 Form example
+  div
+    = simple_form_for 'form_example', url: '/' do |f|
+      = f.input :message, as: :text, hint: 'Hint to message', input_html: { value: 'Too long text', data: { 'max-characters' => '10' } }
+      = f.input :second_message, as: :text, hint: 'Hint to second message', input_html: { data: { 'max-characters' => '15' } }
+
+
+  | <test-angular-template></test-angular-template>
+
+
+  div style="padding-top:900px;"
+    h2 Lazy loading image
+    = image_tag 'spinner.png', data: { deferred: image_path('check.png') }
+
+
+div.breadcrumbs
+  = link_to 'Go up', '#', data: { 'go-to-by-scroll' => '#huge-box', 'allowed-margin' => 0, 'up-limit' => 20 }
