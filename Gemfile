@@ -28,6 +28,7 @@ gem 'jquery-rails'
 gem 'i18n-js'
 
 gem 'angularjs-rails'
+gem 'ng-rails-csrf'
 
 
 ################################################################################

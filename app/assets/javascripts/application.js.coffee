@@ -15,6 +15,7 @@
 #= require foundation
 #= require angular
 #= require angular-resource
+#= require ng-rails-csrf
 #= require i18n
 #= require i18n/translations
 #= require_tree .

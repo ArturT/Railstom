@@ -1,4 +1,4 @@
-angular.module('App', [])
+angular.module('App', ['ngResource', 'ng-rails-csrf'])
 
 # Example:
 # <a href="#" go-to-by-scroll="#huge-box" allowed-margin="0" up-limit="20">Jump</a>
