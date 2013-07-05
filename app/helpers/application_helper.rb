@@ -1,5 +1,5 @@
 module ApplicationHelper
-  # /:locale/pages/*id
+  # /:locale/locale_pages/*id
   def lpage_path(id)
     locale_page_path(I18n.locale, id)
   end
