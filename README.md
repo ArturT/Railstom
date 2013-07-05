@@ -112,6 +112,14 @@ Put your angular template `your_template_name.html.erb` in `app/views/pages/temp
 If you use only html without erb/slim/haml then put your angular template `your_template_name.html` in `/public/templates/`.
 
 
+### HighVoltage
+
+Put your page `contact.html.erb` in `app/views/pages/` then it will be accessible via `page_path(:locale, 'contact')` or `default_page_path('contact')` => `/:locale/pages/contact`.
+
+You can also split `contact.html.erb` for separate language. Put it here `app/views/pages/en/` and `app/views/pages/pl/` etc.
+Then you can use helper to access this page: `locale_page_path(:locale, 'contact')` or `default_locale_page_path('contact')` => `/:locale/locale_pages/contact`.
+
+
 ## Tools
 
 ### Sidekiq
