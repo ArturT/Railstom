@@ -58,7 +58,7 @@ GEM
     bullet (4.6.0)
       uniform_notifier
     cancan (1.6.10)
-    capistrano (2.15.4)
+    capistrano (2.15.5)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
@@ -91,7 +91,7 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.6.2)
+    coffee-script-source (1.6.3)
     colorize (0.5.8)
     commonjs (0.2.6)
     connection_pool (1.1.0)
@@ -189,7 +189,7 @@ GEM
       rails (>= 3.1.0)
       sprockets-rails
     journey (1.0.4)
-    jquery-rails (3.0.1)
+    jquery-rails (3.0.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.0)
