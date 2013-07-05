@@ -2,3 +2,4 @@
 --drb
 --format documentation
 #--tag=~js # uncomment if you dont want to run capybara js specs in firefox
+#--tag=~railstom # uncomment if you dont want to run specs related to railstom

@@ -60,7 +60,7 @@ Will run on system boot. Use redis-cli to manage.
 ## Basic
 
 * copy `.ruby-version.example` to `.ruby-version`
-* copy `.rspec.example` to `.rspec`
+* copy `.rspec.example` to `.rspec` and edit
 * copy `config/database.yml.example` to `config/database.yml` and edit
 * copy `config/application.yml.example` to `config/application.yml` and edit
 
