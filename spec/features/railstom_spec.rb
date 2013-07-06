@@ -31,6 +31,21 @@ describe 'Railstom Features', :railstom, :js do
         end
       end
     end
+
+    describe 'goToByScroll' do
+      it 'scrolls to the element' do
+        expect(page.evaluate_script('window.scrollY')).to eql 0
+        # scroll to bottom
+        page.execute_script('window.scrollBy(0,10000)')
+        expect(page.evaluate_script('window.scrollY')).to be > 500
+
+        click_link('Go up')
+        sleep 1 # wait until scrolling animation finish
+
+        expect(page.evaluate_script('window.scrollY')).to be > 10
+        expect(page.evaluate_script('window.scrollY')).to be < 50
+      end
+    end
   end
 
   describe 'JS Features' do
