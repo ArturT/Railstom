@@ -8,7 +8,7 @@ angular.module('App', ['ngResource', 'ng-rails-csrf'])
   (scope, element, attrs) ->
     $(element).click (e) ->
       e.preventDefault()
-      window.go_to_by_scroll(attrs.goToByScroll, attrs.allowedMargin || 0, attrs.upLimit || 0)
+      window.goToByScroll(attrs.goToByScroll, attrs.allowedMargin || 0, attrs.upLimit || 0)
 
 
 # Add data-max-characters="250" to textarea field

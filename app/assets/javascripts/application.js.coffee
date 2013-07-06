@@ -23,4 +23,4 @@
 
 $ ->
   $(document).foundation()
-  window.lazy_images_load()
+  window.lazyImageLoader()

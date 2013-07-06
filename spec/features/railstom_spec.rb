@@ -34,7 +34,7 @@ describe 'Railstom Features', :railstom, :js do
   end
 
   describe 'JS Features' do
-    describe 'lazy_images_load' do
+    describe 'lazyImageLoader' do
       it 'load image after scroll to it' do
         expect(page).to have_xpath("//img[@id='check_sign'][@data-deferred='/assets/check.png']")
         expect(page).to have_xpath("//img[@id='check_sign'][@src='/assets/spinner.png']")
