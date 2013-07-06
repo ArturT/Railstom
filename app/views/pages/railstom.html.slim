@@ -10,6 +10,12 @@ div.panel id="huge-box" style="min-height:1400px"
   | <test-angular-template></test-angular-template>
 
 
+  = link_to 'Make sign in icon load', '#', data: { 'load-icon' => '#sign-in-icon-container', 'load-icon-margin' => 'right:10px' }
+
+  div id="load_me"
+    = link_to 'Load me', '#', data: { 'load-icon' => 'append', 'load-icon-margin' => 'right:10px' }
+
+
   div style="padding-top:900px;"
     h2 Lazy loading image
     = image_tag 'spinner.png', data: { deferred: image_path('check.png') }, id: 'check_sign'

@@ -10,21 +10,28 @@ describe 'Railstom Features', :railstom, :js do
   describe 'AngularJS' do
     describe 'Templates' do
       it 'render test-angular-template' do
-        within('test-angular-template') do
+        within 'test-angular-template' do
           expect(page).to have_content('Angular Template. Language:')
         end
       end
     end
 
-    describe 'maxCharacters' do
-      it 'amount of remaning characters change' do
-        within('.form_example_second_message') do
-          expect(find('#form_example_second_message').value).to be_blank
+    describe 'maxCharacters shows' do
+      before do
+        expect(find('#form_example_second_message').value).to be_blank
+      end
+
+      it 'amount of remaning characters' do
+        within '.form_example_second_message' do
           expect(page).to have_content(I18n.t('layouts.application.words.characters_remaining', amount: 15))
 
           fill_in 'form_example_second_message', with: 'Hello'
           expect(page).to have_content(I18n.t('layouts.application.words.characters_remaining', amount: 10))
+        end
+      end
 
+      it 'too long text message' do
+        within '.form_example_second_message' do
           fill_in 'form_example_second_message', with: 'This text is really long :-)'
           expect(page).to have_content(I18n.t('layouts.application.words.too_long_text'))
         end
@@ -43,6 +50,25 @@ describe 'Railstom Features', :railstom, :js do
 
         expect(page.evaluate_script('window.scrollY')).to be > 10
         expect(page.evaluate_script('window.scrollY')).to be < 50
+      end
+    end
+
+    describe 'loadIcon after click link' do
+      it 'shows in specified element' do
+        expect(find('#sign-in-icon-container').value).to be_blank
+
+        click_link 'Make sign in icon load'
+
+        within '#sign-in-icon-container' do
+          expect(page).to have_xpath("//i[contains(@class,'icon-spin')]")
+        end
+      end
+
+      it 'shows append' do
+        within '#load_me' do
+          click_link 'Load me'
+          expect(page).to have_xpath("//i[contains(@class,'icon-spin')]")
+        end
       end
     end
   end
