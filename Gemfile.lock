@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/fnando/i18n-js.git
+  revision: eeec14066b50f72876aa789c9b1f226172452798
+  specs:
+    i18n-js (2.1.2)
+      i18n
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -175,8 +182,6 @@ GEM
     hike (1.2.3)
     httpauth (0.2.0)
     i18n (0.6.1)
-    i18n-js (2.1.2)
-      i18n
     immigrant (0.1.4)
       activerecord (>= 3.0)
       foreigner (>= 1.2.1)
@@ -476,7 +481,7 @@ DEPENDENCIES
   guard-spork
   haml-rails
   high_voltage
-  i18n-js
+  i18n-js!
   immigrant
   jasmine-rails
   jquery-rails

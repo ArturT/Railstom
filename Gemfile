@@ -25,7 +25,7 @@ gem 'jquery-rails'
 
 #gem 'select2-rails'
 
-gem 'i18n-js'
+gem 'i18n-js', :github => 'fnando/i18n-js'
 
 gem 'angularjs-rails'
 gem 'ng-rails-csrf'
