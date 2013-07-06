@@ -4,7 +4,6 @@ describe 'Railstom Features', :railstom, :js do
   let(:user) { create(:user_confirmed) }
 
   before do
-    login_as(user)
     visit page_path(I18n.locale, 'railstom')
   end
 
