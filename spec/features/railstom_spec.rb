@@ -56,11 +56,11 @@ describe 'Railstom Features', :railstom, :js do
 
     describe 'loadIcon after click link' do
       it 'shows in specified element' do
-        expect(find('#sign-in-icon-container').value).to be_blank
+        expect(find('#icon_load_goes_here').value).to be_blank
 
-        click_link 'Make sign in icon load'
+        click_link 'Load icon in specified element'
 
-        within '#sign-in-icon-container' do
+        within '#icon_load_goes_here' do
           expect(page).to have_xpath("//i[contains(@class,'icon-spin')]")
         end
       end

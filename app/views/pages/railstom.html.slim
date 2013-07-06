@@ -10,7 +10,8 @@ div.panel id="huge-box" style="min-height:1400px"
   | <test-angular-template></test-angular-template>
 
 
-  = link_to 'Make sign in icon load', '#', data: { 'load-icon' => '#sign-in-icon-container', 'load-icon-margin' => 'right:10px' }
+  span id="icon_load_goes_here"
+  = link_to 'Load icon in specified element', '#', data: { 'load-icon' => '#icon_load_goes_here', 'load-icon-margin' => 'right:10px' }
 
   div id="load_me"
     = link_to 'Load me', '#', data: { 'load-icon' => 'append', 'load-icon-margin' => 'right:10px' }
