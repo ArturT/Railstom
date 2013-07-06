@@ -26,6 +26,7 @@ describe 'Railstom Features', :railstom, :js do
           expect(page).to have_content(I18n.t('layouts.application.words.characters_remaining', amount: 15))
 
           fill_in 'form_example_second_message', with: 'Hello'
+
           expect(page).to have_content(I18n.t('layouts.application.words.characters_remaining', amount: 10))
         end
       end
@@ -67,6 +68,7 @@ describe 'Railstom Features', :railstom, :js do
       it 'shows append' do
         within '#load_me' do
           click_link 'Load me'
+
           expect(page).to have_xpath("//i[contains(@class,'icon-spin')]")
         end
       end
@@ -74,6 +76,18 @@ describe 'Railstom Features', :railstom, :js do
   end
 
   describe 'JS Features' do
+    describe 'sign up modal' do
+      it 'shows up' do
+        expect(page).not_to have_selector '#signUpModal'
+
+        click_link 'Sign up'
+
+        within '#signUpModal' do
+          expect(page).to have_link 'Registration form'
+        end
+      end
+    end
+
     describe 'lazyImageLoader' do
       it 'load image after scroll to it' do
         expect(page).to have_xpath("//img[@id='check_sign'][@data-deferred='/assets/check.png']")
