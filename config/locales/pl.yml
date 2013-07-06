@@ -29,7 +29,7 @@ pl:
         sign_in_via_email: 'Zaloguj się przez email'
         my_account: 'Moje konto'
         main_page: 'Strona główna'
-        characters_remaining: 'pozostałych znaków'
+        characters_remaining: '%{amount} pozostałych znaków'
         too_long_text: 'Zbyt długi tekst'
         please_try_later: 'Proszę spróbować później.'
         menu: 'Menu'

@@ -19,7 +19,7 @@ angular.module('App', ['ngResource', 'ng-rails-csrf'])
     remaining = maxCharacters - inputValue.length
 
     if remaining >= 0
-      $("##{counterId}").html("#{remaining} #{I18n.t('layouts.application.words.characters_remaining')}")
+      $("##{counterId}").html(I18n.t('layouts.application.words.characters_remaining', {amount: remaining}))
     else
       $("##{counterId}").html("""<div class="text_error">#{I18n.t('layouts.application.words.too_long_text')}</div>""")
 

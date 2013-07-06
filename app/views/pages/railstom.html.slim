@@ -3,7 +3,7 @@ div.panel id="huge-box" style="min-height:1400px"
   h2 Form example
   div
     = simple_form_for 'form_example', url: '/' do |f|
-      = f.input :message, as: :text, hint: 'Hint to message', input_html: { value: 'Too long text', data: { 'max-characters' => '10' } }
+      = f.input :message, as: :text, hint: 'Hint to message', input_html: { value: 'This text is too long', data: { 'max-characters' => '10' } }
       = f.input :second_message, as: :text, hint: 'Hint to second message', input_html: { data: { 'max-characters' => '15' } }
 
 

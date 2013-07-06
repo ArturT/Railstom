@@ -32,7 +32,7 @@ en:
         sign_in_via_email: 'Sign in via email'
         my_account: 'My account'
         main_page: 'Main page'
-        characters_remaining: 'characters remaining'
+        characters_remaining: '%{amount} characters remaining'
         too_long_text: 'Too long text'
         please_try_later: 'Please try later.'
         menu: 'Menu'
