@@ -8,4 +8,5 @@ h1
   .small-2.columns
     ul.side-nav
       = menu_items(\
-        { name: t('_my_account.account_settings'), path: [edit_user_registration_path, {controller: 'registrations', action: 'update'}] })
+        { name: t('_my_account.account_settings'), path: [edit_user_registration_path, {controller: 'registrations', action: 'update'}] },
+        { name: t('_my_account.cancel_account'), path: [edit_cancel_accounts_path, {controller: 'cancel_accounts', action: 'destroy'}] })

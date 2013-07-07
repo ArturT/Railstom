@@ -1,0 +1,13 @@
+<% content_for :my_account_content do %>
+  <h2><%= t('devise.registrations.edit.cancel_my_account') %></h2>
+
+  <p><%= t 'cancel_accounts.edit.message' %></p>
+
+  <%= simple_form_for(current_user, url: cancel_accounts_path, method: :delete) do |f| %>
+    <%= f.input :current_password, :required => true, placeholder: t('layouts.application.placeholders.password') %>
+
+    <%= f.button :submit, t('devise.registrations.edit.cancel_my_account') %>
+  <% end %>
+<% end %>
+
+<%= render 'common/my_account' %>
