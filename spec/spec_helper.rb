@@ -94,6 +94,11 @@ Spork.prefork do
       DatabaseCleaner.clean_with(:transaction)
     end
 
+    config.before(:all) do
+      # TODO default locale for each spec file
+      I18n.locale = :en
+    end
+
     config.before(:type => :feature) do
       DatabaseCleaner.strategy = :truncation
     end
