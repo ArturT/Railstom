@@ -12,6 +12,10 @@ module CustomMatchers
     def negative_failure_message
       "expected #{@actual.inspect} not to exist in database"
     end
+
+    def description
+      "#{@actual.class} exist in database"
+    end
   end
 
   def exist_in_database
