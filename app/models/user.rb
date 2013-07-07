@@ -12,12 +12,15 @@ class User < ActiveRecord::Base
 
   has_many :authentications, dependent: :destroy
 
+  before_update :update_password_changed
+
   def self.build_with_omniauth(auth)
     user = self.new
 
     user.email = auth['info']['email'] if auth['info']
     user.generate_password
     user.confirm
+    user.password_changed = false
 
     user
   end
@@ -33,5 +36,13 @@ class User < ActiveRecord::Base
 
   def has_provider?(provider)
     self.authentications.find_by_provider(provider).present?
+  end
+
+  private
+
+  def update_password_changed
+    if self.encrypted_password_changed? && self.password_changed == false
+      self.password_changed = true
+    end
   end
 end

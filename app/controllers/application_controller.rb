@@ -19,4 +19,10 @@ class ApplicationController < ActionController::Base
     { :locale => I18n.locale }
   end
 
+  def after_sign_out_path_for(resource_or_scope)
+    allowed_paths = [new_user_password_path]
+
+    return resource_or_scope if allowed_paths.include?(resource_or_scope)
+    root_path
+  end
 end
