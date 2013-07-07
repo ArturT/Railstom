@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe User do
+  let(:user) { create(:user_confirmed) }
+
   subject { build(:user) }
 
   it { should be_valid }
@@ -54,20 +56,20 @@ describe User do
         create(:authentication_facebook, user: subject)
       end
 
-      it 'should return true' do
+      it 'returns true' do
         expect(subject.has_provider?(:facebook)).to be_true
       end
     end
 
     context 'when has not facebook provider' do
-      it 'should return false' do
+      it 'returns false' do
         expect(subject.has_provider?(:facebook)).to be_false
       end
     end
   end
 
   describe '#destroy' do
-    subject { create(:user) }
+    subject { user }
 
     before do
       create(:authentication_facebook, user: subject)
@@ -75,7 +77,43 @@ describe User do
 
     it 'destroyed user should not exist in db' do
       subject.destroy
-      subject.should_not exist_in_database
+      expect(subject).not_to exist_in_database
+    end
+  end
+
+  describe '#provider_names' do
+    context 'password_changed is true' do
+      it { expect(user.password_changed).to be_true }
+
+      context 'user has provider' do
+        it 'email' do
+          expect(user.provider_names).to eql ['email']
+        end
+
+        it 'facebook' do
+          create(:authentication_facebook, user: user)
+
+          expect(user.provider_names).to eql ['email', 'facebook']
+        end
+      end
+    end
+
+    context 'password_changed is false' do
+      before { user.password_changed = false }
+
+      it { expect(user.password_changed).to be_false }
+
+      context 'user has not provider' do
+        it 'email' do
+          expect(user.provider_names).to eql []
+        end
+
+        it 'facebook' do
+          create(:authentication_facebook, user: user)
+
+          expect(user.provider_names).to eql ['facebook']
+        end
+      end
     end
   end
 end

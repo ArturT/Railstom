@@ -38,6 +38,17 @@ class User < ActiveRecord::Base
     self.authentications.find_by_provider(provider).present?
   end
 
+  def provider_names
+    # if user changed his password it's mean that he can also use email to sign in
+    providers = password_changed? ? ['email'] : []
+
+    authentications.each do |authentication|
+      providers << authentication.provider
+    end
+
+    providers
+  end
+
   private
 
   def update_password_changed
