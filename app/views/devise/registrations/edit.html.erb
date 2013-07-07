@@ -22,14 +22,8 @@
       </div>
     <% end %>
   <% else %>
-    <%# t('registrations.edit.facebook.reset_password.message_html', reset_password_link: link_to(t('registrations.edit.facebook.reset_password.link'), reset_password_user_registration_path)) %>
+    <%= t('registrations.edit.facebook.reset_password.message_html', reset_password_link: link_to(t('registrations.edit.facebook.reset_password.link'), reset_password_user_registration_path)) %>
   <% end %>
-
-  <h3>Cancel my account</h3>
-
-  <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
-
-  <%= link_to "Back", :back %>
 <% end %>
 
 <%= render 'common/my_account' %>
