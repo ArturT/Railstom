@@ -19,6 +19,12 @@ class ApplicationController < ActionController::Base
     { :locale => I18n.locale }
   end
 
+
+  def after_sign_in_path_for(resource_or_scope)
+    # Define here your sign in path
+    super
+  end
+
   def after_sign_out_path_for(resource_or_scope)
     allowed_paths = [new_user_password_path]
 
