@@ -28,7 +28,18 @@
         <li class="divider"></li>
         <% if user_signed_in? %>
           <!-- user is signed in -->
-          <li><%= link_to t('layouts.application.words.sign_out'), destroy_user_session_path, method: :delete %></li>
+          <%= menu_items(
+            # My account
+            { name: t('layouts.application.words.my_account'),
+              icon: 'icon-wrench',
+              path: edit_user_registration_path,
+              divider: true },
+
+            # Sign out
+            { name: t('layouts.application.words.sign_out'),
+              path: destroy_user_session_path,
+              method: :delete }
+          ) %>
         <% else %>
           <!-- user is signed out -->
           <li class="has-dropdown"><a href="#"><span id="sign-in-icon-container"></span><%= t('layouts.application.words.sign_in') %></a>
