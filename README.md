@@ -89,6 +89,11 @@ Set your default metadata in `en.yml` and `pl.yml`:
 
 ## Additional configuration
 
+### TODO informations
+
+Run `rake notes` to find useful TODO informations inside of the app.
+
+
 ### Template engine
 
 Set your default template engine:

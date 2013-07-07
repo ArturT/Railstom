@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe RegistrationsController do
   subject { response }
+
   login_user
 
   describe '#reset_password' do

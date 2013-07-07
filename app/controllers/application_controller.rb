@@ -3,7 +3,24 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_locale
 
+  layout :layout_by_resource
+
   private
+
+  def layout_by_resource
+    if devise_controller? && resource_name == :user && (
+      # registration
+      action_name == 'new' || action_name == 'create' ||
+      # change password. Only for logout user because this action_names are also used on user_edit_registration_path
+      ((action_name == 'edit' || action_name == 'update') && !user_signed_in?)
+    )
+      # TODO you can use 'standalone' template instead of 'application' template for login/registrations forms.
+      # Please create standalone template and change this line
+      'application'
+    else
+      'application'
+    end
+  end
 
   def set_locale
     if Locale.supported_language?(params[:locale])
@@ -21,7 +38,7 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(resource_or_scope)
-    # Define here your sign in path
+    # TODO Define here your sign in path
     super
   end
 
