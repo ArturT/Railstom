@@ -3,3 +3,8 @@
 .text_error, .translation_missing {
   color: $red;
 }
+
+abbr[title='required'] {
+  color: $red;
+  font-size: 120%;
+}
