@@ -436,7 +436,7 @@ GEM
       raindrops (~> 0.7)
     uniform_notifier (1.2.0)
     validates_email_format_of (1.5.3)
-    warden (1.2.1)
+    warden (1.2.2)
       rack (>= 1.0)
     websocket (1.0.7)
     whenever (0.8.3)
