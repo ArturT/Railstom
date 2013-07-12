@@ -35,6 +35,13 @@
               path: edit_user_registration_path,
               divider: true },
 
+            # Link to active admin
+            { name: 'Admin',
+              icon: 'icon-cog',
+              path: admin_root_path,
+              condition: current_user.admin?,
+              divider: true },
+
             # Sign out
             { name: t('layouts.application.words.sign_out'),
               path: destroy_user_session_path,
