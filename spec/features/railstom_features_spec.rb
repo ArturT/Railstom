@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe 'Railstom Features', :railstom, :js do
-  let(:user) { create(:user_confirmed) }
-
   before do
     visit page_path(I18n.locale, 'railstom')
   end
