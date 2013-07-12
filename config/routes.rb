@@ -1,4 +1,7 @@
 Railstom::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   root :to => 'home#locale_root'
 
   # angular's templates
@@ -8,6 +11,7 @@ Railstom::Application.routes.draw do
     root :to => 'home#index'
 
     devise_for :users, controllers: {
+  ActiveAdmin.routes(self)
       omniauth_callbacks: 'omniauth_callbacks',
       registrations: 'registrations'
     }
