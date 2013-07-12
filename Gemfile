@@ -16,7 +16,7 @@ gem 'mysql2'
 gem 'jquery-rails'
 
 # http://rubydoc.info/gems/jquery-ui-rails/1.0.0/frames
-#gem 'jquery-ui-rails'
+gem 'jquery-ui-rails'
 
 #gem 'jquery_datepicker'
 
