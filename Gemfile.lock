@@ -64,6 +64,7 @@ GEM
     builder (3.0.4)
     bullet (4.6.0)
       uniform_notifier
+    callsite (0.0.11)
     cancan (1.6.10)
     capistrano (2.15.5)
       highline
@@ -230,9 +231,10 @@ GEM
       skinny (~> 0.2.3)
       sqlite3 (~> 1.3)
       thin (~> 1.5.0)
-    meta_request (0.2.1)
+    meta_request (0.2.7)
+      callsite
       rack-contrib
-      rails
+      railties
     meta_search (1.1.3)
       actionpack (~> 3.1)
       activerecord (~> 3.1)
@@ -491,7 +493,7 @@ DEPENDENCIES
   libv8
   mail_form
   mailcatcher
-  meta_request (= 0.2.1)
+  meta_request
   mini_magick
   mysql2
   ng-rails-csrf

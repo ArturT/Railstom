@@ -132,7 +132,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'certified'
   gem 'mailcatcher'
-  gem 'meta_request', '0.2.1'
+  gem 'meta_request'
 end
 
 group :development, :test do
