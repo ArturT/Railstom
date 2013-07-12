@@ -60,6 +60,10 @@ module Railstom
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
+    # It is important to note that files you want to reference outside a manifest must be added
+    # to the precompile array or they will not be available in the production environment.
+    # config.assets.precompile += %w()
+
     config.generators do |g|
       g.test_framework :rspec
       # use one of those: :erb, :haml, :slim
