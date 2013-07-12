@@ -7,6 +7,10 @@ FactoryGirl.define do
 
     factory :user_confirmed do
       confirmed_at Date.today
+
+      factory :admin do
+        admin true
+      end
     end
   end
 end
