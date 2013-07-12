@@ -1,4 +1,4 @@
-module LoginHelper
+module LoginFeatureHelper
   def login_as(user, locale=:en)
     visit new_user_session_path(locale)
     fill_in 'user_email', :with => user.email

@@ -127,7 +127,8 @@ Spork.prefork do
 
     config.include CustomMatchers
 
-    config.include LoginHelper, :type => :feature
+    config.include LoginFeatureHelper, :type => :feature
+    config.include LoginRequestHelper, :type => :request
   end
 end
 
