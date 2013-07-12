@@ -7,12 +7,17 @@ class User < ActiveRecord::Base
          :omniauthable, :confirmable, :lockable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  # attr_accessible :title, :body
+  ATTR_ACCESSIBLE = [:email, :password, :password_confirmation, :remember_me]
+  ATTR_ACCESSIBLE_ADMIN = ATTR_ACCESSIBLE + [:admin]
+
+  attr_accessible *ATTR_ACCESSIBLE
+  attr_accessible *ATTR_ACCESSIBLE_ADMIN, as: :admin
 
   has_many :authentications, dependent: :destroy
 
   before_update :update_password_changed
+
+  scope :admins, where(admin: true)
 
   def self.build_with_omniauth(auth)
     user = self.new
