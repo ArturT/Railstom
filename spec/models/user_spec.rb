@@ -8,6 +8,8 @@ describe User do
   it { should be_valid }
   it { should have_many(:authentications) }
 
+  its(:admin) { should be_false }
+
   describe '.build_with_omniauth' do
     let(:email) { 'email@example.com' }
     let(:auth) do
