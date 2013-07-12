@@ -50,10 +50,10 @@ module ApplicationHelper
         icon = item[:icon].nil? ? '' : %{<i class="#{item[:icon]}"></i>}
         link_name = "#{icon} #{item[:name]}"
         menu_items = %Q{<li class="#{class_name}">#{link_to raw(link_name), paths[0], method: item[:method]}</li>}
-      end
 
-      if item[:divider]
-        menu_items << %Q{<li class="divider"></li>}
+        if item[:divider]
+          menu_items << %Q{<li class="divider"></li>}
+        end
       end
 
       menu_items
