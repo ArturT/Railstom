@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/fnando/i18n-js.git
-  revision: eeec14066b50f72876aa789c9b1f226172452798
+  revision: eab4137f83777963f0ebe6960704a7f64fd8911d
   specs:
     i18n-js (2.1.2)
       i18n
@@ -359,7 +359,7 @@ GEM
       rspec-mocks (~> 2.14.0)
     ruby-openid (2.2.3)
     rubyzip (0.9.9)
-    rvm-capistrano (1.4.0)
+    rvm-capistrano (1.4.1)
       capistrano (>= 2.0.0)
     sass (3.2.9)
     sass-rails (3.2.6)
