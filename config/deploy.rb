@@ -80,10 +80,10 @@ end
 # timer should have value to avoid crash if timer_start method won't run
 timer = Time.now
 
-namespace :help do
+namespace :do do
   namespace :rake do
     desc "Run a task on a remote server."
-    # run like: cap staging help:rake:invoke task=a_certain_task
+    # run like: cap staging do:rake:invoke task=a_certain_task
     task :invoke do
       run("cd #{deploy_to}/current; bundle exec rake #{ENV['task']} RAILS_ENV=#{rails_env}")
     end
@@ -112,11 +112,11 @@ namespace :help do
 end
 
 
-before 'deploy:update_code', 'help:timer_start'
+before 'deploy:update_code', 'do:timer_start'
 
 after 'deploy:finalize_update', 'deploy:symlink_shared'
 
 # if you want to clean up old releases on each deploy uncomment this:
 after 'deploy:restart', 'deploy:cleanup'
 
-after 'deploy:cleanup', 'help:timer_end'
+after 'deploy:cleanup', 'do:timer_end'
