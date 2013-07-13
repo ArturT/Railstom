@@ -62,7 +62,7 @@ module ApplicationHelper
     raw items.join
   end
 
-  def copyright_year_of_founding(year)
+  def copyright_year(year)
     str = "&copy; #{year}"
     current_year = Time.zone.now.year
     str << " - #{current_year}" if current_year > year.to_i
