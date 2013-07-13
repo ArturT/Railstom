@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Active Admin Requests' do
   let(:admin) { create(:admin) }
-  let(:user) { create(:user_confirmed) }
+  let(:user) { create(:user) }
 
   subject { response }
 

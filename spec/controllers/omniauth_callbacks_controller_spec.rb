@@ -19,7 +19,7 @@ describe OmniauthCallbacksController do
     subject { response }
 
     context 'user is signed in' do
-      let!(:user) { create(:user_confirmed) }
+      let!(:user) { create(:user) }
 
       context 'authentication is linked to user' do
         let!(:authentication_facebook) { create(:authentication_facebook, user: user) }
@@ -34,7 +34,7 @@ describe OmniauthCallbacksController do
       end
 
       context 'authentication is not linked to user' do
-        let!(:other_user) { create(:user_confirmed) }
+        let!(:other_user) { create(:user) }
         let!(:authentication_facebook) { create(:authentication_facebook, user: other_user) }
 
         before do
@@ -48,7 +48,7 @@ describe OmniauthCallbacksController do
     end
 
     context 'user is not signed in' do
-      let!(:user) { create(:user_confirmed) }
+      let!(:user) { create(:user) }
 
       context 'authentication is linked to user' do
         let!(:authentication_facebook) { create(:authentication_facebook, user: user) }

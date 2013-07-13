@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe User do
-  let(:user) { create(:user_confirmed) }
+  let(:user) { create(:user) }
 
-  subject { build(:user) }
+  subject { build(:user_unconfirmed) }
 
   it { should be_valid }
   it { should have_many(:authentications) }
@@ -51,7 +51,7 @@ describe User do
   end
 
   describe '#has_provider?' do
-    subject { create(:user) }
+    subject { create(:user_unconfirmed) }
 
     context 'when has facebook provider' do
       before do

@@ -4,13 +4,14 @@ FactoryGirl.define do
   factory :user do
     sequence(:email) { |n| "user#{n}@example.com" }
     password 'password'
+    confirmed_at Date.today
 
-    factory :user_confirmed do
-      confirmed_at Date.today
+    factory :user_unconfirmed do
+      confirmed_at nil
+    end
 
-      factory :admin do
-        admin true
-      end
+    factory :admin do
+      admin true
     end
   end
 end

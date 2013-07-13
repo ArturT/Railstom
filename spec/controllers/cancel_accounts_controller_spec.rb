@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe CancelAccountsController do
-  let(:user) { create(:user_confirmed) }
+  let(:user) { create(:user) }
 
   describe '#edit' do
     context 'when user has own password' do
