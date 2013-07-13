@@ -5,6 +5,7 @@ development:
   username: root
   password:
   host: 127.0.0.1
+  pool: 25
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -16,6 +17,7 @@ test:
   username: root
   password:
   host: 127.0.0.1
+  pool: 25
 
 staging:
   adapter: mysql2
@@ -24,6 +26,7 @@ staging:
   username: root
   password:
   host: 127.0.0.1
+  pool: 25
 
 production:
   adapter: mysql2
@@ -32,3 +35,4 @@ production:
   username: root
   password:
   host: 127.0.0.1
+  pool: 25

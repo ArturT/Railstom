@@ -94,6 +94,11 @@ Set your default metadata in `en.yml` and `pl.yml`:
 Run `rake notes` to find useful TODO informations inside of the app.
 
 
+### Database pool
+
+In `config/database.yml` file the `pool` setting is equal 25 because sidekiq creates 25 processors. More info: [Sidekiq Concurrency](https://github.com/mperham/sidekiq/wiki/Advanced-Options#concurrency).
+
+
 ### Template engine
 
 Set your default template engine:
