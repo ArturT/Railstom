@@ -28,4 +28,20 @@ describe ApplicationHelper do
       it { expect(default_locale_page_path('contact')).to eql('/pl/locale_pages/contact') }
     end
   end
+
+  describe '#copyright_year_of_founding' do
+    let(:current_year) { Time.zone.now.year }
+
+    context 'when year of founding is equal current year' do
+      let(:year) { current_year }
+
+      it { expect(copyright_year_of_founding(year)).to eql "&copy; #{year}" }
+    end
+
+    context 'when year of founding is less than current year' do
+      let(:year) { current_year - 1 }
+
+      it { expect(copyright_year_of_founding(year)).to eql "&copy; #{year} - #{current_year}" }
+    end
+  end
 end
