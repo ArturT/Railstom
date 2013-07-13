@@ -1,0 +1,13 @@
+# Sample configuration file for Sidekiq.
+# Options here can still be overridden by cmd line args.
+#
+# $ bundle exec sidekiq -C config/sidekiq.yml
+
+---
+:verbose: true
+:concurrency: 25
+:queues:
+  - [mailer, 10]
+  - [often, 7]
+  - [default, 5]
+  - [seldom, 3]
