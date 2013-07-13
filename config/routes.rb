@@ -26,4 +26,10 @@ Railstom::Application.routes.draw do
 
     resource :cancel_accounts, only: [:edit, :destroy]
   end
+
+  require 'constraints/admin'
+  constraints Constraint::Admin do
+    require 'sidekiq/web'
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end
