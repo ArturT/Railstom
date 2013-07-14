@@ -164,6 +164,15 @@ To generate a fresh code coverage report in `coverage` directory, run:
 You can use [devtools panel for Rails development](https://chrome.google.com/webstore/detail/railspanel/gjpfobpafnhjhbajcjgccbbdofdckggg).
 
 
+### Rails Best Practices
+
+[rails_best_practices](https://github.com/railsbp/rails_best_practices) is a code metric tool to check the quality of rails codes.
+
+Run:
+
+    $ rails_best_practices -f html .
+
+
 ## Testing
 
 ### Features specs

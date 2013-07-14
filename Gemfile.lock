@@ -93,6 +93,8 @@ GEM
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
     chronic (0.9.1)
+    code_analyzer (0.3.2)
+      sexp_processor
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -101,6 +103,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    colored (1.2)
     colorize (0.5.8)
     commonjs (0.2.6)
     connection_pool (1.1.0)
@@ -312,6 +315,14 @@ GEM
       activesupport (= 3.2.13)
       bundler (~> 1.0)
       railties (= 3.2.13)
+    rails_best_practices (1.13.8)
+      activesupport
+      awesome_print
+      code_analyzer
+      colored
+      erubis
+      i18n
+      ruby-progressbar
     railties (3.2.13)
       actionpack (= 3.2.13)
       activesupport (= 3.2.13)
@@ -358,6 +369,7 @@ GEM
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
     ruby-openid (2.2.3)
+    ruby-progressbar (1.1.1)
     rubyzip (0.9.9)
     rvm-capistrano (1.4.1)
       capistrano (>= 2.0.0)
@@ -371,6 +383,7 @@ GEM
       multi_json (~> 1.0)
       rubyzip
       websocket (~> 1.0.4)
+    sexp_processor (4.2.1)
     shoulda-matchers (2.2.0)
       activesupport (>= 3.0.0)
     sidekiq (2.13.0)
@@ -510,6 +523,7 @@ DEPENDENCIES
   pry-rails
   quiet_assets
   rails (= 3.2.13)
+  rails_best_practices
   rb-fchange
   rb-fsevent
   rb-inotify

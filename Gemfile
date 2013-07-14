@@ -133,6 +133,7 @@ group :development do
   gem 'certified'
   gem 'mailcatcher'
   gem 'meta_request'
+  gem 'rails_best_practices', :require => false
 end
 
 group :development, :test do
