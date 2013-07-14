@@ -150,7 +150,7 @@ end
 
 group :test do
   #gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
-  gem 'spork'
+  gem 'spork-rails'
   gem 'guard-bundler'
   gem 'guard-rspec'
   gem 'guard-spork'
