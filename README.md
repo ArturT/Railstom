@@ -157,6 +157,13 @@ To generate a fresh code coverage report in `coverage` directory, run:
     $ SIMPLECOV=1 RCOV=1 rspec spec
 
 
+## Tips
+
+### Rails Panel Chrome Extension
+
+You can use [devtools panel for Rails development](https://chrome.google.com/webstore/detail/railspanel/gjpfobpafnhjhbajcjgccbbdofdckggg).
+
+
 ## Testing
 
 ### Features specs
