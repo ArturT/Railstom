@@ -36,6 +36,7 @@ Railstom::Application.configure do
   config.assets.debug = true
 
   # Use MailCatcher in development
+  config.action_mailer.default_url_options = { :host => Figaro.env.host }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { :address => 'localhost', :port => 1025 }
 
