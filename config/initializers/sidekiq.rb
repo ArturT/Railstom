@@ -1,3 +1,5 @@
+require 'sidekiq/middleware/i18n'
+
 sidekiq_redis = {
   url: Figaro.env.redis_url,
   namespace: Figaro.env.sidekiq_namespace
