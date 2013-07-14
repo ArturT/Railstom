@@ -24,3 +24,11 @@
 $ ->
   $(document).foundation()
   window.lazyImageLoader()
+
+  # scroll to errors
+  window.goToByScroll('.simple_form div.error', 0, 70)
+
+  # scroll to achor
+  if window.location.hash && /^#_/.test(window.location.hash)
+    hash = window.location.hash.replace(/^#_/,'#')
+    window.goToByScroll(hash, 0, 30)
