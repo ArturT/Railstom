@@ -6,7 +6,7 @@ SITE_YEAR_OF_FOUNDING: 2013
 # Use your own token. Run `rake secret` to get one.
 RAILS_SECRET_TOKEN: 3f792c4f45798c9cfa90f701e629e926f3901eeeff7a5051360660062f5909acb670a9ba3ea536c77359714b18aee92e77574e358bb31d7ca6be3dab8b99d6d4
 
-HOST: localhost:3000
+HOST: 127.0.0.1:3000
 MAILER_SENDER: Railstom <notification@railstom-development.com>
 PROVIDER_FACEBOOK_SCOPE: email,user_birthday,user_about_me,user_education_history,user_work_history,user_hometown,user_interests,user_likes,user_location,user_photos,user_website
 
