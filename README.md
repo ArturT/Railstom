@@ -173,6 +173,12 @@ Run:
     $ rails_best_practices -f html .
 
 
+## Pagination with Kaminari
+
+[Creating friendly URLs and caching](https://github.com/amatsuda/kaminari#creating-friendly-urls-and-caching).
+Another advantage of this approach is that you can switch language and keep page number in url.
+
+
 ## Testing
 
 ### Features specs
