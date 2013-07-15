@@ -42,18 +42,23 @@ angular.module('App', ['ngResource', 'ng-rails-csrf'])
 # loadIconSize="icon-large" [optional] add class icon-large to the icon
 .directive 'loadIcon', ->
   (scope, element, attrs) ->
-    $(element).click ->
-      if attrs.loadIconMargin?
-        style = "margin-#{attrs.loadIconMargin};"
+    $(element).click (e) ->
+      if $(this).hasClass('prevent-default')
+        e.preventDefault()
       else
-        style = ""
+        $(this).addClass('prevent-default')
 
-      icon = """<i class="icon-spin icon-refresh #{attrs.loadIconSize}" style="#{style}"></i>"""
+        if attrs.loadIconMargin?
+          style = "margin-#{attrs.loadIconMargin};"
+        else
+          style = ""
 
-      switch attrs.loadIcon
-        when 'prepend' then element.prepend(icon)
-        when 'append' then element.append(icon)
-        else $(attrs.loadIcon).html(icon)
+        icon = """<i class="icon-spin icon-refresh #{attrs.loadIconSize}" style="#{style}"></i>"""
+
+        switch attrs.loadIcon
+          when 'prepend' then element.prepend(icon)
+          when 'append' then element.append(icon)
+          else $(attrs.loadIcon).html(icon)
 
 
 # Test directive uses template from app/views/pages/templates/
