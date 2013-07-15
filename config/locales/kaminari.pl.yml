@@ -5,4 +5,13 @@ pl:
       last: "Koniec &raquo;"
       previous: "&lsaquo; Wstecz"
       next: "Dalej &rsaquo;"
-      truncate: "..."
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Nie znaleziono %{entry_name}"
+          one: "Wyświetlono <b>1</b> %{entry_name}"
+          other: "Wyświetlono <b>wszystkich %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Wyświetlono %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> z <b>%{total}</b> wszystkich"
