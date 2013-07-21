@@ -182,7 +182,7 @@ GEM
       railties (>= 3.1, < 4.1)
     has_scope (0.5.1)
     hashie (2.0.5)
-    high_voltage (1.2.3)
+    high_voltage (1.2.4)
     highline (1.6.19)
     hike (1.2.3)
     httpauth (0.2.0)
@@ -253,7 +253,7 @@ GEM
     mini_portile (0.5.1)
     multi_json (1.7.7)
     multipart-post (1.2.0)
-    mysql2 (0.3.11)
+    mysql2 (0.3.13)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -315,13 +315,14 @@ GEM
       activesupport (= 3.2.13)
       bundler (~> 1.0)
       railties (= 3.2.13)
-    rails_best_practices (1.13.8)
+    rails_best_practices (1.14.0)
       activesupport
       awesome_print
       code_analyzer
       colored
       erubis
       i18n
+      require_all
       ruby-progressbar
     railties (3.2.13)
       actionpack (= 3.2.13)
@@ -348,6 +349,7 @@ GEM
     rename (1.0.0)
       rails (>= 3.0.0)
     request_store (1.0.5)
+    require_all (1.2.1)
     responders (0.9.3)
       railties (~> 3.1)
     rest-client (1.6.7)
@@ -463,7 +465,7 @@ GEM
       chronic (>= 0.6.3)
     xpath (2.0.0)
       nokogiri (~> 1.3)
-    zurb-foundation (4.2.3)
+    zurb-foundation (4.3.0)
       sass (>= 3.2.0)
 
 PLATFORMS
