@@ -222,6 +222,9 @@ If you don't need specs related to Railstom you can just turn them off. Put this
 
 ## First deploy
 
+    $ cap production deploy:setup
+    $ cap production deploy:check
+
     $ cap production deploy
     $ cap production deploy:migrate
     $ cap production deploy:start
@@ -240,4 +243,4 @@ If you don't need specs related to Railstom you can just turn them off. Put this
 
 Run a task on a remote server:
 
-    $ cap staging help:rake:invoke task=a_certain_task
+    $ cap staging do:rake:invoke task=a_certain_task
