@@ -48,7 +48,7 @@ describe 'Railstom Features', :railstom, :js do
         sleep 1 # wait until scrolling animation finish
 
         expect(page.evaluate_script('window.scrollY')).to be > 10
-        expect(page.evaluate_script('window.scrollY')).to be < 50
+        expect(page.evaluate_script('window.scrollY')).to be < 60
       end
     end
 
