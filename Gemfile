@@ -91,6 +91,7 @@ gem 'mini_magick'
 # if you require 'sinatra' you get the DSL extended to Object
 gem 'sinatra', :require => nil
 gem 'sidekiq'
+gem 'sidekiq-failures'
 
 
 # Gems used only for assets and not required

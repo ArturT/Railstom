@@ -394,6 +394,8 @@ GEM
       json
       redis (>= 3.0)
       redis-namespace
+    sidekiq-failures (0.2.1)
+      sidekiq (>= 2.2.1)
     simple_form (2.1.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
@@ -537,6 +539,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers
   sidekiq
+  sidekiq-failures
   simple_form
   simplecov
   simplecov-rcov
