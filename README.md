@@ -99,6 +99,15 @@ Run `rake notes` to find useful TODO informations inside of the app.
 In `config/database.yml` file the `pool` setting is equal 25 because sidekiq creates 25 processors. More info: [Sidekiq Concurrency](https://github.com/mperham/sidekiq/wiki/Advanced-Options#concurrency).
 
 
+### Database populate
+
+You can use [ffaker](https://github.com/stympy/faker) or [forgery](https://github.com/sevenwire/forgery/wiki) gem to populate your database.
+
+To populate db with users run:
+
+    $ bundle exec rake db:populate:users
+
+
 ### Template engine
 
 Set your default template engine:
