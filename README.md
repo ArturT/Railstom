@@ -209,6 +209,15 @@ If you don't need specs related to Railstom you can just turn them off. Put this
     --tag=~railstom
 
 
+### Sidekiq Testing
+
+Sidekiq provides a few options for testing your workers.
+
+[Testing Worker Queueing](https://github.com/mperham/sidekiq/wiki/Testing#testing-worker-queueing). To enable sidekiq testing for specific spec add flag `sidekiq`.
+
+[Testing Workers Inline](https://github.com/mperham/sidekiq/wiki/Testing#testing-workers-inline). To enable sidekiq testing inline for specific spec add flag `sidekiq_inline`.
+
+
 # Deploy
 
 ## Server config files

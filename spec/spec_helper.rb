@@ -52,6 +52,7 @@ Spork.prefork do
   require 'rspec/rails'
   require 'rspec/autorun'
   require 'factory_girl'
+  require 'sidekiq'
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
@@ -110,11 +111,23 @@ Spork.prefork do
     config.before(:each) do
       DatabaseCleaner.start
       Capybara.current_driver = :selenium if example.metadata[:selenium]
+      # https://github.com/mperham/sidekiq/wiki/Testing#testing-worker-queueing
+      load 'sidekiq/testing.rb' if example.metadata[:sidekiq]
+      # https://github.com/mperham/sidekiq/wiki/Testing#testing-workers-inline
+      load 'sidekiq/testing/inline.rb' if example.metadata[:sidekiq_inline]
     end
 
     config.after(:each) do
       DatabaseCleaner.clean
       Capybara.use_default_driver if example.metadata[:selenium]
+
+      if example.metadata[:sidekiq] || example.metadata[:sidekiq_inline]
+        Sidekiq::Client.class_eval do
+          singleton_class.class_eval do
+            alias_method :raw_push, :raw_push_old
+          end
+        end
+      end
     end
 
     # Default js driver
