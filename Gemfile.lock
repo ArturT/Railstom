@@ -520,6 +520,7 @@ DEPENDENCIES
   guard-spork
   haml-rails
   high_voltage
+  highline
   i18n-js!
   immigrant
   jasmine-rails
