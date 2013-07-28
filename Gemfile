@@ -92,6 +92,7 @@ gem 'mini_magick'
 gem 'sinatra', :require => nil
 gem 'sidekiq'
 gem 'sidekiq-failures'
+gem 'sidekiq-benchmark'
 
 
 # Gems used only for assets and not required
