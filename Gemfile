@@ -163,6 +163,7 @@ group :test do
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'selenium-webdriver'
+  gem 'rspec-sidekiq'
 end
 
 group :production do
