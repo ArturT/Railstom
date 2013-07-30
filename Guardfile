@@ -7,7 +7,7 @@ guard 'bundler' do
   # watch(/^.+\.gemspec/)
 end
 
-guard 'rspec', :bundler => true, :all_after_pass => false, :all_on_start => false do
+guard 'rspec', :bundler => true, :all_after_pass => false, :all_on_start => false, :cli => '--tty' do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }

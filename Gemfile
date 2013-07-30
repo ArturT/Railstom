@@ -137,6 +137,8 @@ group :development do
   gem 'mailcatcher'
   gem 'meta_request'
   gem 'rails_best_practices', :require => false
+  gem 'foreman'
+  gem 'zeus'
 end
 
 group :development, :test do

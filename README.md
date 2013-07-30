@@ -141,6 +141,17 @@ Then you can use helper to access this page: `locale_page_path(:locale, 'contact
 
 ## Tools
 
+### Foreman
+
+Using [foreman](https://github.com/ddollar/foreman) you can declare the various processes that are needed to run your application using a `Procfile`.
+
+    $ foreman start
+
+Foreman will start rails server, mailcatcher, sidekiq, guard and zeus.
+
+**Tip:** If you already running mailcatcher please kill it before you start foreman.
+
+
 ### Sidekiq
 
 To run sidekiq:
