@@ -147,9 +147,11 @@ Using [foreman](https://github.com/ddollar/foreman) you can declare the various 
 
     $ foreman start
 
-Foreman will start rails server, mailcatcher, sidekiq, guard and zeus.
+Foreman will start mailcatcher, sidekiq, guard and zeus.
 
 **Tip:** If you already running mailcatcher please kill it before you start foreman.
+
+**Tip:** Use `zeus server` in order to run rails server faster.
 
 
 ### Sidekiq
