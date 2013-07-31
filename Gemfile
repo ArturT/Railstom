@@ -34,7 +34,7 @@ gem 'ng-rails-csrf'
 ################################################################################
 # App configuration stuff
 gem 'figaro'
-gem 'highline', :require => false
+gem 'highline', require: false
 
 
 ################################################################################
@@ -64,7 +64,7 @@ gem 'high_voltage'
 gem 'capistrano'
 gem 'capistrano-ext'
 gem 'rvm-capistrano'
-gem 'whenever', :require => false
+gem 'whenever', require: false
 
 
 ################################################################################
@@ -90,7 +90,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 # if you require 'sinatra' you get the DSL extended to Object
-gem 'sinatra', :require => nil
+gem 'sinatra', require: nil
 gem 'sidekiq'
 gem 'sidekiq-failures'
 gem 'sidekiq-benchmark'
@@ -125,10 +125,10 @@ end
 
 group :development do
   gem 'rename'
-  gem 'rb-inotify', :require => false
-  gem 'rb-fsevent', :require => false
-  gem 'rb-fchange', :require => false
-  gem 'terminal-notifier-guard', :require => false
+  gem 'rb-inotify', require: false
+  gem 'rb-fsevent', require: false
+  gem 'rb-fchange', require: false
+  gem 'terminal-notifier-guard', require: false
   gem 'pry-rails'
   gem 'immigrant'
   gem 'better_errors'
@@ -136,7 +136,7 @@ group :development do
   gem 'certified'
   gem 'mailcatcher'
   gem 'meta_request'
-  gem 'rails_best_practices', :require => false
+  gem 'rails_best_practices', require: false
   gem 'foreman'
   gem 'zeus'
 end
@@ -155,14 +155,14 @@ group :development, :test do
 end
 
 group :test do
-  #gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  #gem 'rb-fsevent', require: false if RUBY_PLATFORM =~ /darwin/i
   gem 'spork-rails'
   gem 'guard-bundler'
   gem 'guard-rspec'
   gem 'guard-spork'
-  gem 'simplecov', :require => false
-  gem 'simplecov-rcov', :require => false
-  gem 'coveralls', :require => false
+  gem 'simplecov', require: false
+  gem 'simplecov-rcov', require: false
+  gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'capybara'
   gem 'capybara-webkit'
