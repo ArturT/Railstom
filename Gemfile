@@ -9,6 +9,7 @@ gem 'rails', '3.2.14'
 ################################################################################
 # Database stuff
 gem 'mysql2'
+gem 'foreigner'
 
 
 ################################################################################
@@ -142,7 +143,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'foreigner'
   gem 'bullet'
   gem 'thin'
   gem 'rspec-rails'
