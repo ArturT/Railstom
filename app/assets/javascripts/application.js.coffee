@@ -32,3 +32,7 @@ $ ->
   if window.location.hash && /^#_/.test(window.location.hash)
     hash = window.location.hash.replace(/^#_/,'#')
     window.goToByScroll(hash, 0, 30)
+
+  # alert close will run at the same time as zurb foundation animation which is binded to .close class
+  $('.alert-close').click ->
+    $(this).parent().parent().slideUp()
