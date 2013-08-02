@@ -2,15 +2,15 @@
 = alert_box(:success, flash[:success]) unless flash[:success].nil?
 
 / red alert
-= alert_box(:alert, flash[:error]) unless flash[:error].nil?
+= alert_box(:error, flash[:error]) unless flash[:error].nil?
 / devise alert
-= alert_box(:alert, alert) unless alert.nil?
+= alert_box(:error, alert) unless alert.nil?
 
 / blue alert
-= alert_box(nil, flash[:info]) unless flash[:info].nil?
-= alert_box(nil, flash[:notice]) unless flash[:notice].nil?
+= alert_box(:info, flash[:info]) unless flash[:info].nil?
+= alert_box(:info, flash[:notice]) unless flash[:notice].nil?
 / devise notice
-= alert_box(nil, notice) unless notice.nil?
+= alert_box(:info, notice) unless notice.nil?
 
 / yellow alert
-= alert_box(:secondary, flash[:warning]) unless flash[:warning].nil?
+= alert_box(:warning, flash[:warning]) unless flash[:warning].nil?

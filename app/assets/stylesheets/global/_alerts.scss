@@ -1,0 +1,14 @@
+@import 'config/colors';
+
+@mixin alert-box($name, $border, $background, $color) {
+  .alert-#{$name} {
+    border: 1px solid $border;
+    background: $background;
+    color: $color;
+  }
+}
+
+@include alert-box(success, $green-normal, $green-light, $green-dark);
+@include alert-box(error, $red-normal, $red-light, $red-dark);
+@include alert-box(info, $blue-normal, $blue-light, $blue-dark);
+@include alert-box(warning, $yellow-normal, $yellow-light, $yellow-dark);
