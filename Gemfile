@@ -113,6 +113,7 @@ group :assets do
   gem "therubyracer", "~> 0.11.4", :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'ngmin-rails'
 end
 
 # To use ActiveModel has_secure_password
