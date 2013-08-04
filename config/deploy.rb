@@ -1,3 +1,5 @@
+require File.expand_path('../environment',  __FILE__)
+
 # http://gembundler.com/deploying.html
 require 'bundler/capistrano'
 
