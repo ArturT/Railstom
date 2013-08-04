@@ -76,6 +76,25 @@ namespace :deploy do
       run "cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile"
     end
   end
+
+  namespace :setup_finalize do
+    desc "Create shared/uploads directory"
+    task :shared_uploads_dir do
+      run "mkdir #{shared_path}/uploads"
+    end
+
+    desc "Create shared/config directory"
+    task :shared_config_dir do
+      run "mkdir #{shared_path}/config"
+    end
+
+    desc "Copy files to shared/config directory"
+    task :copy_files_to_shared_config_dir do
+      transfer :up, "config/database.yml", "#{shared_path}/config/databse.yml", :via => :scp
+      transfer :up, "config/application.yml", "#{shared_path}/config/application.yml", :via => :scp
+      transfer :up, "script/examples/unicorn.cfg.rb", "#{shared_path}/config/unicorn.cfg.rb", :via => :scp
+    end
+  end
 end
 
 
@@ -122,3 +141,9 @@ after 'deploy:finalize_update', 'deploy:symlink_shared'
 after 'deploy:restart', 'deploy:cleanup'
 
 after 'deploy:cleanup', 'do:timer_end'
+
+
+# after deploy setup
+after 'deploy:setup', 'deploy:setup_finalize:shared_uploads_dir'
+after 'deploy:setup', 'deploy:setup_finalize:shared_config_dir'
+after 'deploy:setup', 'deploy:setup_finalize:copy_files_to_shared_config_dir'
