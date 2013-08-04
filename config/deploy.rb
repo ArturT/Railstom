@@ -61,6 +61,11 @@ namespace :deploy do
     run cmd
   end
 
+  desc "Copy .ruby-version.example to .ruby-version"
+  task :copy_ruby_version_file do
+    run "cp #{release_path}/.ruby-version.example #{release_path}/.ruby-version"
+  end
+
   namespace :assets do
     desc "Precompile assets only if it is needed"
     task :precompile, :roles => :web, :except => { :no_release => true } do
@@ -136,6 +141,7 @@ end
 before 'deploy:update_code', 'do:timer_start'
 
 after 'deploy:finalize_update', 'deploy:symlink_shared'
+after 'deploy:finalize_update', 'deploy:copy_ruby_version_file'
 
 # if you want to clean up old releases on each deploy uncomment this:
 after 'deploy:restart', 'deploy:cleanup'
