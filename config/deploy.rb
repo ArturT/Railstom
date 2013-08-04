@@ -90,7 +90,7 @@ namespace :deploy do
 
     desc "Copy files to shared/config directory"
     task :copy_files_to_shared_config_dir do
-      transfer :up, "config/database.yml", "#{shared_path}/config/databse.yml", :via => :scp
+      transfer :up, "config/database.yml", "#{shared_path}/config/database.yml", :via => :scp
       transfer :up, "config/application.yml", "#{shared_path}/config/application.yml", :via => :scp
       transfer :up, "script/examples/unicorn.cfg.rb", "#{shared_path}/config/unicorn.cfg.rb", :via => :scp
     end
