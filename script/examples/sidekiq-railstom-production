@@ -1,9 +1,10 @@
 #!/bin/bash
-# Put this file in /etc/init.d/
-#
 # sidekiq    Init script for Sidekiq
+# chkconfig: 345 100 75
 #
 # Description: Starts and stops Sidekiq message processor for rails application.
+#
+# Put this file in /etc/init.d/
 #
 # User-specified exit parameters used in this script:
 #
