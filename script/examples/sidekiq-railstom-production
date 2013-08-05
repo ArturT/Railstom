@@ -29,7 +29,7 @@ GEMFILE=$APP_DIR/Gemfile
 SIDEKIQ=sidekiq
 BUNDLE=bundle
 
-START_CMD="$BUNDLE exec $SIDEKIQ -e $APP_DEFAULT_ENV -P $PID_FILE -C $APP_CONFIG"
+START_CMD="$BUNDLE exec $SIDEKIQ -e $APP_DEFAULT_ENV -P $PID_FILE -C $APP_CONFIG -L $LOG_FILE -d"
 RETVAL=0
 
 
@@ -39,9 +39,8 @@ start() {
   if [ $? -eq 1 ]; then
     [ `id -u` == '0' ] || (echo "$SIDEKIQ runs as root only."; exit 5)
     [ -d $APP_DIR ] || (echo "$APP_DIR not found! Exiting."; exit 6)
-    cd $APP_DIR
     echo "Starting $SIDEKIQ message processor..."
-    $START_CMD >> $LOG_FILE 2>&1 &
+    su -l -c "cd $APP_DIR && $START_CMD" rubyuser >/dev/null 2>&1
     RETVAL=$?
     # Sleeping for 8 seconds for process to be precisely visible in process table - see status ()
     sleep 8
