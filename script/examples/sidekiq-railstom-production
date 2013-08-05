@@ -16,7 +16,7 @@ APP_DIR=/home/rubyuser/rails_apps/${APP_NAME}-${APP_DEFAULT_ENV}/current
 APP_CONFIG=${APP_DIR}/config/sidekiq.yml
 LOG_FILE=$APP_DIR/log/sidekiq_${APP_DEFAULT_ENV}.log
 LOCK_FILE=$APP_DIR/tmp/pids/sidekiq-${APP_NAME}-${APP_DEFAULT_ENV}.lock
-PID_FILE=$APP_DIR/tmp/pids/${APP_NAME}-${APP_DEFAULT_ENV}.pid
+PID_FILE=$APP_DIR/tmp/pids/sidekiq-${APP_NAME}-${APP_DEFAULT_ENV}.pid
 GEMFILE=$APP_DIR/Gemfile
 SIDEKIQ=sidekiq
 BUNDLE=bundle
@@ -67,6 +67,11 @@ case "$1" in
   stop)
     stop
     ;;
+  restart|force-reload)
+    stop
+    sleep 1
+    start
+    ;;
   status)
     status
 
@@ -79,7 +84,7 @@ case "$1" in
      fi
     ;;
   *)
-    echo "Usage: $0 {start|stop|status}"
+    echo "Usage: $0 {start|stop|restart|force-reload|status}"
     exit 0
     ;;
 esac
