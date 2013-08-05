@@ -53,22 +53,22 @@ namespace :deploy do
     namespace :sidekiq do
       desc "Start Sidekiq"
       task :start, :roles => :app do
-        run "/etc/init.d/sidekiq-#{application}-#{rails_env} start"
+        run "sudo /etc/init.d/sidekiq-#{application}-#{rails_env} start"
       end
 
       desc "Stop Sidekiq"
       task :stop, :roles => :app do
-        run "/etc/init.d/sidekiq-#{application}-#{rails_env} stop"
+        run "sudo /etc/init.d/sidekiq-#{application}-#{rails_env} stop"
       end
 
       desc "Restart Sidekiq"
       task :restart, :roles => :app do
-        run "/etc/init.d/sidekiq-#{application}-#{rails_env} restart"
+        run "sudo /etc/init.d/sidekiq-#{application}-#{rails_env} restart"
       end
 
       desc "Status of Sidekiq"
       task :status, :roles => :app do
-        run "/etc/init.d/sidekiq-#{application}-#{rails_env} status"
+        run "sudo /etc/init.d/sidekiq-#{application}-#{rails_env} status"
       end
     end
   end
