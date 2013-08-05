@@ -1,8 +1,15 @@
 #!/bin/bash
-# sidekiq    Init script for Sidekiq
-# chkconfig: 345 100 75
-#
-# Description: Starts and stops Sidekiq message processor for rails application.
+### BEGIN INIT INFO
+# Provides:             sidekiq
+# Required-Start:       $local_fs $remote_fs
+# Required-Stop:        $local_fs $remote_fs
+# Should-Start:         $local_fs
+# Should-Stop:          $local_fs
+# Default-Start:        2 3 4 5
+# Default-Stop:         0 1 6
+# Short-Description:    Simple, efficient background processing for Ruby.
+# Description:          Sidekiq - a Redis-backed Ruby library for creating background jobs, placing those jobs on multiple queues, and processing them later.
+### END INIT INFO
 #
 # Put this file in /etc/init.d/
 #
