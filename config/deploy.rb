@@ -6,9 +6,6 @@ require 'bundler/capistrano'
 # https://github.com/capistrano/capistrano/wiki/2.x-Multistage-Extension
 require 'capistrano/ext/multistage'
 
-# https://github.com/mperham/sidekiq/wiki/Deployment
-require 'sidekiq/capistrano'
-
 set :whenever_command, 'bundle exec whenever'
 set :whenever_environment, defer { stage }
 set :whenever_identifier, defer { "#{application}_#{stage}" }
@@ -50,6 +47,30 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     pid = "/tmp/#{application}-#{rails_env}-unicorn.pid"
     run "if [ -e #{pid} ]; then kill -USR2 `cat #{pid}`; fi"
+  end
+
+  namespace :services do
+    namespace :sidekiq do
+      desc "Start Sidekiq"
+      task :start, :roles => :app do
+        run "/etc/init.d/sidekiq-#{application}-#{rails_env} start"
+      end
+
+      desc "Stop Sidekiq"
+      task :stop, :roles => :app do
+        run "/etc/init.d/sidekiq-#{application}-#{rails_env} stop"
+      end
+
+      desc "Restart Sidekiq"
+      task :restart, :roles => :app do
+        run "/etc/init.d/sidekiq-#{application}-#{rails_env} restart"
+      end
+
+      desc "Status of Sidekiq"
+      task :status, :roles => :app do
+        run "/etc/init.d/sidekiq-#{application}-#{rails_env} status"
+      end
+    end
   end
 
   desc "Symlink shared files/directories"
@@ -145,6 +166,7 @@ after 'deploy:finalize_update', 'deploy:copy_ruby_version_file'
 
 # if you want to clean up old releases on each deploy uncomment this:
 after 'deploy:restart', 'deploy:cleanup'
+after 'deploy:restart', 'deploy:services:sidekiq:restart'
 
 after 'deploy:cleanup', 'do:timer_end'
 
