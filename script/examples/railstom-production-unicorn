@@ -2,13 +2,14 @@
 # put this file in /etc/init.d/
 APP_NAME=railstom
 APP_DEFAULT_ENV=production
-DIR=/home/rubyuser/rails_apps/${APP_NAME}-${APP_DEFAULT_ENV}/current
+SYSTEM_USER=rubyuser
+DIR=/home/${SYSTEM_USER}/rails_apps/${APP_NAME}-${APP_DEFAULT_ENV}/current
 PID_FILE=/tmp/${APP_NAME}-${APP_DEFAULT_ENV}-unicorn.pid
 
 case $1 in
    start)
       cd $DIR
-      su -l -c "cd $DIR && RAILS_ENV=$APP_DEFAULT_ENV bundle exec unicorn -c config/unicorn.cfg.rb -D" rubyuser >/dev/null 2>&1
+      su -l -c "cd $DIR && RAILS_ENV=$APP_DEFAULT_ENV bundle exec unicorn -c config/unicorn.cfg.rb -D" $SYSTEM_USER >/dev/null 2>&1
       ;;
     stop)
       cd $DIR

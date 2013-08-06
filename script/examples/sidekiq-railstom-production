@@ -20,7 +20,8 @@
 
 APP_NAME=railstom
 APP_DEFAULT_ENV=production
-APP_DIR=/home/rubyuser/rails_apps/${APP_NAME}-${APP_DEFAULT_ENV}/current
+SYSTEM_USER=rubyuser
+APP_DIR=/home/${SYSTEM_USER}/rails_apps/${APP_NAME}-${APP_DEFAULT_ENV}/current
 APP_CONFIG=${APP_DIR}/config/sidekiq.yml
 LOG_FILE=$APP_DIR/log/sidekiq_${APP_DEFAULT_ENV}.log
 LOCK_FILE=$APP_DIR/tmp/pids/sidekiq-${APP_NAME}-${APP_DEFAULT_ENV}.lock
@@ -40,7 +41,7 @@ start() {
     [ `id -u` == '0' ] || (echo "$SIDEKIQ runs as root only."; exit 5)
     [ -d $APP_DIR ] || (echo "$APP_DIR not found! Exiting."; exit 6)
     echo "Starting $SIDEKIQ message processor..."
-    su -l -c "cd $APP_DIR && $START_CMD" rubyuser >/dev/null 2>&1
+    su -l -c "cd $APP_DIR && $START_CMD" $SYSTEM_USER >/dev/null 2>&1
     RETVAL=$?
     # Sleeping for 8 seconds for process to be precisely visible in process table - see status ()
     sleep 8
