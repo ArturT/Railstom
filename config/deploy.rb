@@ -165,8 +165,8 @@ after 'deploy:finalize_update', 'deploy:symlink_shared'
 after 'deploy:finalize_update', 'deploy:copy_ruby_version_file'
 
 # if you want to clean up old releases on each deploy uncomment this:
-after 'deploy:restart', 'deploy:cleanup'
 after 'deploy:restart', 'deploy:services:sidekiq:restart'
+after 'deploy:restart', 'deploy:cleanup'
 
 after 'deploy:cleanup', 'do:timer_end'
 
