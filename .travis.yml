@@ -22,5 +22,6 @@ before_script:
   - bundle exec rake db:test:load
 script:
   - bundle exec rspec spec
+  - bundle exec rake spec:javascript
 notifications:
   email: false
