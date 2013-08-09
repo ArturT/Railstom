@@ -23,7 +23,7 @@
 
 $ ->
   $(document).foundation()
-  window.lazyImageLoader()
+  window.lazyImageLoader('body')
 
   # scroll to errors
   window.goToByScroll('.simple_form div.error', 0, 70)

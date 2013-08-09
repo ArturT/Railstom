@@ -10,8 +10,8 @@
       $("html,body").animate { scrollTop: destination }, "slow"
 
 
-@lazyImageLoader = ->
-  $('img').waypoint (event, direction) ->
+@lazyImageLoader = (parent) ->
+  $("#{parent} img").waypoint (event, direction) ->
     img = this
     setTimeout ->
       deferred = $(img).data('deferred')
