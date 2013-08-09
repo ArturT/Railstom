@@ -21,10 +21,13 @@ Install ImageMagick (for photo processing):
 
     $ sudo apt-get install imagemagick
 
+[PhantomJS](http://phantomjs.org/download.html)
+
 #### MacOS
 
     $ brew install v8
     $ brew install imagemagick
+    $ brew install phantomjs
 
 ### Redis
 
@@ -213,6 +216,40 @@ Another advantage of this approach is that you can switch language and keep page
 
 
 ## Testing
+
+### Rspec
+
+Basic way to run specs:
+
+    $ rspec spec
+
+Run specs via guard. If you change some code or spec file then proper spec will run automatically. First start foreman which runs all services:
+
+    $ foreman start
+    // wait till loaded and press Enter to run all specs
+
+Run specific spec via `zeus`:
+
+    $ zeus rspec spec/models/user_spec.rb
+
+    // run spec at line 8
+    $ zeus rspec spec/models/user_spec.rb:8
+
+    // run specs with flag railstom
+    $ zeus rspec --tag=railstom spec
+
+
+### Jasmine
+
+Run jasmine specs:
+
+    $ rake spec:javascript
+
+    // or use zeus to get speed
+    $ zeus rake spec:javascript
+
+Run jasmine specs in browser: [http://127.0.0.1:3000/specs](http://127.0.0.1:3000/specs)
+
 
 ### Features specs
 
