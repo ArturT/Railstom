@@ -48,4 +48,6 @@ Railstom::Application.configure do
     #Bullet.growl = true
     Bullet.rails_logger = true
   end
+
+  config.action_controller.perform_caching = true
 end

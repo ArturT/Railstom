@@ -10,6 +10,7 @@ gem 'rails', '3.2.14'
 # Database stuff
 gem 'mysql2'
 gem 'foreigner'
+gem 'redis-rails'
 
 
 ################################################################################
