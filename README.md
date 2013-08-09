@@ -226,7 +226,7 @@ Basic way to run specs:
 Run specs via guard. If you change some code or spec file then proper spec will run automatically. First start foreman which runs all services:
 
     $ foreman start
-    // wait till loaded and press Enter to run all specs
+    // wait until loaded and press Enter to run all specs
 
 Run specific spec via `zeus`:
 
