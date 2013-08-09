@@ -28,7 +28,11 @@ $ ->
   # scroll to errors
   window.goToByScroll('.simple_form div.error', 0, 70)
 
+  # get rid of facebook hash
+  window.location.hash = '' if window.location.hash = '#_=_'
+
   # scroll to achor
+  # facebook hash has to be removed earlier
   if window.location.hash && /^#_/.test(window.location.hash)
     hash = window.location.hash.replace(/^#_/,'#')
     window.goToByScroll(hash, 0, 30)
