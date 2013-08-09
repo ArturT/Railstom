@@ -173,6 +173,12 @@ GEM
     guard-bundler (1.0.0)
       bundler (~> 1.0)
       guard (~> 1.1)
+    guard-jasmine (1.18.0)
+      childprocess
+      guard (>= 1.1.0)
+      multi_json
+      thor
+      tilt
     guard-rspec (3.0.2)
       guard (>= 1.8)
       rspec (~> 2.13)
@@ -546,6 +552,7 @@ DEPENDENCIES
   forgery
   foundation-icons-sass-rails
   guard-bundler
+  guard-jasmine
   guard-rspec
   guard-spork
   haml-rails
