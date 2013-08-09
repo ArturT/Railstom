@@ -36,7 +36,7 @@ development:
 
 test:
   SIDEKIQ_NAMESPACE: railstom:test:sidekiq
-    REDIS_CACHE_NAMESPACE: railstom:test:cache
+  REDIS_CACHE_NAMESPACE: railstom:test:cache
 
   PROVIDER_FACEBOOK_APP_ID: ID
   PROVIDER_FACEBOOK_APP_SECRET: SECRET_HASH
