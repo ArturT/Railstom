@@ -50,7 +50,7 @@ ActiveAdmin.setup do |config|
   # == User Authentication
   #
   # Active Admin will automatically call an authentication
-  # method in a before filter of all controller actions to
+  # method in a before action of all controller actions to
   # ensure that there is a currently logged in admin user.
   #
   # This setting changes the method which Active Admin calls
@@ -118,12 +118,12 @@ ActiveAdmin.setup do |config|
   config.batch_actions = true
 
 
-  # == Controller Filters
+  # == Controller Actions
   #
-  # You can add before, after and around filters to all of your
+  # You can add before, after and around actions to all of your
   # Active Admin resources and pages from here.
   #
-  # config.before_filter :do_something_awesome
+  # config.before_action :do_something_awesome
 
 
   # == Register Stylesheets & Javascripts

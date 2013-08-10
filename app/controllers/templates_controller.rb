@@ -1,6 +1,6 @@
 class TemplatesController < HighVoltage::PagesController
   layout false
-  before_filter :build_id
+  before_action :build_id
 
   private
 

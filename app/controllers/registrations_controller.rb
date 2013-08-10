@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  before_filter :check_if_password_changed, only: [:edit, :update]
+  before_action :check_if_password_changed, only: [:edit, :update]
 
   def reset_password
     sign_out_and_redirect(new_user_password_path)
