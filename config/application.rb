@@ -67,9 +67,9 @@ module Railstom
 
     config.action_mailer.default_url_options = { :host => Figaro.env.host }
 
-    config.cache_store = :redis_store, Figaro.env.redis_url, {
-      expires_in: 90.minutes,
-      namespace: Figaro.env.redis_cache_namespace
-    }
+    #config.cache_store = :redis_store, Figaro.env.redis_url, {
+      #expires_in: 90.minutes,
+      #namespace: Figaro.env.redis_cache_namespace
+    #}
   end
 end
