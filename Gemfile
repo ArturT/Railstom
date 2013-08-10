@@ -196,6 +196,3 @@ end
 ################################################################################
 # We need this gems during rails transition process
 gem 'protected_attributes'
-gem 'rails-observers'
-gem 'actionpack-page_caching'
-gem 'actionpack-action_caching'
