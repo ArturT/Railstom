@@ -8,7 +8,6 @@ gem 'rails', '4.0.0'
 # Database stuff
 gem 'mysql2'
 gem 'foreigner'
-gem 'redis-store'
 
 
 ################################################################################

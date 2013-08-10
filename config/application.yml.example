@@ -29,14 +29,12 @@ REDIS_URL: redis://localhost:6379/0
 # Overwrite default variables for specific environment
 development:
   SIDEKIQ_NAMESPACE: railstom:development:sidekiq
-  REDIS_CACHE_NAMESPACE: railstom:development:cache
 
   PROVIDER_FACEBOOK_APP_ID: ID
   PROVIDER_FACEBOOK_APP_SECRET: SECRET_HASH
 
 test:
   SIDEKIQ_NAMESPACE: railstom:test:sidekiq
-  REDIS_CACHE_NAMESPACE: railstom:test:cache
 
   PROVIDER_FACEBOOK_APP_ID: ID
   PROVIDER_FACEBOOK_APP_SECRET: SECRET_HASH
@@ -45,7 +43,6 @@ staging:
   HOST: railstom-staging.com
 
   SIDEKIQ_NAMESPACE: railstom:staging:sidekiq
-  REDIS_CACHE_NAMESPACE: railstom:staging:cache
 
   PROVIDER_FACEBOOK_APP_ID: ID
   PROVIDER_FACEBOOK_APP_SECRET: SECRET_HASH
@@ -59,7 +56,6 @@ production:
   HOST: railstom-production.com
 
   SIDEKIQ_NAMESPACE: railstom:production:sidekiq
-  REDIS_CACHE_NAMESPACE: railstom:production:cache
 
   PROVIDER_FACEBOOK_APP_ID: ID
   PROVIDER_FACEBOOK_APP_SECRET: SECRET_HASH

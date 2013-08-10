@@ -142,9 +142,7 @@ You can also split `contact.html.erb` for separate language. Put it here `app/vi
 Then you can use helper to access this page: `locale_page_path(:locale, 'contact')` or `default_locale_page_path('contact')` => `/:locale/locale_pages/contact`.
 
 
-### Redis cache store
-
-In `config/application.rb` you will find `config.cache_store` set as `redis_store`. You can set your own `expires_in` value if you like.
+### Cache store
 
 Perform caching is enabled in `config/environments/development.rb`:
 
