@@ -10,9 +10,11 @@ module ApplicationHelper
   end
 
   def alert_box(css_class, message)
-    content_tag :div, class: "alert-box alert-#{css_class}", data: { alert: nil } do
-      content_tag :div, class: 'row' do
-        raw(%{#{message} <a href="#" class="close alert-close">&times;</a>})
+    unless message.nil?
+      content_tag :div, class: "alert-box alert-#{css_class}", data: { alert: nil } do
+        content_tag :div, class: 'row' do
+          raw(%{#{message} <a href="#" class="close alert-close">&times;</a>})
+        end
       end
     end
   end

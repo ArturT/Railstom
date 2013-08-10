@@ -1,16 +1,11 @@
 / green alert
-= alert_box(:success, flash[:success]) unless flash[:success].nil?
+= alert_box(:success, flash[:success])
 
 / red alert
-= alert_box(:error, flash[:error]) unless flash[:error].nil?
-/ devise alert
-= alert_box(:error, alert) unless alert.nil?
+= alert_box(:error, flash[:error] || alert)
 
 / blue alert
-= alert_box(:info, flash[:info]) unless flash[:info].nil?
-= alert_box(:info, flash[:notice]) unless flash[:notice].nil?
-/ devise notice
-= alert_box(:info, notice) unless notice.nil?
+= alert_box(:info, flash[:info] || flash[:notice] || notice)
 
 / yellow alert
-= alert_box(:warning, flash[:warning]) unless flash[:warning].nil?
+= alert_box(:warning, flash[:warning])
