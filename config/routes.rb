@@ -9,8 +9,7 @@ Railstom::Application.routes.draw do
   get '/templates/*id' => 'templates#show', :as => :template, :format => false
 
   scope '/:locale', constraints: { locale: /[a-z]{2}/ } do
-    root :to => 'home#index'
-
+    get '/', :to => 'home#index'
 
     devise_for :users, controllers: {
       omniauth_callbacks: 'omniauth_callbacks',
