@@ -29,7 +29,7 @@ $ ->
   window.goToByScroll('.simple_form div.error', 0, 70)
 
   # get rid of facebook hash
-  window.location.hash = '' if window.location.hash = '#_=_'
+  window.location.hash = '' if window.location.hash == '#_=_'
 
   # scroll to achor
   # facebook hash has to be removed earlier
