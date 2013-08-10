@@ -1,20 +1,19 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.14'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.0.0'
 
 
 ################################################################################
 # Database stuff
 gem 'mysql2'
 gem 'foreigner'
-gem 'redis-rails'
+gem 'redis-store'
 
 
 ################################################################################
 # JS stuff
+# Use jquery as the JavaScript library
 gem 'jquery-rails'
 
 # http://rubydoc.info/gems/jquery-ui-rails/1.0.0/frames
@@ -27,10 +26,13 @@ gem 'jquery-ui-rails'
 
 #gem 'select2-rails'
 
-gem 'i18n-js', :github => 'fnando/i18n-js'
+gem 'i18n-js', github: 'fnando/i18n-js'
 
 gem 'angularjs-rails'
 gem 'ng-rails-csrf'
+
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
 
 
 ################################################################################
@@ -54,7 +56,7 @@ gem 'devise-i18n-views'
 gem 'font-awesome-rails'
 
 # simple form
-gem 'simple_form'
+gem 'simple_form', github: 'plataformatec/simple_form'
 
 gem 'kaminari'
 #gem 'bootstrap-kaminari-views'
@@ -80,7 +82,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-openid'
 
-gem 'activeadmin'
+gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
 
 gem 'cancan'
 gem 'rolify'
@@ -98,33 +100,45 @@ gem 'sidekiq-failures'
 gem 'sidekiq-benchmark'
 
 
+################################################################################
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'less-rails'
-  gem 'coffee-rails', '~> 3.2.1'
+gem 'less-rails'
 
-  gem 'zurb-foundation'
-  gem 'foundation-icons-sass-rails'
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 4.0.0'
 
-  gem 'execjs'
-  gem 'libv8'
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem "therubyracer", "~> 0.11.4", :platforms => :ruby
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~> 4.0.0'
 
-  gem 'uglifier', '>= 1.0.3'
-  gem 'ngmin-rails'
-end
+gem 'zurb-foundation'
+gem 'foundation-icons-sass-rails'
+
+gem 'execjs'
+gem 'libv8'
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+gem 'therubyracer', '~> 0.11.4', platforms: :ruby
+
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+gem 'ngmin-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 1.2'
 
 # To use debugger
 # gem 'debugger'
+
+
+################################################################################
+# Groups
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
+end
 
 group :development do
   gem 'rename'
@@ -137,7 +151,6 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'certified'
-  gem 'mailcatcher'
   gem 'meta_request'
   gem 'rails_best_practices', require: false
   gem 'foreman'
@@ -159,7 +172,7 @@ end
 
 group :test do
   #gem 'rb-fsevent', require: false if RUBY_PLATFORM =~ /darwin/i
-  gem 'spork-rails'
+  gem 'spork-rails', github: 'sporkrb/spork-rails'
   gem 'guard-bundler'
   gem 'guard-rspec'
   gem 'guard-spork'
