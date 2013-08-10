@@ -1,6 +1,6 @@
 Railstom::Application.routes.draw do
 
-  root :to => 'home#locale_root'
+  get '/', :to => 'home#locale_root'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -9,7 +9,7 @@ Railstom::Application.routes.draw do
   get '/templates/*id' => 'templates#show', :as => :template, :format => false
 
   scope '/:locale', constraints: { locale: /[a-z]{2}/ } do
-    get '/', :to => 'home#index'
+    root :to => 'home#index'
 
     devise_for :users, controllers: {
       omniauth_callbacks: 'omniauth_callbacks',
