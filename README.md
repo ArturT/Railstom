@@ -161,9 +161,13 @@ Using [foreman](https://github.com/ddollar/foreman) you can declare the various 
 
 Foreman will start mailcatcher, sidekiq, guard and zeus.
 
-**Tip:** If you already running mailcatcher please kill it before you start foreman.
+#### Tips
 
-**Tip:** Use `zeus server` in order to run rails server faster.
+* Please install mailcatcher before you use foreman.
+
+* If you already running mailcatcher please kill it before you start foreman.
+
+* Use `zeus server` in order to run rails server faster.
 
 
 ### Sidekiq
@@ -176,6 +180,10 @@ To run sidekiq:
 
 
 ### MailCatcher
+
+Please install mailcatcher ([it's not in Gemfile](http://mailcatcher.me/#bundler)):
+
+    $ gem install mailcatcher
 
 To run mailcatcher:
 
