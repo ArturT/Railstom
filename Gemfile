@@ -26,7 +26,8 @@ gem 'jquery-ui-rails'
 
 #gem 'select2-rails'
 
-gem 'i18n-js', github: 'fnando/i18n-js'
+# rails 4 supported
+gem 'i18n-js', github: 'fnando/i18n-js', branch: 'rewrite', ref: '4e5c525ff6e1ec4d3449852746fa5651a0577d68'
 
 gem 'angularjs-rails'
 gem 'ng-rails-csrf'
