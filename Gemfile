@@ -150,6 +150,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'certified'
+  gem 'mailcatcher', github: 'sj26/mailcatcher', require: false
   gem 'meta_request'
   gem 'rails_best_practices', require: false
   gem 'foreman'
