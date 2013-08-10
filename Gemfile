@@ -88,7 +88,6 @@ gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
 gem 'cancan'
 gem 'rolify'
 
-gem 'mail_form'
 gem 'validates_email_format_of'
 
 gem 'carrierwave'
