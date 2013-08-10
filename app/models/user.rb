@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
   end
 
   def has_provider?(provider)
-    self.authentications.find_by_provider(provider).present?
+    self.authentications.where(provider: provider).present?
   end
 
   def provider_names

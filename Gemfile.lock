@@ -525,7 +525,6 @@ DEPENDENCIES
   actionpack-action_caching
   actionpack-page_caching
   activeadmin!
-  activerecord-deprecated_finders
   angularjs-rails
   awesome_print
   better_errors
