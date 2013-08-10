@@ -18,7 +18,10 @@
 #= require ng-rails-csrf
 #= require i18n
 #= require i18n/translations
-#= require_tree .
+#
+# TODO add manual files which should be included
+#= require global
+#
 #= require_tree ../../../vendor/assets/javascripts/.
 
 $ ->
