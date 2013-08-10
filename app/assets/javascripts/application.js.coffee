@@ -20,9 +20,10 @@
 #= require i18n/translations
 #
 # TODO add manual files which should be included
+#= require_tree ./angular
 #= require global
 #
-#= require_tree ../../../vendor/assets/javascripts/.
+#= require_tree ../../../vendor/assets/javascripts
 
 $ ->
   $(document).foundation()
