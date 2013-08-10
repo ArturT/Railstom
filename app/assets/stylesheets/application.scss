@@ -11,17 +11,18 @@
  *= require_self
  *= require foundation_and_overrides
  *= require font-awesome
- *= require_tree .
  */
+// TODO add manual files which should be included
 @import 'foundation-icons';
 
 @import 'config/variables';
 @import 'config/colors';
 
-@import 'global/global';
-@import 'global/typography';
-@import 'global/layout';
+@import 'global/alerts';
 @import 'global/buttons';
+@import 'global/global';
+@import 'global/layout';
+@import 'global/typography';
 
 @import 'components/header';
 @import 'components/footer';
