@@ -10,8 +10,11 @@ describe CancelAccountsController do
         get :edit, locale: I18n.locale
       end
 
-      it { should_not set_the_flash[:warning].now }
       it { should render_template(:edit) }
+
+      it "doesn't set the flash warning" do
+        expect(flash[:warning]).to eql nil
+      end
     end
 
     context 'when user has no own password' do
@@ -21,8 +24,11 @@ describe CancelAccountsController do
         get :edit, locale: I18n.locale
       end
 
-      it { should set_the_flash[:warning].now }
       it { should render_template(:edit) }
+
+      it 'sets the flash warning' do
+        expect(flash[:warning]).to eql I18n.t('controllers.cancel_accounts.flash.not_set_password_html', url: edit_user_registration_path)
+      end
     end
   end
 
@@ -37,8 +43,12 @@ describe CancelAccountsController do
         delete :destroy, locale: I18n.locale, user: {}
       end
 
-      it { should set_the_flash[:success] }
       it { expect(controller.current_user).not_to exist_in_database }
+
+      it 'sets the flash success' do
+        expect(flash[:success]).to eql I18n.t('controllers.cancel_accounts.flash.account_deleted', url: edit_user_registration_path)
+      end
+
       it 'returns 302 status code' do
         expect(response.code).to eql '302'
       end
@@ -50,9 +60,12 @@ describe CancelAccountsController do
         delete :destroy, locale: I18n.locale, user: {}
       end
 
-      it { should set_the_flash[:error].now }
       it { expect(controller.current_user).to exist_in_database }
       it { should render_template(:edit) }
+
+      it 'sets the flash error' do
+        expect(flash[:error]).to eql I18n.t('controllers.cancel_accounts.flash.not_valid_password', url: edit_user_registration_path)
+      end
     end
   end
 end
