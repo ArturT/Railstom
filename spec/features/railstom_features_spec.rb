@@ -1,8 +1,14 @@
 require 'spec_helper'
 
 describe 'Railstom Features', :railstom, :js do
+  let(:anchor) { '' }
+
   before do
-    visit page_path(I18n.locale, 'railstom')
+    visit page_path(I18n.locale, 'railstom', anchor: anchor)
+  end
+
+  def wait_for_animation
+    sleep 1 # wait until scrolling animation finish
   end
 
   describe 'AngularJS' do
@@ -45,7 +51,7 @@ describe 'Railstom Features', :railstom, :js do
         expect(page.evaluate_script('window.scrollY')).to be > 500
 
         click_link('Go up')
-        sleep 1 # wait until scrolling animation finish
+        wait_for_animation
 
         expect(page.evaluate_script('window.scrollY')).to be > 10
         expect(page.evaluate_script('window.scrollY')).to be < 60
@@ -92,9 +98,19 @@ describe 'Railstom Features', :railstom, :js do
         expect(page).to have_xpath("//img[@id='check_sign'][@src='/assets/spinner.png']")
 
         # scroll to bottom where image is placed
-        page.execute_script "window.scrollBy(0,10000)"
+        page.execute_script('window.scrollBy(0,10000)')
 
         expect(page).to have_xpath("//img[@id='check_sign'][@src='/assets/check.png']")
+      end
+    end
+
+    describe 'scroll to anchor' do
+      let(:anchor) { '_footer_breadcrumbs' }
+
+      it 'should change scroll top' do
+        wait_for_animation
+        scroll_top = page.evaluate_script('$(window).scrollTop()')
+        expect(scroll_top).to be >= 800
       end
     end
   end

@@ -27,5 +27,5 @@ div.panel id="huge-box" style="min-height:1400px"
     = image_tag 'spinner.png', data: { deferred: image_path('check.png') }, id: 'check_sign'
 
 
-div.breadcrumbs
+div.breadcrumbs id="footer_breadcrumbs"
   = link_to 'Go up', '#', data: { 'go-to-by-scroll' => '#huge-box', 'allowed-margin' => 0, 'up-limit' => 20 }
