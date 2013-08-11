@@ -208,3 +208,11 @@ ActiveAdmin.setup do |config|
 
 
 end
+
+# http://stackoverflow.com/a/14511396/905697
+ActiveAdmin::ResourceController.class_eval do
+  # Allow ActiveAdmin admins to freely mass-assign when using strong_parameters
+  def resource_params
+    [(params[resource_request_name] || params[resource_instance_name]).try(:permit!) || {}]
+  end
+end
