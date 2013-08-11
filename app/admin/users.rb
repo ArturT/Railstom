@@ -1,8 +1,4 @@
 ActiveAdmin.register User do
-  controller do
-    with_role :admin
-  end
-
   scope :admins
 
   index do

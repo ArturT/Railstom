@@ -5,14 +5,8 @@ describe Authentication do
 
   it { should be_valid }
   it { should belong_to(:user) }
-
   it { should validate_presence_of(:provider) }
-  it { should allow_mass_assignment_of(:provider) }
-
   it { should validate_presence_of(:uid) }
-  it { should allow_mass_assignment_of(:uid) }
-
-  it { should allow_mass_assignment_of(:user_id) }
 
   describe '.find_with_omniauth' do
     before do

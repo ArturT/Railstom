@@ -190,8 +190,3 @@ end
 group :production do
   gem 'unicorn'
 end
-
-
-################################################################################
-# We need this gems during rails transition process
-gem 'protected_attributes'
