@@ -27,6 +27,13 @@ GIT
       sass-rails (>= 3.2.0)
 
 GIT
+  remote: git://github.com/justinfrench/formtastic.git
+  revision: cd6cb88f28ea7444267802ced8e5ec0f5cfd0f90
+  specs:
+    formtastic (2.3.0.rc2)
+      actionpack (>= 3.0)
+
+GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: 73005f4fc8b0b4934b2fbe9dd54ea35a1692c84a
   specs:
@@ -204,8 +211,6 @@ GEM
       thor (>= 0.13.6)
     forgery (0.5.0)
     formatador (0.2.4)
-    formtastic (2.2.1)
-      actionpack (>= 3.0)
     foundation-icons-sass-rails (2.0.0)
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
@@ -563,6 +568,7 @@ DEPENDENCIES
   foreigner
   foreman
   forgery
+  formtastic!
   foundation-icons-sass-rails
   guard-bundler
   guard-jasmine

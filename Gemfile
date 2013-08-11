@@ -82,6 +82,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-openid'
 
+gem 'formtastic', github: 'justinfrench/formtastic'
 gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
 
 gem 'cancan'
