@@ -31,9 +31,6 @@ gem 'i18n-js', github: 'fnando/i18n-js', branch: 'rewrite', ref: '4e5c525ff6e1ec
 gem 'angularjs-rails'
 gem 'ng-rails-csrf'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-# gem 'turbolinks'
-
 
 ################################################################################
 # App configuration stuff
