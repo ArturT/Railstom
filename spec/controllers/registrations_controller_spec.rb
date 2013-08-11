@@ -16,7 +16,7 @@ describe RegistrationsController do
   describe '#edit' do
     context "when user's password not changed" do
       before do
-        controller.current_user.should_receive(:password_changed?).and_return(false)
+        expect(controller.current_user).to receive(:password_changed?).and_return(false)
         get :edit, locale: I18n.locale
       end
 
@@ -29,7 +29,7 @@ describe RegistrationsController do
 
     context "when user's password changed" do
       before do
-        controller.current_user.should_receive(:password_changed?).and_return(true)
+        expect(controller.current_user).to receive(:password_changed?).and_return(true)
         get :edit, locale: I18n.locale
       end
 
@@ -44,7 +44,7 @@ describe RegistrationsController do
   describe '#update' do
     context "when user's password not changed" do
       before do
-        controller.current_user.should_receive(:password_changed?).and_return(false)
+        expect(controller.current_user).to receive(:password_changed?).and_return(false)
         put :update, user: {}, locale: I18n.locale
       end
 
@@ -57,7 +57,7 @@ describe RegistrationsController do
 
     context "when user's password changed" do
       before do
-        controller.current_user.should_receive(:password_changed?).and_return(true)
+        expect(controller.current_user).to receive(:password_changed?).and_return(true)
         put :update, user: {}, locale: I18n.locale
       end
 
