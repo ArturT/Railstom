@@ -5,13 +5,13 @@ describe 'Active Admin Features', :js do
 
   before do
     login_as(admin)
-  end
 
-  it 'login to admin panel and logout' do
     within 'nav.top-bar' do
       click_link 'Admin'
     end
+  end
 
+  it 'login to admin panel and logout' do
     expect(page).to have_content admin.email
     expect(page).to have_content 'Powered by Active Admin'
 
@@ -20,5 +20,27 @@ describe 'Active Admin Features', :js do
     end
 
     expect(page).to have_content I18n.t('controllers.application.notice.you_are_not_an_admin')
+  end
+
+  describe 'Users', :local_off do
+    let!(:user) { create(:user) }
+
+    before do
+      within '#header' do
+        click_link 'Users'
+      end
+    end
+
+    it 'set admin flag for user' do
+      within "#user_#{user.id}" do
+        click_link 'Edit'
+      end
+
+      check 'user_admin'
+      click_on 'Update User'
+
+      expect(page).to have_content 'User was successfully updated'
+      expect(User.find_by(id: user.id).admin).to be_true
+    end
   end
 end
