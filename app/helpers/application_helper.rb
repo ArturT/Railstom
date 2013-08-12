@@ -28,6 +28,7 @@ module ApplicationHelper
   #   @param icon [String optional] awesome fonts class for icon i.e. icon-lock
   #   @param path [String or Array<String, Hash>] URI for href, first element in Array is default path. Hash i.e. {controller: 'registrations', action: 'update'}
   #   @param condition [Boolean optional] when true or nil link will be displayed
+  #   @param data [Hash optional] html data attributes
   # @return [String]
   def menu_items(*items)
     items = items.map do |item|
@@ -51,7 +52,7 @@ module ApplicationHelper
 
         icon = item[:icon].nil? ? '' : %{<i class="#{item[:icon]}"></i>}
         link_name = "#{icon} #{item[:name]}"
-        menu_items = %Q{<li class="#{class_name}">#{link_to raw(link_name), paths[0], method: item[:method]}</li>}
+        menu_items = %Q{<li class="#{class_name}">#{link_to raw(link_name), paths[0], method: item[:method], data: item[:data]}</li>}
 
         if item[:divider]
           menu_items << %Q{<li class="divider"></li>}
