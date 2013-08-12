@@ -27,6 +27,7 @@
 #= require_tree ../../../vendor/assets/javascripts
 
 ready = ->
+  angular.bootstrap(document, ['App'])
   $(document).foundation()
   window.lazyImageLoader('body')
 
