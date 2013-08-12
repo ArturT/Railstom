@@ -19,7 +19,7 @@ div.panel id="huge-box" style="min-height:1400px"
 
   div
     h3 Users
-    = paginate User.order(:email).page(params[:page]).per(5), theme: 'foundation'
+    = paginate User.order(:email).page(params[:page]).per(1), theme: 'foundation'
 
 
   div style="padding-top:900px;"
