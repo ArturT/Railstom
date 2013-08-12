@@ -26,7 +26,7 @@
 #
 #= require_tree ../../../vendor/assets/javascripts
 
-$ ->
+ready = ->
   $(document).foundation()
   window.lazyImageLoader('body')
 
@@ -45,3 +45,7 @@ $ ->
   # alert close will run at the same time as zurb foundation animation which is binded to .close class
   $('.alert-close').click ->
     $(this).parent().parent().slideUp()
+
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
