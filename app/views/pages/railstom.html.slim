@@ -22,6 +22,11 @@ div.panel id="huge-box" style="min-height:1400px"
     = paginate User.order(:email).page(params[:page]).per(1), theme: 'foundation'
 
 
+  div id="turbolinks"
+    ' Click reload to check if turbolinks work with AngularJS
+    = link_to 'Reload', default_page_path('railstom')
+
+
   div style="padding-top:900px;"
     h2 Lazy loading image
     = image_tag 'spinner.png', data: { deferred: image_path('check.png') }, id: 'check_sign'
