@@ -423,7 +423,7 @@ GEM
       rspec (~> 2.0)
       sidekiq (>= 2.4.0)
     ruby-openid (2.2.3)
-    ruby-progressbar (1.1.1)
+    ruby-progressbar (1.2.0)
     rubyzip (0.9.9)
     rvm-capistrano (1.4.3)
       capistrano (>= 2.15.4)
