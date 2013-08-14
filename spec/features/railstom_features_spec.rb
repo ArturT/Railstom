@@ -100,16 +100,6 @@ describe 'Railstom Features', :railstom, :js do
           expect(page).to have_xpath("//img[@id='check_sign'][@src='/assets/check.png']")
         end
       end
-
-      describe 'scroll to anchor' do
-        let(:anchor) { '_footer_breadcrumbs' }
-
-        it 'should change scroll top' do
-          wait_for_animation
-          scroll_top = page.evaluate_script('$(window).scrollTop()')
-          expect(scroll_top).to be >= 800
-        end
-      end
     end
   end
 
@@ -121,6 +111,16 @@ describe 'Railstom Features', :railstom, :js do
 
   context 'when page was loaded for first time' do
     it_behaves_like 'railstom features specs'
+
+    describe 'scroll to anchor' do
+      let(:anchor) { '_footer_breadcrumbs' }
+
+      it 'should change scroll top' do
+        wait_for_animation
+        scroll_top = page.evaluate_script('$(window).scrollTop()')
+        expect(scroll_top).to be >= 800
+      end
+    end
   end
 
   context 'when page was loaded via turbolinks' do
