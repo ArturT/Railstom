@@ -35,6 +35,9 @@ angular.module('App', ['ngResource', 'ng-rails-csrf'])
 
 
 # Example:
+#
+# You can add class prevent-default to link with href="#"
+#
 # loadIcon="prepend" add icon prepend
 # loadIcon="append" add icon append
 # loadIcon="#id|.class" add the load icon to specify element
