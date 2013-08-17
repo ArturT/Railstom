@@ -8,7 +8,36 @@ describe ApplicationController do
     end
   end
 
-  describe 'set locale' do
+  describe '#logout_blocked_user' do
+    before do
+      sign_in user
+    end
+
+    context 'when user active' do
+      let(:user) { create(:user) }
+
+      before do
+        get :index, locale: I18n.locale
+      end
+
+      it { expect(response.code).to eql '200' }
+    end
+
+    context 'when user blocked' do
+      let(:user) { create(:user, blocked: true) }
+
+      before do
+        expect(controller).to receive(:sign_out).with(:user)
+
+        get :index, locale: I18n.locale
+      end
+
+      its('flash notice') { expect(flash[:notice]).to eql I18n.t('controllers.application.notice.your_account_is_blocked') }
+      its(:response) { expect(response.code).to eql '302' }
+    end
+  end
+
+  describe '#set_locale' do
     context 'for supported languages' do
       it 'english' do
         get :index, locale: 'en'

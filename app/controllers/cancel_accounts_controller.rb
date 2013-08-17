@@ -7,8 +7,10 @@ class CancelAccountsController < ApplicationController
 
   def destroy
     if current_user.valid_password?(params[:user][:current_password])
+      current_user.blocked = true
+      current_user.save!
+      sign_out :user
       flash[:success] = t('controllers.cancel_accounts.flash.account_deleted')
-      current_user.destroy
       redirect_to after_sign_out_path_for(current_user)
     else
       flash.now[:error] = t('controllers.cancel_accounts.flash.not_valid_password')

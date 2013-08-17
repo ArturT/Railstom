@@ -64,6 +64,7 @@ en:
       notice:
         not_supported_language: "You've chosen not supported language. You've been redirected to index page."
         you_are_not_an_admin: 'You are not an admin, sorry.'
+        your_account_is_blocked: 'Your account is blocked, sorry.'
     cancel_accounts:
       flash:
         not_valid_password: 'Current password is not valid.'

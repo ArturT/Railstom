@@ -40,18 +40,19 @@ describe CancelAccountsController do
     context 'valid password' do
       before do
         controller.current_user.stub(:valid_password?).and_return(true)
+
+        expect(controller.current_user).to receive(:blocked=).with(true)
+        expect(controller.current_user).to receive(:save!)
+        expect(controller).to receive(:sign_out).with(:user)
+
         delete :destroy, locale: I18n.locale, user: {}
       end
-
-      it { expect(controller.current_user).not_to exist_in_database }
 
       it 'sets the flash success' do
         expect(flash[:success]).to eql I18n.t('controllers.cancel_accounts.flash.account_deleted', url: edit_user_registration_path)
       end
 
-      it 'returns 302 status code' do
-        expect(response.code).to eql '302'
-      end
+      its(:response) { expect(response.code).to eql '302' }
     end
 
     context 'invalid password' do

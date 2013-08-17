@@ -61,6 +61,7 @@ pl:
       notice:
         not_supported_language: 'Wybrano nieobsługiwany język. Zostałeś przekierowany do strony głównej.'
         you_are_not_an_admin: 'Nie masz uprawnień administratora, przepraszamy.'
+        your_account_is_blocked: 'Twoje konto jest zablokowane, przepraszamy.'
     cancel_accounts:
       flash:
         not_valid_password: 'Podane hasło jest nieprawidłowe.'

@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  before_action :logout_blocked_user
   before_action :set_locale
 
   layout :layout_by_resource
@@ -19,6 +20,14 @@ class ApplicationController < ActionController::Base
       'application'
     else
       'application'
+    end
+  end
+
+  def logout_blocked_user
+    if current_user && current_user.blocked?
+      sign_out :user
+      flash[:notice] = t('controllers.application.notice.your_account_is_blocked')
+      redirect_to after_sign_out_path_for(current_user)
     end
   end
 
