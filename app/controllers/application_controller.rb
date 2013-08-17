@@ -32,8 +32,20 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    if Locale.supported_language?(params[:locale])
+    locale_request = if request.env['HTTP_ACCEPT_LANGUAGE'].nil?
+                       nil
+                     else
+                       request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+                     end
+
+    if params[:locale].nil? && Locale.supported_language?(session[:locale])
+      I18n.locale = session[:locale]
+    elsif params[:locale].nil? && Locale.supported_language?(locale_request)
+      I18n.locale = locale_request
+      session[:locale] = I18n.locale
+    elsif Locale.supported_language?(params[:locale])
       I18n.locale = params[:locale]
+      session[:locale] = I18n.locale
     else
       # remove unnecessary fake locale param from url
       redirect_to root_path, notice: t('controllers.application.notice.not_supported_language') unless params[:locale].blank?

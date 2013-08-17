@@ -38,37 +38,104 @@ describe ApplicationController do
   end
 
   describe '#set_locale' do
-    context 'for supported languages' do
-      it 'english' do
-        get :index, locale: 'en'
+    context 'when :locale param is nil' do
+      subject { I18n.locale }
 
-        expect(I18n.locale).to be_eql(:en)
+      context 'when :locale session has supported language' do
+        before do
+          session[:locale] = session_locale
+          get :index
+        end
+
+        context 'english' do
+          let(:session_locale) { 'en' }
+
+          it { should be_eql(:en) }
+        end
+
+        context 'polish' do
+          let(:session_locale) { 'pl' }
+
+          it { should be_eql(:pl) }
+        end
       end
 
-      it 'polish' do
-        get :index, locale: 'pl'
+      context 'when :locale session has not supported language' do
+        context 'when HTTP_ACCEPT_LANGUAGE has supported language' do
+          before do
+            request.env['HTTP_ACCEPT_LANGUAGE'] = http_accept_language
+            get :index
+          end
 
-        expect(I18n.locale).to be_eql(:pl)
+          context 'english' do
+            let(:http_accept_language) { 'en' }
+
+            it { should be_eql(:en) }
+
+            it 'set session locale' do
+              expect(session[:locale]).to be_eql(:en)
+            end
+          end
+
+          context 'polish' do
+            let(:http_accept_language) { 'pl' }
+
+            it { should be_eql(:pl) }
+
+            it 'set session locale' do
+              expect(session[:locale]).to be_eql(:pl)
+            end
+          end
+        end
+      end
+
+      context 'for blank language' do
+        it 'do nothing' do
+          get :index
+
+          expect(flash[:notice]).to be_nil
+          response.should be_success
+        end
+
+        it { should be_eql(I18n.default_locale) }
       end
     end
 
-    context 'for not supported languages' do
-      before { @default_locale = I18n.locale }
+    context 'when :locale param is not nil' do
+      context 'for supported languages' do
+        subject { I18n.locale }
 
-      it 'should set default language, flash notice and redirect to root_path' do
-        get :index, locale: 'xx'
+        before { get :index, locale: locale }
 
-        expect(flash[:notice]).not_to be_nil
-        response.should redirect_to root_path(@default_locale)
+        context 'english' do
+          let(:locale) { 'en' }
+
+          it { should be_eql(:en) }
+
+          it 'set session locale' do
+            expect(session[:locale]).to be_eql(:en)
+          end
+        end
+
+        context 'polish' do
+          let(:locale) { 'pl' }
+
+          it { should be_eql(:pl) }
+
+          it 'set session locale' do
+            expect(session[:locale]).to be_eql(:pl)
+          end
+        end
       end
-    end
 
-    context 'for blank language' do
-      it 'should do nothing' do
-        get :index
+      context 'for not supported languages' do
+        before do
+          @current_locale = I18n.locale
+          get :index, locale: 'xx'
+        end
 
-        expect(flash[:notice]).to be_nil
-        response.should be_success
+        it { expect(flash[:notice]).to eql I18n.t('controllers.application.notice.not_supported_language') }
+        it { response.should redirect_to root_path(@current_locale) }
       end
     end
   end
