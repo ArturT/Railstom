@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   before_update :update_password_changed
 
   scope :admins, -> { where(admin: true) }
+  scope :active, -> { where(blocked: false) }
+  scope :blocked, -> { where(blocked: true) }
 
   def self.build_with_omniauth(auth)
     user = self.new

@@ -9,6 +9,7 @@ describe User do
   it { should have_many(:authentications) }
 
   its(:admin) { should be_false }
+  its(:blocked) { should be_false }
 
   describe '.build_with_omniauth' do
     let(:email) { 'email@example.com' }
@@ -116,6 +117,26 @@ describe User do
           expect(user.provider_names).to eql ['facebook']
         end
       end
+    end
+  end
+
+  describe 'scopes' do
+    before do
+      @admin = create(:admin)
+      @user = create(:user)
+      @user_blocked = create(:user, blocked: true)
+    end
+
+    describe '.admins' do
+      it { expect(User.admins).to match_array([@admin]) }
+    end
+
+    describe '.active' do
+      it { expect(User.active).to match_array([@admin, @user]) }
+    end
+
+    describe '.blocked' do
+      it { expect(User.blocked).to match_array([@user_blocked]) }
     end
   end
 end
