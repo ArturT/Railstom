@@ -217,10 +217,15 @@ Run:
     $ rails_best_practices -f html .
 
 
-## Pagination with Kaminari
+### Pagination with Kaminari
 
 [Creating friendly URLs and caching](https://github.com/amatsuda/kaminari#creating-friendly-urls-and-caching).
 Another advantage of this approach is that you can switch language and keep page number in url.
+
+
+### Setting the locale
+
+`I18n.locale` depends on `params[:locale]` from url or if missing then depends on current `session[:locale]` or `HTTP_ACCEPT_LANGUAGE`. More detail you will find in method `ApplicationController#set_locale`.
 
 
 ## Testing
