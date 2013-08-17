@@ -7,6 +7,13 @@ guard 'bundler' do
   # watch(/^.+\.gemspec/)
 end
 
+guard 'jasmine', :server => :thin, :server_mount => '/specs', :all_on_start => false do
+  watch(%r{spec/javascripts/spec\.(js\.coffee|js|coffee)$}) { 'spec/javascripts' }
+  watch(%r{spec/javascripts/.+_spec\.(js\.coffee|js|coffee)$})
+  watch(%r{spec/javascripts/fixtures/.+$})
+  watch(%r{app/assets/javascripts/(.+?)\.(js\.coffee|js|coffee)(?:\.\w+)*$}) { |m| "spec/javascripts/#{ m[1] }_spec.#{ m[2] }" }
+end
+
 guard 'rspec', :bundler => true, :all_after_pass => false, :all_on_start => false, :cli => '--tty' do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
@@ -28,7 +35,6 @@ guard 'rspec', :bundler => true, :all_after_pass => false, :all_on_start => fals
   watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$})   { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance' }
 end
 
-
 guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAILS_ENV' => 'test' } do
   watch('config/application.rb')
   watch('config/environment.rb')
@@ -39,11 +45,4 @@ guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAIL
   watch('spec/spec_helper.rb') { :rspec }
   watch('test/test_helper.rb') { :test_unit }
   watch(%r{features/support/}) { :cucumber }
-end
-
-guard 'jasmine', :server => :thin, :server_mount => '/specs', :all_on_start => false do
-  watch(%r{spec/javascripts/spec\.(js\.coffee|js|coffee)$}) { 'spec/javascripts' }
-  watch(%r{spec/javascripts/.+_spec\.(js\.coffee|js|coffee)$})
-  watch(%r{spec/javascripts/fixtures/.+$})
-  watch(%r{app/assets/javascripts/(.+?)\.(js\.coffee|js|coffee)(?:\.\w+)*$}) { |m| "spec/javascripts/#{ m[1] }_spec.#{ m[2] }" }
 end
