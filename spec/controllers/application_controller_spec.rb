@@ -47,16 +47,12 @@ describe ApplicationController do
           get :index
         end
 
-        context 'english' do
-          let(:session_locale) { 'en' }
+        Locale.supported_languages.each do |language|
+          context "language #{language}" do
+            let(:session_locale) { language }
 
-          it { should be_eql(:en) }
-        end
-
-        context 'polish' do
-          let(:session_locale) { 'pl' }
-
-          it { should be_eql(:pl) }
+            it { should be_eql(language.to_sym) }
+          end
         end
       end
 
@@ -67,23 +63,15 @@ describe ApplicationController do
             get :index
           end
 
-          context 'english' do
-            let(:http_accept_language) { 'en' }
+          Locale.supported_languages.each do |language|
+            context "language #{language}" do
+              let(:http_accept_language) { language }
 
-            it { should be_eql(:en) }
+              it { should be_eql(language.to_sym) }
 
-            it 'set session locale' do
-              expect(session[:locale]).to be_eql(:en)
-            end
-          end
-
-          context 'polish' do
-            let(:http_accept_language) { 'pl' }
-
-            it { should be_eql(:pl) }
-
-            it 'set session locale' do
-              expect(session[:locale]).to be_eql(:pl)
+              it 'set session locale' do
+                expect(session[:locale]).to be_eql(language.to_sym)
+              end
             end
           end
         end
@@ -114,23 +102,15 @@ describe ApplicationController do
 
         before { get :index, locale: locale }
 
-        context 'english' do
-          let(:locale) { 'en' }
+        Locale.supported_languages.each do |language|
+          context "language #{language}" do
+            let(:locale) { language }
 
-          it { should be_eql(:en) }
+            it { should be_eql(language.to_sym) }
 
-          it 'set session locale' do
-            expect(session[:locale]).to be_eql(:en)
-          end
-        end
-
-        context 'polish' do
-          let(:locale) { 'pl' }
-
-          it { should be_eql(:pl) }
-
-          it 'set session locale' do
-            expect(session[:locale]).to be_eql(:pl)
+            it 'set session locale' do
+              expect(session[:locale]).to be_eql(language.to_sym)
+            end
           end
         end
       end
