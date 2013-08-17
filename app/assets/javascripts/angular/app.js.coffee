@@ -35,9 +35,6 @@ angular.module('App', ['ngResource', 'ng-rails-csrf'])
 
 
 # Example:
-#
-# You can add class prevent-default to link with href="#"
-#
 # loadIcon="prepend" add icon prepend
 # loadIcon="append" add icon append
 # loadIcon="#id|.class" add the load icon to specify element
@@ -47,6 +44,7 @@ angular.module('App', ['ngResource', 'ng-rails-csrf'])
   (scope, element, attrs) ->
     $(element).attr('data-no-turbolink', true)
     $(element).click (e) ->
+      # Don't run twice when double click
       if $(this).hasClass('prevent-default')
         e.preventDefault()
       else
