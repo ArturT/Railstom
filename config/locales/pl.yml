@@ -67,7 +67,7 @@ pl:
         not_valid_password: 'Podane hasło jest nieprawidłowe.'
         not_set_password_html: |
           Musisz <a href="%{url}">ustawić hasło</a> dla swojego konta przed wykonaniem poniższej operacji.
-        account_deleted: 'Twoje konto zostało usunięte.'
+        account_deleted: 'Twoje konto zostało zablokowane.'
     omniauth_callbacks:
       flash:
         already_linked_account: 'Już połączyłeś to konto!'

@@ -70,7 +70,7 @@ en:
         not_valid_password: 'Current password is not valid.'
         not_set_password_html: |
           You need to <a href="%{url}">set your password</a> first if you want to use below form.
-        account_deleted: 'Your account was deleted.'
+        account_deleted: 'Your account was blocked.'
     omniauth_callbacks:
       flash:
         already_linked_account: 'Already linked that account!'

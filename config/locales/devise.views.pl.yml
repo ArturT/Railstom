@@ -34,7 +34,7 @@ pl:
     registrations:
       edit:
         are_you_sure: Jesteś pewny?
-        cancel_my_account: Usuń moje konto
+        cancel_my_account: Anuluj moje konto
         leave_blank_if_you_don_t_want_to_change_it: pozostaw puste jeśli nie chcesz wprowadzać zmian
         title: Edytuj %{resource}
         we_need_your_current_password_to_confirm_your_changes: potrzebujemy Twojego bieżącego hasła aby potwierdzić zmiany
