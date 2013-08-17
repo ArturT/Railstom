@@ -45,6 +45,7 @@ angular.module('App', ['ngResource', 'ng-rails-csrf'])
 # loadIconSize="icon-large" [optional] add class icon-large to the icon
 .directive 'loadIcon', ->
   (scope, element, attrs) ->
+    $(element).attr('data-no-turbolink', true)
     $(element).click (e) ->
       if $(this).hasClass('prevent-default')
         e.preventDefault()

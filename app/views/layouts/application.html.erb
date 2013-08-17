@@ -19,11 +19,12 @@
 
     <%= stylesheet_link_tag 'application' %>
     <%= javascript_include_tag 'vendor/custom.modernizr' %>
+    <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/google_analytics' %>
   </head>
 
-  <body data-ng-app="App">
+  <body>
     <%= render 'layouts/top_navbar' %>
     <%= render 'layouts/notice' %>
 
@@ -37,7 +38,6 @@
 
     <%= render 'layouts/registration_modal' %>
 
-    <%= javascript_include_tag 'application' %>
     <%= render 'layouts/i18n_js' %>
     <!-- <%= Rails.env %> -->
   </body>

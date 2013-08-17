@@ -18,6 +18,7 @@
 #= require ng-rails-csrf
 #= require i18n
 #= require i18n/translations
+#= require turbolinks
 #
 # TODO add manual files which should be included
 #= require_tree ./angular
@@ -25,7 +26,8 @@
 #
 #= require_tree ../../../vendor/assets/javascripts
 
-$ ->
+ready = ->
+  angular.bootstrap(document, ['App'])
   $(document).foundation()
   window.lazyImageLoader('body')
 
@@ -44,3 +46,7 @@ $ ->
   # alert close will run at the same time as zurb foundation animation which is binded to .close class
   $('.alert-close').click ->
     $(this).parent().parent().slideUp()
+
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
