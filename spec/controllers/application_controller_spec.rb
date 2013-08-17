@@ -90,14 +90,21 @@ describe ApplicationController do
       end
 
       context 'for blank language' do
-        it 'do nothing' do
+        before do
           get :index
+        end
 
+        it 'flash notice is nil' do
           expect(flash[:notice]).to be_nil
+        end
+
+        it 'response success' do
           response.should be_success
         end
 
-        it { should be_eql(I18n.default_locale) }
+        it 'locale should be default' do
+          should be_eql(I18n.default_locale.to_sym)
+        end
       end
     end
 
