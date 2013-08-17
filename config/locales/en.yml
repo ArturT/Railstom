@@ -64,7 +64,6 @@ en:
       notice:
         not_supported_language: "You've chosen not supported language. You've been redirected to index page."
         you_are_not_an_admin: 'You are not an admin, sorry.'
-        create_personal_or_company_profile: '<a href="%{url}">Please create your personal or company profiles before you start using website.</a>'
     cancel_accounts:
       flash:
         not_valid_password: 'Current password is not valid.'
