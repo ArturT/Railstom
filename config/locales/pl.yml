@@ -54,7 +54,7 @@ pl:
           link: 'formularza resetowania hasła'
   cancel_accounts:
     edit:
-      message: 'Jeśli chcesz całkowicie usunąć konto możesz to zrobić wpisując bieżące hasło przed potwierdzeniem operacji. Usunięcie konta jest nie odwracalne.'
+      message: 'Jeśli chcesz zablokować konto możesz to zrobić wpisując bieżące hasło przed potwierdzeniem operacji. Jeśli zechcesz odblokować konto będziesz musiał skontaktować się z administratorem.'
 
   controllers:
     application:

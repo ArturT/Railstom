@@ -57,7 +57,7 @@ en:
           link: 'reset password form'
   cancel_accounts:
     edit:
-      message: 'Please use current password to confirm cancel account operation. This operation cannot be undone.'
+      message: 'Please use current password to confirm cancel account operation. This operation cannot be undone. Only administrator can unblock your account.'
 
   controllers:
     application:
