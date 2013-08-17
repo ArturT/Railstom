@@ -89,10 +89,6 @@ describe ApplicationController do
         it 'response success' do
           response.should be_success
         end
-
-        it 'locale should be default' do
-          should be_eql(I18n.default_locale.to_sym)
-        end
       end
     end
 
