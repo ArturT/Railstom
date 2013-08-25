@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_action :logout_blocked_user
   before_action :set_locale
+  before_action :set_time_zone
 
   layout :layout_by_resource
 
@@ -49,6 +50,17 @@ class ApplicationController < ActionController::Base
     else
       # remove unnecessary fake locale param from url
       redirect_to root_path, notice: t('controllers.application.notice.not_supported_language') unless params[:locale].blank?
+    end
+  end
+
+  def set_time_zone
+    Time.zone = browser_timezone if browser_timezone.present?
+  end
+
+  def browser_timezone
+    timezone = cookies['browser.timezone']
+    if timezone.present? && ActiveSupport::TimeZone::MAPPING.values.include?(timezone)
+      timezone
     end
   end
 

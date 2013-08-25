@@ -47,6 +47,9 @@ ready = ->
   $('.alert-close').click ->
     $(this).parent().parent().slideUp()
 
+  # detect browser timezone and store in cookie
+  $.cookie 'browser.timezone', jstz.determine().name(), { expires: 365, path: '/' }
+
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
