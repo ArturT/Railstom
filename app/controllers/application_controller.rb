@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_action :logout_blocked_user
   before_action :set_locale
-  before_action :set_time_zone
+  around_action :set_time_zone
 
   layout :layout_by_resource
 
@@ -54,13 +54,17 @@ class ApplicationController < ActionController::Base
   end
 
   def set_time_zone
-    Time.zone = browser_timezone if browser_timezone.present?
+    default_time_zone = Time.zone
+    Time.zone = browser_time_zone if browser_time_zone.present?
+    yield
+  ensure
+    Time.zone = default_time_zone
   end
 
-  def browser_timezone
-    timezone = cookies['browser.timezone']
-    if timezone.present? && ActiveSupport::TimeZone::MAPPING.values.include?(timezone)
-      timezone
+  def browser_time_zone
+    time_zone = cookies['browser.time_zone']
+    if time_zone.present? && ActiveSupport::TimeZone::MAPPING.values.include?(time_zone)
+      time_zone
     end
   end
 

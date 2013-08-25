@@ -228,6 +228,11 @@ Another advantage of this approach is that you can switch language and keep page
 `I18n.locale` depends on `params[:locale]` from url or if missing then depends on current `session[:locale]` or `HTTP_ACCEPT_LANGUAGE`. More detail you will find in method `ApplicationController#set_locale`.
 
 
+### Detect browser time zone
+
+We use [jsTimezoneDetect](https://bitbucket.org/pellepim/jstimezonedetect) to detect browser time zone (see: `app/assets/javascripts/application.js.coffee`). In `ApplicationController#set_time_zone` we set time zone per each request. When user visits page for the first time he doesn't have `browser.time_zone` cookie so time zone will be set as default which is defined in `config/application.rb`.
+
+
 ## Testing
 
 ### Rspec
