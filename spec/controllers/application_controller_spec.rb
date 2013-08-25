@@ -123,6 +123,44 @@ describe ApplicationController do
     end
   end
 
+  describe '#set_time_zone' do
+    let!(:default_time_zone) { Time.zone }
+
+    before do
+      expect(Time).to receive(:zone=).with(default_time_zone)
+    end
+
+    context 'when browser_time_zone is present' do
+      let(:browser_time_zone) { 'Asia/Hong_Kong' }
+
+      before do
+        controller.stub(:browser_time_zone).and_return(browser_time_zone)
+      end
+
+      def dispatch
+        expect(Time).to receive(:zone=).with(browser_time_zone)
+        get :index, locale: I18n.locale
+      end
+
+      it 'sets Time.zone to browser time zone' do
+        dispatch
+      end
+
+      it 'sets Time.zone to default time zone after request' do
+        dispatch
+        expect(Time.zone).to eql default_time_zone
+      end
+    end
+
+    context 'when browser_time_zone is not present' do
+      before { get :index, locale: I18n.locale }
+
+      it 'use default time zone' do
+        expect(Time.zone).to eql default_time_zone
+      end
+    end
+  end
+
   describe '#browser_time_zone' do
     context "when browser.time_zone cookie exists" do
       before { request.cookies['browser.time_zone'] = browser_time_zone }
