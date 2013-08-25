@@ -117,7 +117,7 @@ gem 'foundation-icons-sass-rails'
 gem 'execjs'
 gem 'libv8'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer', '~> 0.11.4', platforms: :ruby
+gem 'therubyracer', '~> 0.12.0', platforms: :ruby
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
