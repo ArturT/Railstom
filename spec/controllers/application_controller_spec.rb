@@ -122,4 +122,32 @@ describe ApplicationController do
       end
     end
   end
+
+  describe '#browser_time_zone' do
+    context "when browser.time_zone cookie exists" do
+      before { request.cookies['browser.time_zone'] = browser_time_zone }
+
+      context 'when is supported by ActiveSupport::TimeZone' do
+        let(:browser_time_zone) { 'America/Los_Angeles' }
+
+        it 'returns name of browser time zone' do
+          expect(controller.send(:browser_time_zone)).to eql browser_time_zone
+        end
+      end
+
+      context 'when is not supported by ActiveSupport::TimeZone' do
+        let(:browser_time_zone) { 'fake' }
+
+        it 'returns nil' do
+          expect(controller.send(:browser_time_zone)).to eql nil
+        end
+      end
+    end
+
+    context "when browser.time_zone cookie doesn't exist" do
+      it 'returns nil' do
+        expect(controller.send(:browser_time_zone)).to eql nil
+      end
+    end
+  end
 end
