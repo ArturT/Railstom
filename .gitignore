@@ -40,6 +40,10 @@ pickle-email-*.html
 # $ rails_best_practices -f html .
 /rails_best_practices_output.html
 
+# Ignore output of:
+# $ brakeman -o brakeman.html
+/brakeman.html
+
 # Ignore uploaded files
 /public/uploads
 

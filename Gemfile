@@ -171,6 +171,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'ffaker'
   gem 'forgery'
+  gem 'brakeman', require: false
 end
 
 group :test do

@@ -217,6 +217,15 @@ Run:
     $ rails_best_practices -f html .
 
 
+### Brakeman
+
+[Brakeman](https://github.com/presidentbeef/brakeman) is a static analysis tool which checks Ruby on Rails applications for security vulnerabilities.
+
+Run:
+
+    $ brakeman -o brakeman.html
+
+
 ### Pagination with Kaminari
 
 [Creating friendly URLs and caching](https://github.com/amatsuda/kaminari#creating-friendly-urls-and-caching).
