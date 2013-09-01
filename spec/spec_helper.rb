@@ -143,6 +143,7 @@ Spork.prefork do
     config.extend ControllerMacros, :type => :controller
 
     config.include CustomMatchers
+    config.include CarrierWave::Test::Matchers
 
     config.include LoginFeatureHelper, :type => :feature
     config.include LoginRequestHelper, :type => :request
