@@ -11,6 +11,7 @@ pl:
   layouts:
     application:
       buttons:
+        save: 'Zapisz'
       languages:
         pl: 'Polski'
         en: 'Angielski'
@@ -45,6 +46,7 @@ pl:
   _my_account:
     title: 'Moje konto'
     account_settings: 'Ustawienia konta'
+    user_settings: 'Ustawienia użytkownika'
     cancel_account: 'Inne'
   registrations:
     edit:
@@ -55,6 +57,14 @@ pl:
   cancel_accounts:
     edit:
       message: 'Jeśli chcesz zablokować konto możesz to zrobić wpisując bieżące hasło przed potwierdzeniem operacji. Jeśli zechcesz odblokować konto będziesz musiał skontaktować się z administratorem.'
+  user_settings:
+    edit:
+      title: 'Ustawienia użytkownika'
+      labels:
+        avatar: 'Twój avatar'
+        remove_avatar: 'Usuń avatar (zostanie ustawiony jako domyślny gravatar)'
+    update:
+      successfully_saved: 'Pomyślnie zapisano ustawienia!'
 
   controllers:
     application:

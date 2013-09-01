@@ -24,6 +24,7 @@ Railstom::Application.routes.draw do
     get '/pages/*id' => 'pages#show', :as => :page, :format => false
 
     resource :cancel_accounts, only: [:edit, :destroy]
+    resource :user_settings, only: [:edit, :update]
   end
 
   require 'constraints/admin'

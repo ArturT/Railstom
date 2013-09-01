@@ -14,6 +14,7 @@ en:
   layouts:
     application:
       buttons:
+        save: 'Save'
       languages:
         pl: 'Polish'
         en: 'English'
@@ -48,6 +49,7 @@ en:
   _my_account:
     title: 'My account'
     account_settings: 'Account settings'
+    user_settings: 'User settings'
     cancel_account: 'Other'
   registrations:
     edit:
@@ -58,6 +60,14 @@ en:
   cancel_accounts:
     edit:
       message: 'Please use current password to confirm cancel account operation. This operation cannot be undone. Only administrator can unblock your account.'
+  user_settings:
+    edit:
+      title: 'User settings'
+      labels:
+        avatar: 'Your avatar'
+        remove_avatar: 'Remove avatar (gravatar will be set as your default avatar)'
+    update:
+      successfully_saved: 'Your settings has been successfully saved!'
 
   controllers:
     application:

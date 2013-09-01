@@ -3,10 +3,11 @@ h1
   small.subheader = current_user.email
 
 .row
-  .small-10.columns
+  .small-9.columns
     = yield(:my_account_content)
-  .small-2.columns
+  .small-3.columns
     ul.side-nav
       = menu_items(\
         { name: t('_my_account.account_settings'), path: [edit_user_registration_path, {controller: 'registrations', action: 'update'}] },
+        { name: t('_my_account.user_settings'), path: [edit_user_settings_path, {controller: 'user_settings', action: 'update'}] },
         { name: t('_my_account.cancel_account'), path: [edit_cancel_accounts_path, {controller: 'cancel_accounts', action: 'destroy'}] })
