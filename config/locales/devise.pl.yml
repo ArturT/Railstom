@@ -18,7 +18,7 @@ pl:
         other: '%{resource} nie został zapisany z powodu następujących błędów:'
   devise:
     login: 'Zaloguj'
-    remember_me: 'Zapamiętaj mnie'
+    remember_me: ' Zapamiętaj mnie'
     login_title: 'Logowanie'
     failure:
       already_authenticated: 'Jesteś już zalogowany.'
