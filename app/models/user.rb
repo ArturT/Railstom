@@ -19,7 +19,10 @@ class User < ActiveRecord::Base
   def self.build_with_omniauth(auth)
     user = self.new
 
-    user.email = auth['info']['email'] if auth['info']
+    if auth['info']
+      user.email = auth['info']['email']
+      user.remote_avatar_url = auth['info']['image']
+    end
     user.generate_password
     user.confirm
     user.password_changed = false
