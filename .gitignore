@@ -45,7 +45,11 @@ pickle-email-*.html
 /brakeman.html
 
 # Ignore uploaded files
-/public/uploads
+/public/uploads/*
 
 # Ignore application configuration
 /config/application.yml
+
+
+# Don't ignore .gitkeep
+!.gitkeep
