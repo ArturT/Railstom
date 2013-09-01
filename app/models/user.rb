@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :confirmable, :async, :lockable
 
+  mount_uploader :avatar, AvatarUploader
+
   has_many :authentications, dependent: :destroy
 
   before_update :update_password_changed
