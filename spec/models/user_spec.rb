@@ -13,10 +13,12 @@ describe User do
 
   describe '.build_with_omniauth' do
     let(:email) { 'email@example.com' }
+    let(:avatar) { 'https://graph.facebook.com/username/picture?type=large' }
     let(:auth) do
       {
         'info' => {
-          'email' => email
+          'email' => email,
+          'avatar' => avatar
         }
       }
     end
@@ -27,6 +29,8 @@ describe User do
     its(:email) { should eql(email) }
     its(:password) { should_not be_nil }
     its(:confirmed_at) { should_not be_nil }
+    # FIXME find way how to test it
+    # its(:remote_avatar_url) { should eql(avatar) }
   end
 
   describe '#confirm' do
