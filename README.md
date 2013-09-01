@@ -73,6 +73,9 @@ Create databases and run:
     $ rake db:schema:load
     $ RAILS_ENV=test rake db:schema:load
 
+You can also use the `reseed.sh` script to drop current database and create a fresh one with seed data.
+
+    $ script/reseed.sh
 
 Rename application:
 
