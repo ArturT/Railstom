@@ -56,7 +56,7 @@ describe User do
   end
 
   describe '#has_provider?' do
-    subject { create(:user_unconfirmed) }
+    subject { create(:user) }
 
     context 'when has facebook provider' do
       before do

@@ -3,8 +3,9 @@
 SITE_TITLE: Railstom
 SITE_YEAR_OF_FOUNDING: 2013
 
-# Use your own token. Run `rake secret` to get one.
+# Use your own secret token/key. Run `rake secret` to get one.
 RAILS_SECRET_TOKEN: 3f792c4f45798c9cfa90f701e629e926f3901eeeff7a5051360660062f5909acb670a9ba3ea536c77359714b18aee92e77574e358bb31d7ca6be3dab8b99d6d4
+DEVISE_SECRET_KEY: 2cedb43098ac63e48f95b107b82bcbef5233df3be40a423a1d4ba51930058c65f3516c15232f58af921dc1707bdd0ccbbb234952711cf5b3b520a8addb613d72
 
 HOST: 127.0.0.1:3000
 MAILER_SENDER: Railstom <notification@railstom-development.com>
