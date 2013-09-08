@@ -18,7 +18,7 @@ ActiveAdmin.register Newsletter do
       f.input :body
       f.input :enabled_force
       f.input :stopped
-      f.input :started_at
+      f.input :started_at if f.object.new_record?
     end
     f.actions
   end
