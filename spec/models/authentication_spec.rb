@@ -31,13 +31,13 @@ describe Authentication do
     end
   end
 
-  describe '.new_with_omniauth' do
+  describe '.build_with_omniauth' do
     before do
       @auth = {
         'provider' => 'google',
         'uid' => 'uid_google'
       }
-      @authentication = Authentication.new_with_omniauth(@auth)
+      @authentication = Authentication.build_with_omniauth(@auth)
     end
 
     it { expect(@authentication.provider).to eql(@auth['provider']) }

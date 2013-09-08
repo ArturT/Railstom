@@ -9,7 +9,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     auth = request.env['omniauth.auth']
 
     # Find an authentication or if no authentication was found, create a brand new one here
-    @authentication = Authentication.find_with_omniauth(auth) || Authentication.new_with_omniauth(auth)
+    @authentication = Authentication.find_with_omniauth(auth) || Authentication.build_with_omniauth(auth)
 
     if user_signed_in?
       if @authentication.user == current_user

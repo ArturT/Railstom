@@ -7,7 +7,7 @@ class Authentication < ActiveRecord::Base
     find_by_provider_and_uid(auth['provider'], auth['uid'].to_s)
   end
 
-  def self.new_with_omniauth(auth)
+  def self.build_with_omniauth(auth)
     new(provider: auth['provider'], uid: auth['uid'].to_s)
   end
 end
