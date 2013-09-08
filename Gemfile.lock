@@ -184,11 +184,10 @@ GEM
     daemons (1.1.9)
     database_cleaner (1.1.1)
     debug_inspector (0.0.2)
-    devise (3.1.0)
+    devise (3.0.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
-      thread_safe (~> 0.1)
       warden (~> 1.2.3)
     devise-async (0.7.0)
       devise (>= 2.2)
@@ -588,7 +587,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   coveralls
   database_cleaner
-  devise
+  devise (= 3.0.3)
   devise-async
   devise-i18n-views
   draper
