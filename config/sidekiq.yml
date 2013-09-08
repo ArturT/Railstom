@@ -8,6 +8,7 @@
 :concurrency: 25
 :queues:
   - [mailer, 10]
+  - [newsletter, 10]
   - [often, 7]
   - [default, 5]
   - [seldom, 3]
