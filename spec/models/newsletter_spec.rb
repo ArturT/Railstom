@@ -84,27 +84,37 @@ describe Newsletter do
     describe '#send_preview_email' do
       before do
         newsletter.preview_email = email
-        newsletter.valid?
       end
 
       context 'when preview email is blank' do
         let(:email) { '' }
 
         it 'has no error on preview_email' do
+          newsletter.valid?
           expect(newsletter.errors).to have(0).error_on(:preview_email)
         end
       end
 
-      context 'when preview email is not blank', :sidekiq_inline do
+      context 'when preview email is not blank' do
         let(:email) { 'email@example.com' }
-        let(:mail) { ActionMailer::Base.deliveries.last }
 
         it 'has error on preview email' do
+          newsletter.valid?
           expect(newsletter.errors).to have(1).error_on(:preview_email)
         end
 
-        describe 'delivers newsletter to preview email' do
-          subject { mail }
+        it 'delays newsletter' do
+          expect(Sidekiq::Extensions::DelayedMailer.jobs.size).to eql 0
+          newsletter.valid?
+          expect(Sidekiq::Extensions::DelayedMailer.jobs.size).to eql 1
+        end
+
+        describe 'delivers newsletter to preview email', :sidekiq_inline do
+          subject { ActionMailer::Base.deliveries.last }
+
+          before do
+            newsletter.valid?
+          end
 
           its(:to) { should include email }
           its(:subject) { should eql newsletter.subject }
