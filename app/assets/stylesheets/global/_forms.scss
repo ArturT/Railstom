@@ -1,0 +1,30 @@
+@import 'config/colors';
+
+abbr[class='required'] {
+  color: $red;
+  font-size: 120%;
+}
+
+select.select {
+  width: auto;
+}
+
+.form-inputs {
+  .input {
+    margin-top: 15px;
+  }
+
+  .input:first-child {
+    margin-top: 0;
+  }
+
+  .input:last-child {
+    margin-bottom: 15px;
+  }
+
+  .error small {
+    color: $red;
+    font-size: 14px;
+    display: block;
+  }
+}
