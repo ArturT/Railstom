@@ -4,6 +4,7 @@ ActiveAdmin.register Newsletter do
     column :title
     column :enabled_force
     column :stopped
+    column :sent_email_count
     column :started_at
     column :finished_at
     column :created_at
