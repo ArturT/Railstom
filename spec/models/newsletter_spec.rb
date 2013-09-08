@@ -16,15 +16,15 @@ describe Newsletter do
   describe 'private methods' do
     describe '#send_preview_email' do
       before do
-        subject.preview_email = email
-        subject.valid?
+        newsletter.preview_email = email
+        newsletter.valid?
       end
 
       context 'when preview email is blank' do
         let(:email) { '' }
 
         it 'has no error on preview_email' do
-          expect(subject.errors).to have(0).error_on(:preview_email)
+          expect(newsletter.errors).to have(0).error_on(:preview_email)
         end
       end
 
@@ -33,13 +33,15 @@ describe Newsletter do
         let(:mail) { ActionMailer::Base.deliveries.last }
 
         it 'has error on preview email' do
-          expect(subject.errors).to have(1).error_on(:preview_email)
+          expect(newsletter.errors).to have(1).error_on(:preview_email)
         end
 
         describe 'delivers newsletter to preview email' do
-          its(:to) { expect(mail.to).to include email }
-          its(:subject) { expect(mail.subject).to eql newsletter.subject }
-          its(:body) { expect(mail.body.to_s).to include newsletter.body }
+          subject { mail }
+
+          its(:to) { should include email }
+          its(:subject) { should eql newsletter.subject }
+          its(:body) { should include newsletter.body }
         end
       end
     end
