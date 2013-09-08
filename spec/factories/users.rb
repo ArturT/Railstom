@@ -4,6 +4,7 @@ FactoryGirl.define do
   factory :user do
     sequence(:email) { |n| "user#{n}@example.com" }
     password 'password'
+    preferred_language I18n.default_locale
     confirmed_at Date.today
 
     factory :user_unconfirmed do

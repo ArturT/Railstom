@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
   scope :active, -> { where(blocked: false) }
   scope :blocked, -> { where(blocked: true) }
 
+  validates :preferred_language, presence: true
+  validate :valid_preferred_language
+
   def self.build_with_omniauth(auth)
     user = self.new
 
@@ -26,6 +29,7 @@ class User < ActiveRecord::Base
     user.generate_password
     user.confirm
     user.password_changed = false
+    user.preferred_language = I18n.locale
 
     user
   end
@@ -55,6 +59,12 @@ class User < ActiveRecord::Base
   end
 
   private
+
+  def valid_preferred_language
+    unless Locale.supported_language?(self.preferred_language)
+      errors.add(:preferred_language, I18n.t('activemodel.errors.messages.not_supported_preferred_language'))
+    end
+  end
 
   def update_password_changed
     if self.encrypted_password_changed? && self.password_changed == false

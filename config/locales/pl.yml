@@ -7,6 +7,7 @@ pl:
     errors:
       messages:
         invalid_email_address: 'nieprawidłowy adres e-mail'
+        not_supported_preferred_language: 'preferowany język nie jest obsługiwany'
 
   active_admin:
     newsletters:

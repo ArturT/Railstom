@@ -10,6 +10,7 @@ en:
     errors:
       messages:
         invalid_email_address: 'does not appear to be a valid e-mail address'
+        not_supported_preferred_language: 'preferred language is not supported'
 
   active_admin:
     newsletters:
