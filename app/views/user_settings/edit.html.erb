@@ -23,6 +23,12 @@
 
     <div class="row extra-margin-top">
       <div class="large-12 columns">
+        <%= f.input :enabled_newsletter, as: :boolean, label: t('.labels.enabled_newsletter') %>
+      </div>
+    </div>
+
+    <div class="row extra-margin-top">
+      <div class="large-12 columns">
         <%= f.hidden_field :avatar_cache %>
         <%= f.button :submit, t('layouts.application.buttons.save') %>
       </div>

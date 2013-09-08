@@ -63,6 +63,7 @@ pl:
       labels:
         avatar: 'Twój avatar'
         remove_avatar: 'Usuń avatar (zostanie ustawiony jako domyślny gravatar)'
+        enabled_newsletter: 'Zapisz mnie na newsletter'
     update:
       successfully_saved: 'Pomyślnie zapisano ustawienia!'
 

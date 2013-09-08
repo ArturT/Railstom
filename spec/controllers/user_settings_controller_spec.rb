@@ -20,7 +20,8 @@ describe UserSettingsController do
       {
         'avatar' => '',
         'avatar_cache' => '',
-        'remove_avatar' => ''
+        'remove_avatar' => '',
+        'enabled_newsletter' => true
       }
     end
 
@@ -35,8 +36,7 @@ describe UserSettingsController do
       end
 
       its('flash success') { expect(flash[:success]).to eql I18n.t('user_settings.update.successfully_saved') }
-      it { should be_success }
-      it { should render_template(:edit) }
+      it { should redirect_to edit_user_settings_url }
     end
 
     context 'invalid user params' do
