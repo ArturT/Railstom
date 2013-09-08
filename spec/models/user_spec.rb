@@ -10,6 +10,7 @@ describe User do
 
   its(:admin) { should be_false }
   its(:blocked) { should be_false }
+  its(:enabled_newsletter) { should be_true }
 
   describe '.build_with_omniauth' do
     let(:email) { 'email@example.com' }

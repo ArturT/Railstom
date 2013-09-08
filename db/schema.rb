@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130901110202) do
+ActiveRecord::Schema.define(version: 20130908095154) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "resource_id",   null: false
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20130901110202) do
     t.boolean  "admin",                  default: false, null: false
     t.boolean  "blocked",                default: false, null: false
     t.string   "avatar"
+    t.boolean  "enabled_newsletter",     default: true,  null: false
   end
 
   add_index "users", ["blocked"], name: "index_users_on_blocked", using: :btree
