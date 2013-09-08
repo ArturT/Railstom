@@ -75,6 +75,7 @@ en:
         avatar: 'Your avatar'
         remove_avatar: 'Remove avatar (gravatar will be set as your default avatar)'
         enabled_newsletter: 'Enabled newsletter'
+        preferred_language: 'Preferred language for email notification'
     update:
       successfully_saved: 'Your settings has been successfully saved!'
 

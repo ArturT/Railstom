@@ -72,6 +72,7 @@ pl:
         avatar: 'Twój avatar'
         remove_avatar: 'Usuń avatar (zostanie ustawiony jako domyślny gravatar)'
         enabled_newsletter: 'Zapisz mnie na newsletter'
+        preferred_language: 'Preferowany język powiadomień mailowych'
     update:
       successfully_saved: 'Pomyślnie zapisano ustawienia!'
 
