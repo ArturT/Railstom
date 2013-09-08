@@ -53,7 +53,7 @@ module Railstom
     config.generators do |g|
       g.test_framework :rspec
       # use one of those: :erb, :haml, :slim
-      g.template_engine :slim
+      g.template_engine :erb
     end
 
     config.action_mailer.default_url_options = { :host => Figaro.env.host }

@@ -121,7 +121,7 @@ Set your default template engine:
     # config/application.rb
     config.generators do |g|
       # use one of those: :erb, :haml, :slim
-      g.template_engine :slim
+      g.template_engine :erb
     end
 
 
