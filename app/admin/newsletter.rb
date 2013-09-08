@@ -53,6 +53,7 @@ ActiveAdmin.register Newsletter do
       f.input :enabled_force, hint: t('active_admin.newsletters.hints.enabled_force')
       f.input :stopped, hint: t('active_admin.newsletters.hints.stopped')
       f.input :started_at, hint: t('active_admin.newsletters.hints.started_at') if f.object.new_record?
+      f.input :preview_email, hint: t('active_admin.newsletters.hints.preview_email')
     end
     f.actions
   end

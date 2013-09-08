@@ -8,6 +8,7 @@ pl:
       messages:
         invalid_email_address: 'nieprawidłowy adres e-mail'
         not_supported_preferred_language: 'preferowany język nie jest obsługiwany'
+        preview_email: 'Podgląd newslettera został wysłany na %{email}.'
 
   active_admin:
     newsletters:
@@ -16,6 +17,7 @@ pl:
         enabled_force: 'Wyślij newsletter także do osób, ktore nie wyraziły zgody na jego otrzymywanie.'
         stopped: 'Zatrzymaj wysyłanie newslettera. Jeśli odznaczysz to wysyłanie newslettera będzie kontynuowane.'
         started_at: 'Wybierz datę kiedy ma zostać rozpoczęte wysyłanie newslettera. Jeśli nie wybierzesz daty to newsletter będzie wysłany natychmiast.'
+        preview_email: 'Jeśli podasz email i zatwierdzisz formularz to newsletter zostanie wysłany tylko na ten adres, a Ty będziesz mógł nadal edytować treść newslettera. Jeśli uznasz, że newsletter jest gotowy to pozostaw puste pole, a wtedy zostanie on wysłany do wszystkich użytkowników.'
 
   layouts:
     application:

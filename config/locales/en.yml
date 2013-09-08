@@ -11,6 +11,7 @@ en:
       messages:
         invalid_email_address: 'does not appear to be a valid e-mail address'
         not_supported_preferred_language: 'preferred language is not supported'
+        preview_email: 'Preview of newsletter was sent to %{email}.'
 
   active_admin:
     newsletters:
@@ -19,6 +20,7 @@ en:
         enabled_force: 'Send newsletter to all users even if they disagree for it.'
         stopped: 'Stops sending newsletter. Newsletter will continue sending if you uncheck it.'
         started_at: "Choose date when newsletter should be send. Newsletter will be send instantly if you won't choose date."
+        preview_email: 'If you set preview email then newsletter will be send only to this address. Leave blank to send newsletter to all users.'
 
   layouts:
     application:
