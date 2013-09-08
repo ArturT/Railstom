@@ -7,7 +7,7 @@ pl:
       mark: '*'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
-      # html: '<abbr title="required">*</abbr>'
+      html: '<abbr title="wymagane" class="required">*</abbr>'
     error_notification:
       default_message: "Przejrzyj poniższą listę błędów:"
     # Labels and hints examples
