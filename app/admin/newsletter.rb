@@ -1,10 +1,23 @@
 ActiveAdmin.register Newsletter do
   index do
+    last_user = User.select('id').last
+    users_count = User.count
+    newsletter_members_count = User.where(enabled_newsletter: true).count
+
     column :id
     column :subject
     column :enabled_force
     column :stopped
-    column :sent_email_count
+    column :sent_email_count do |o|
+      if o.enabled_force
+        "#{o.sent_email_count}/#{users_count}"
+      else
+        "#{o.sent_email_count}/#{newsletter_members_count}"
+      end
+    end
+    column :last_user_id do |o|
+      "last user id: #{o.last_user_id}<br>max user id: #{last_user.id}".gsub(/\s/, '&nbsp;').html_safe
+    end
     column :started_at
     column :finished_at
     column :created_at
