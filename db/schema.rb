@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130908123022) do
+ActiveRecord::Schema.define(version: 20130908132559) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "resource_id",   null: false
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20130908123022) do
   add_index "authentications", ["user_id"], name: "index_authentications_on_user_id", using: :btree
 
   create_table "newsletters", force: true do |t|
-    t.string   "title",                            null: false
+    t.string   "subject",                          null: false
     t.text     "body",                             null: false
     t.boolean  "enabled_force",    default: false, null: false
     t.boolean  "stopped",          default: false, null: false

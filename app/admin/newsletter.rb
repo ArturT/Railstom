@@ -1,7 +1,7 @@
 ActiveAdmin.register Newsletter do
   index do
     column :id
-    column :title
+    column :subject
     column :enabled_force
     column :stopped
     column :sent_email_count
@@ -15,7 +15,7 @@ ActiveAdmin.register Newsletter do
 
   form do |f|
     f.inputs do
-      f.input :title
+      f.input :subject
       f.input :body
       f.input :enabled_force
       f.input :stopped

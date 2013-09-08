@@ -1,3 +1,3 @@
 class Newsletter < ActiveRecord::Base
-  validates :title, :body, presence: true
+  validates :subject, :body, presence: true
 end

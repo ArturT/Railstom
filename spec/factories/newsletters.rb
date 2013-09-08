@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :newsletter do
-    title "MyString"
+    subject "MyString"
     body "MyText"
     enabled_force false
     stopped false

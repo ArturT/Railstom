@@ -4,7 +4,7 @@ describe Newsletter do
   subject { build(:newsletter) }
 
   it { should be_valid }
-  it { should validate_presence_of(:title) }
+  it { should validate_presence_of(:subject) }
   it { should validate_presence_of(:body) }
   its(:enabled_force) { should be_false }
   its(:stopped) { should be_false }
