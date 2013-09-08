@@ -1,5 +1,12 @@
 require 'spec_helper'
 
 describe Newsletter do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { build(:newsletter) }
+
+  it { should be_valid }
+  it { should validate_presence_of(:title) }
+  it { should validate_presence_of(:body) }
+  its(:enabled_force) { should be_false }
+  its(:stopped) { should be_false }
+  its(:last_user_id) { should eql 0 }
 end

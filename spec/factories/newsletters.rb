@@ -6,7 +6,7 @@ FactoryGirl.define do
     body "MyText"
     enabled_force false
     stopped false
-    last_user_id 1
+    last_user_id 0
     started_at "2013-09-08 12:13:54"
     finished_at "2013-09-08 12:13:54"
   end
