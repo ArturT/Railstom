@@ -126,6 +126,24 @@ describe User do
     end
   end
 
+  describe 'private #set_preferred_language' do
+    before do
+      @user = build(:user, preferred_language: '')
+      expect(@user.preferred_language).to eql ''
+    end
+
+    it 'set preferred language if was blank' do
+      @user.valid?
+      expect(@user.preferred_language).to eql I18n.locale
+    end
+
+    it "don't change preferred language if was set" do
+      @user.preferred_language = :xy
+      @user.valid?
+      expect(@user.preferred_language).to eql :xy
+    end
+  end
+
   describe 'scopes' do
     before do
       @admin = create(:admin)

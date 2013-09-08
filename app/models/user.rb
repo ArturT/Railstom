@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :authentications, dependent: :destroy
 
   before_update :update_password_changed
+  before_validation :set_preferred_language
 
   scope :admins, -> { where(admin: true) }
   scope :active, -> { where(blocked: false) }
@@ -70,5 +71,9 @@ class User < ActiveRecord::Base
     if self.encrypted_password_changed? && self.password_changed == false
       self.password_changed = true
     end
+  end
+
+  def set_preferred_language
+    self.preferred_language = I18n.locale if self.preferred_language.blank?
   end
 end
