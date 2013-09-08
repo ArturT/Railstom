@@ -14,6 +14,32 @@ describe Newsletter do
   its(:preview_email) { should be_blank }
 
   describe 'private methods' do
+    describe '#send_newsletter' do
+      context 'when started_at is set' do
+        let(:started_at) { 1.minutes.from_now }
+
+        before do
+          subject.stub(:started_at).and_return(started_at)
+        end
+
+        it 'calls NewsletterWorker.perform_at' do
+          expect(NewsletterWorker).to receive(:perform_at).with(started_at, subject.id)
+          subject.send(:send_newsletter)
+        end
+      end
+
+      context 'when started_at is not set' do
+        before do
+          subject.stub(:started_at).and_return(nil)
+        end
+
+        it 'calls NewsletterWorker.perform_async' do
+          expect(NewsletterWorker).to receive(:perform_async).with(subject.id)
+          subject.send(:send_newsletter)
+        end
+      end
+    end
+
     describe '#send_preview_email' do
       before do
         newsletter.preview_email = email
