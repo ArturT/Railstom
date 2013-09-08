@@ -40,6 +40,47 @@ describe Newsletter do
       end
     end
 
+    describe '#resume_newsletter' do
+      context 'when stopped changed' do
+        before do
+          subject.stub(:stopped_changed?).and_return(true)
+        end
+
+        context 'when stopped is true' do
+          before do
+            subject.stub(:stopped).and_return(true)
+          end
+
+          it "doesn't call NewsletterWorker.perform_async" do
+            expect(NewsletterWorker).not_to receive(:perform_async).with(subject.id)
+            subject.send(:resume_newsletter)
+          end
+        end
+
+        context 'when stopped is false' do
+          before do
+            subject.stub(:stopped).and_return(false)
+          end
+
+          it 'calls NewsletterWorker.perform_async' do
+            expect(NewsletterWorker).to receive(:perform_async).with(subject.id)
+            subject.send(:resume_newsletter)
+          end
+        end
+      end
+
+      context "when stopped didn't change" do
+        before do
+          subject.stub(:stopped_changed?).and_return(false)
+        end
+
+        it "doesn't call NewsletterWorker.perform_async" do
+          expect(NewsletterWorker).not_to receive(:perform_async).with(subject.id)
+          subject.send(:resume_newsletter)
+        end
+      end
+    end
+
     describe '#send_preview_email' do
       before do
         newsletter.preview_email = email
