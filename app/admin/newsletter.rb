@@ -17,9 +17,9 @@ ActiveAdmin.register Newsletter do
     f.inputs do
       f.input :subject
       f.input :body
-      f.input :enabled_force
-      f.input :stopped
-      f.input :started_at if f.object.new_record?
+      f.input :enabled_force, hint: t('active_admin.newsletters.hints.enabled_force')
+      f.input :stopped, hint: t('active_admin.newsletters.hints.stopped')
+      f.input :started_at, hint: t('active_admin.newsletters.hints.started_at') if f.object.new_record?
     end
     f.actions
   end

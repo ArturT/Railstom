@@ -8,6 +8,13 @@ pl:
       messages:
         invalid_email_address: 'nieprawidłowy adres e-mail'
 
+  active_admin:
+    newsletters:
+      hints:
+        enabled_force: 'Wyślij newsletter także do osób, ktore nie wyraziły zgody na jego otrzymywanie.'
+        stopped: 'Zatrzymaj wysyłanie newslettera. Jeśli odznaczysz to wysyłanie newslettera będzie kontynuowane.'
+        started_at: 'Wybierz datę kiedy ma zostać rozpoczęte wysyłanie newslettera. Jeśli nie wybierzesz daty to newsletter będzie wysłany natychmiast.'
+
   layouts:
     application:
       buttons:

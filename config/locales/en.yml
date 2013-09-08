@@ -11,6 +11,13 @@ en:
       messages:
         invalid_email_address: 'does not appear to be a valid e-mail address'
 
+  active_admin:
+    newsletters:
+      hints:
+        enabled_force: 'Send newsletter to all users even if they disagree for it.'
+        stopped: 'Stops sending newsletter. Newsletter will continue sending if you uncheck it.'
+        started_at: "Choose date when newsletter should be send. Newsletter will be send instantly if you won't choose date."
+
   layouts:
     application:
       buttons:
