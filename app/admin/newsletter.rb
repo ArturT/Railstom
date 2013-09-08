@@ -1,18 +1,37 @@
 ActiveAdmin.register Newsletter do
   index do
     last_user = User.select('id').last
-    users_count = User.count
-    newsletter_members_count = User.where(enabled_newsletter: true).count
+    users_count = { all: User.count }
+    newsletter_members_count = { all: User.where(enabled_newsletter: true).count }
+    Locale.supported_languages.each do |locale|
+      users_count[locale] = User.where(preferred_language: locale).count
+      newsletter_members_count[locale] = User.where(preferred_language: locale, enabled_newsletter: true).count
+    end
 
     column :id
+    column :language do |o|
+      if o.language.blank?
+        'all'
+      else
+        o.language
+      end
+    end
     column :subject
     column :enabled_force
     column :stopped
     column :sent_email_count do |o|
       if o.enabled_force
-        "#{o.sent_email_count}/#{users_count}"
+        if o.language.blank?
+          "#{o.sent_email_count}/#{users_count[:all]}"
+        else
+          "#{o.sent_email_count}/#{users_count[o.language]}"
+        end
       else
-        "#{o.sent_email_count}/#{newsletter_members_count}"
+        if o.language.blank?
+          "#{o.sent_email_count}/#{newsletter_members_count[:all]}"
+        else
+          "#{o.sent_email_count}/#{newsletter_members_count[o.language]}"
+        end
       end
     end
     column :last_user_id do |o|
@@ -28,6 +47,7 @@ ActiveAdmin.register Newsletter do
 
   form do |f|
     f.inputs do
+      f.input :language, collection: Locale.collection_of_languages, hint: t('active_admin.newsletters.hints.language')
       f.input :subject
       f.input :body
       f.input :enabled_force, hint: t('active_admin.newsletters.hints.enabled_force')

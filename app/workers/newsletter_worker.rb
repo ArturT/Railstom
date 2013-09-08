@@ -11,7 +11,11 @@ class NewsletterWorker
 
     if !newsletter.nil? && !newsletter.stopped? && newsletter.finished_at.nil?
       last_user_id = newsletter.last_user_id
-      users = User.where('id > ?', last_user_id).take(USERS_LIMIT)
+      users = if newsletter.language.blank?
+                User.where('id > ?', last_user_id).take(USERS_LIMIT)
+              else
+                User.where('id > ?', last_user_id).where(preferred_language: newsletter.language).take(USERS_LIMIT)
+              end
 
       if users.empty?
         newsletter.update_attribute(:finished_at, DateTime.now)

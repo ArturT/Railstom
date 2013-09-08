@@ -15,6 +15,7 @@ en:
   active_admin:
     newsletters:
       hints:
+        language: 'Leave blank to send newsletter to all users or choose language then only users with preferred language will receive newsletter.'
         enabled_force: 'Send newsletter to all users even if they disagree for it.'
         stopped: 'Stops sending newsletter. Newsletter will continue sending if you uncheck it.'
         started_at: "Choose date when newsletter should be send. Newsletter will be send instantly if you won't choose date."
