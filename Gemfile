@@ -46,7 +46,7 @@ gem 'highline', require: false
 gem 'haml-rails'
 gem 'slim-rails'
 
-gem 'devise', '3.0.3'
+gem 'devise'
 gem 'devise-async'
 gem 'devise-i18n-views'
 
