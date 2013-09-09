@@ -59,7 +59,7 @@ pl:
 #        locked: 'zablokowane'
     unlocks:
       send_instructions: 'Za chwilę wyślemy instrukcję odblokowania konta na Twój adres e-mail.'
-      unlocked: 'Odblokowaliśmy Twoje konto. Jesteś już zalogowany.'
+      unlocked: 'Odblokowaliśmy Twoje konto. Proszę zaloguj się.'
       send_paranoid_instructions: 'Jeśli Twoje konto istnieje w naszej bazie, otrzymasz zaraz e-mail z instrukcją jak odblokować swoje konto.'
     omniauth_callbacks:
       success: 'Zalogowałeś się przez %{kind}.'
