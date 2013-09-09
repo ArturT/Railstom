@@ -43,7 +43,7 @@ pl:
     confirmations:
       send_instructions: 'Za chwilę wyślemy instrukcję aktywowania konta na Twój adres e-mail.'
       send_paranoid_instructions: 'Jeśli wpisałeś poprawny e-mail, za chwilę wyślemy instrukcję aktywowania konta na Twój adres e-mail.'
-      confirmed: 'Aktywowaliśmy Twoje konto. Zostałeś automatycznie zalogowany.'
+      confirmed: 'Aktywowaliśmy Twoje konto. Proszę zaloguj się.'
     registrations:
       signed_up: 'Witaj! Zarejestrowałeś się pomyślnie.'
       signed_up_but_unconfirmed: 'E-mail z linkiem aktywacyjnym został wysłany na Twój adres e-mail. Sprawdź e-mail, aby dokończyć rejestrację.'
