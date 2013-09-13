@@ -134,6 +134,10 @@ Spork.prefork do
       end
     end
 
+    config.after(:all) do
+      FileUtils.rm_rf(Dir["#{Rails.root}/tmp/test/carrierwave"])
+    end
+
     # Default js driver
     Capybara.javascript_driver = :webkit
 
@@ -147,6 +151,10 @@ Spork.prefork do
 
     config.include LoginFeatureHelper, :type => :feature
     config.include LoginRequestHelper, :type => :request
+  end
+
+  CarrierWave.configure do |config|
+    config.root = "#{Rails.root}/tmp/test/carrierwave"
   end
 end
 
