@@ -4,6 +4,7 @@ FactoryGirl.define do
   factory :newsletter do
     subject "MyString"
     body "MyText"
+    language ""
     enabled_force false
     stopped false
     last_user_id 0
