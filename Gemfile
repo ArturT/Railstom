@@ -77,6 +77,8 @@ gem 'awesome_print'
 
 gem 'draper'
 
+gem 'dependor'
+
 # omniauth with google openid
 gem 'omniauth'
 gem 'omniauth-facebook'

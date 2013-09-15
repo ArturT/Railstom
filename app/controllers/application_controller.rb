@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  extend Dependor::Injectable
+
   protect_from_forgery
 
   before_action :logout_blocked_user
@@ -6,6 +8,12 @@ class ApplicationController < ActionController::Base
   around_action :set_time_zone
 
   layout :layout_by_resource
+
+  protected
+
+  def injector
+    @injector ||= Injector.new(current_user, request)
+  end
 
   private
 
