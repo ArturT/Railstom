@@ -23,4 +23,3 @@ describe AuthenticationRepository do
     end
   end
 end
-
