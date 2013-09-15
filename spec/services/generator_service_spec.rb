@@ -12,7 +12,7 @@ describe GeneratorService do
     }
   end
 
-  subject { GeneratorService.new(omniauth_hash) }
+  subject { isolate(GeneratorService) }
 
   describe '#password' do
     it 'returns password with specified length' do
