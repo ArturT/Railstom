@@ -51,6 +51,8 @@ Spork.prefork do
   require File.expand_path('../../config/environment', __FILE__)
   require 'rspec/rails'
   require 'rspec/autorun'
+  require 'dependor/rspec'
+  require 'bogus/rspec'
   require 'factory_girl'
   require 'sidekiq'
 
