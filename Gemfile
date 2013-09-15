@@ -189,6 +189,7 @@ group :test do
   gem 'capybara-angular'
   gem 'selenium-webdriver'
   gem 'rspec-sidekiq'
+  gem 'timecop'
 end
 
 group :production do
