@@ -32,7 +32,7 @@ describe ApplicationController do
         get :index, locale: I18n.locale
       end
 
-      its('flash notice') { expect(flash[:notice]).to eql I18n.t('controllers.application.notice.your_account_is_blocked') }
+      its('flash notice') { expect(flash[:notice]).to eql I18n.t('controllers.application.flash.your_account_is_blocked') }
       its(:response) { expect(response.code).to eql '302' }
     end
   end
@@ -117,7 +117,7 @@ describe ApplicationController do
           get :index, locale: 'xx'
         end
 
-        it { expect(flash[:notice]).to eql I18n.t('controllers.application.notice.not_supported_language') }
+        it { expect(flash[:notice]).to eql I18n.t('controllers.application.flash.not_supported_language') }
         it { response.should redirect_to root_path(@current_locale) }
       end
     end

@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   def logout_blocked_user
     if current_user && current_user.blocked?
       sign_out :user
-      flash[:notice] = t('controllers.application.notice.your_account_is_blocked')
+      flash[:notice] = t('controllers.application.flash.your_account_is_blocked')
       redirect_to after_sign_out_path_for(current_user)
     end
   end
@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
       session[:locale] = I18n.locale
     else
       # remove unnecessary fake locale param from url
-      redirect_to root_path, notice: t('controllers.application.notice.not_supported_language') unless params[:locale].blank?
+      redirect_to root_path, notice: t('controllers.application.flash.not_supported_language') unless params[:locale].blank?
     end
   end
 
@@ -75,7 +75,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_admin_user!
     unless current_user && current_user.admin?
-      flash[:notice] = t('controllers.application.notice.you_are_not_an_admin')
+      flash[:notice] = t('controllers.application.flash.you_are_not_an_admin')
       redirect_to root_path
     end
   end

@@ -81,7 +81,7 @@ pl:
 
   controllers:
     application:
-      notice:
+      flash:
         not_supported_language: 'Wybrano nieobsługiwany język. Zostałeś przekierowany do strony głównej.'
         you_are_not_an_admin: 'Nie masz uprawnień administratora, przepraszamy.'
         your_account_is_blocked: 'Twoje konto jest zablokowane, przepraszamy.'

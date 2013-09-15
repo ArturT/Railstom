@@ -19,7 +19,7 @@ describe 'Active Admin Features', :js do
       click_link 'Logout'
     end
 
-    expect(page).to have_content I18n.t('controllers.application.notice.you_are_not_an_admin')
+    expect(page).to have_content I18n.t('controllers.application.flash.you_are_not_an_admin')
   end
 
   describe 'Users', :local_off do
