@@ -1,10 +1,5 @@
 class NewsletterService
-  attr_reader :newsletter_id, :recipients_limit
-
-  def initialize(newsletter_id, recipients_limit)
-    @newsletter_id = newsletter_id
-    @recipients_limit = recipients_limit
-  end
+  takes :newsletter_id, :recipients_limit
 
   def run
     process if can_be_send?
