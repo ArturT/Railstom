@@ -149,6 +149,7 @@ describe User do
       @admin = create(:admin)
       @user = create(:user)
       @user_blocked = create(:user, blocked: true)
+      @user_with_disabled_newsletter = create(:user, enabled_newsletter: false)
     end
 
     describe '.admins' do
@@ -156,11 +157,19 @@ describe User do
     end
 
     describe '.active' do
-      it { expect(User.active).to match_array([@admin, @user]) }
+      it { expect(User.active).to match_array([@admin, @user, @user_with_disabled_newsletter]) }
     end
 
     describe '.blocked' do
       it { expect(User.blocked).to match_array([@user_blocked]) }
+    end
+
+    describe '.with_enabled_newsletter' do
+      it { expect(User.with_enabled_newsletter).to match_array([@admin, @user, @user_blocked]) }
+    end
+
+    describe '.with_disabled_newsletter' do
+      it { expect(User.with_disabled_newsletter).to match_array([@user_with_disabled_newsletter]) }
     end
   end
 end

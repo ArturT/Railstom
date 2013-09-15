@@ -1,9 +1,15 @@
 ActiveAdmin.register User do
   scope :admins
+  scope :active
+  scope :blocked
+  scope :with_enabled_newsletter
+  scope :with_disabled_newsletter
 
   index do
     column :id
     column :email
+    column :preferred_language
+    column :enabled_newsletter
     column :admin
     column :provider_names do |user|
       user.provider_names.join(', ')

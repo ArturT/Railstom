@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   scope :admins, -> { where(admin: true) }
   scope :active, -> { where(blocked: false) }
   scope :blocked, -> { where(blocked: true) }
+  scope :with_enabled_newsletter, -> { where(enabled_newsletter: true) }
+  scope :with_disabled_newsletter, -> { where(enabled_newsletter: false) }
 
   validates :preferred_language, presence: true
   validate :valid_preferred_language
