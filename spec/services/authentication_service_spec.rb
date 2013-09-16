@@ -3,7 +3,7 @@ require 'spec_helper'
 describe AuthenticationService do
   let(:authentication_repository) { double }
   let(:provider) { 'provider' }
-  let(:uid) { 'uid_provider' }
+  let(:uid) { 123 }
   let(:omniauth_hash) do
     {
       'provider' => provider,
@@ -45,6 +45,16 @@ describe AuthenticationService do
       it 'returns result of build_with_omniauth' do
         expect(subject.find_or_build).to eql result_build_with_omniauth
       end
+    end
+  end
+
+  describe '#build_with_omniauth' do
+    it 'returns a new authentication with proper attributes' do
+      expect(authentication_repository).to receive(:build).with({
+        provider: provider,
+        uid: uid.to_s
+      })
+      subject.build_with_omniauth
     end
   end
 end
