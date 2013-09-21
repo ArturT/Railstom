@@ -13,10 +13,9 @@ class Injector
   let(:request) { @request }
   let(:omniauth_hash) { request.env['omniauth.auth'] }
 
-  %w(User Authentication).each do |class_name|
-    klass = class_name.constantize
-    define_method "db_#{klass.name.underscore}" do
-      klass
+  %w(User Authentication).each do |klass|
+    define_method "db_#{klass.underscore}" do
+      klass.constantize
     end
   end
 end
