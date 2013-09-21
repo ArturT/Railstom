@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe UserRepository do
   let(:db_user) { User }
+  let(:omniauth_hash) { Hash.new }
 
   subject { isolate(UserRepository) }
 
