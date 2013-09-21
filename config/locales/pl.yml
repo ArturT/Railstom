@@ -96,3 +96,4 @@ pl:
         already_linked_account: 'Już połączyłeś to konto!'
         successfully_linked_account: 'Pomyślnie połączono to konto!'
         invalid_provider: 'Niepoprawne dane of dostawcy!'
+        sign_in_before_link_account_html: 'Konto założone na Twój adres <strong>%{email}</strong> już istnieje w bazie. Proszę zalogować się na nie, a następnie w ustawieniach będzie można powiązać je z kontem <strong>%{provider}</strong>.'

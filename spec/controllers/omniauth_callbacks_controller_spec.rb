@@ -6,12 +6,14 @@ describe OmniauthCallbacksController do
   end
 
   describe '#facebook' do
+    let(:email) { 'email@example.com' }
+
     before do
       @request.env['omniauth.auth'] = {
         'provider' => 'facebook',
         'uid' => 'uid_facebook',
         'info' => {
-          'email' => 'email@example.com'
+          'email' => email
         }
       }
     end
@@ -48,9 +50,8 @@ describe OmniauthCallbacksController do
     end
 
     context 'user is not signed in' do
-      let!(:user) { create(:user) }
-
       context 'authentication is linked to user' do
+        let!(:user) { create(:user) }
         let!(:authentication_facebook) { create(:authentication_facebook, user: user) }
 
         before do
@@ -62,23 +63,38 @@ describe OmniauthCallbacksController do
       end
 
       context 'authentication is not linked to user' do
-        context 'a new user is valid' do
+        context "user with provider email exists in db" do
+          let!(:user) { create(:user, email: email) }
+
           before do
             get :facebook
           end
 
-          it { should redirect_to(root_path) }
-          its('flash notice') { flash[:notice].should == I18n.t('devise.omniauth_callbacks.success', kind: 'Facebook') }
+          it { should redirect_to(new_user_session_path) }
+          its('flash notice') { flash[:notice].should == I18n.t('controllers.omniauth_callbacks.flash.sign_in_before_link_account_html', email: email, provider: 'facebook') }
         end
 
-        context 'a new user is not valid' do
-          before do
-            @request.env['omniauth.auth'] = {} # invalid data from provider
-            get :facebook
+        context "user with provider email doesn't exist in db" do
+          let!(:user) { create(:user) }
+
+          context 'a new user is valid' do
+            before do
+              get :facebook
+            end
+
+            it { should redirect_to(root_path) }
+            its('flash notice') { flash[:notice].should == I18n.t('devise.omniauth_callbacks.success', kind: 'Facebook') }
           end
 
-          it { should redirect_to(new_user_registration_path) }
-          its('flash notice') { flash[:notice].should == I18n.t('controllers.omniauth_callbacks.flash.invalid_provider') }
+          context 'a new user is not valid' do
+            before do
+              @request.env['omniauth.auth'] = {} # invalid data from provider
+              get :facebook
+            end
+
+            it { should redirect_to(new_user_registration_path) }
+            its('flash notice') { flash[:notice].should == I18n.t('controllers.omniauth_callbacks.flash.invalid_provider') }
+          end
         end
       end
     end

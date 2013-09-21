@@ -99,3 +99,4 @@ en:
         already_linked_account: 'Already linked that account!'
         successfully_linked_account: 'Successfully linked that account!'
         invalid_provider: 'Invalid data from provider!'
+        sign_in_before_link_account_html: 'Account with your address <strong>%{email}</strong> already exists. Please sign in and go to settings to connect your account with <strong>%{provider}</strong>.'

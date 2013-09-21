@@ -11,4 +11,16 @@ class AuthenticationService
       uid: omniauth_hash['uid'].to_s
     })
   end
+
+  def user_linked?(authentication, user = current_user)
+    authentication.user == user
+  end
+
+  def user_link_with(authentication, user = current_user)
+    authentication.update_attribute(:user, user)
+  end
+
+  def has_user?(authentication)
+    !authentication.user.blank?
+  end
 end
