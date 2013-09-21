@@ -2,6 +2,7 @@ require 'dependor/shorty'
 
 class Injector
   include Dependor::AutoInject
+  extend Dependor::Let
 
   def initialize(current_user = nil, request = nil)
     @current_user = current_user
@@ -12,9 +13,10 @@ class Injector
   let(:request) { @request }
   let(:omniauth_hash) { request.env['omniauth.auth'] }
 
-  %(User Authentication).each do |klass|
+  %w(User Authentication).each do |class_name|
+    klass = class_name.constantize
     define_method "db_#{klass.name.underscore}" do
-      klass.constantize
+      klass
     end
   end
 end
