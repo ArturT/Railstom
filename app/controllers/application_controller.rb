@@ -76,7 +76,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def default_url_options(options={})
+  # http://stackoverflow.com/a/12623162/905697
+  # Devise requires the method to be defined like that (and not like the rails documentation states)
+  def self.default_url_options(options={})
     logger.debug "default_url_options is passed options: #{options.inspect}\n"
     { :locale => I18n.locale }
   end
