@@ -5,9 +5,12 @@ describe UserSettingsController do
 
   subject { response }
 
+  before do
+    sign_in user
+  end
+
   describe '#edit' do
     before do
-      sign_in user
       get :edit, locale: I18n.locale
     end
 
@@ -23,10 +26,6 @@ describe UserSettingsController do
         'remove_avatar' => '',
         'enabled_newsletter' => true
       }
-    end
-
-    before do
-      sign_in user
     end
 
     context 'valid user params' do
