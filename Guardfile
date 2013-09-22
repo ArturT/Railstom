@@ -7,14 +7,14 @@ guard 'bundler' do
   # watch(/^.+\.gemspec/)
 end
 
-guard 'jasmine', server: :thin, server_mount: '/specs', all_on_start: false do
+guard 'jasmine', server: :thin, server_mount: '/specs', all_on_start: ENV['GUARD_ALL_ON_START'] || false do
   watch(%r{spec/javascripts/spec\.(js\.coffee|js|coffee)$}) { 'spec/javascripts' }
   watch(%r{spec/javascripts/.+_spec\.(js\.coffee|js|coffee)$})
   watch(%r{spec/javascripts/fixtures/.+$})
   watch(%r{app/assets/javascripts/(.+?)\.(js\.coffee|js|coffee)(?:\.\w+)*$}) { |m| "spec/javascripts/#{ m[1] }_spec.#{ m[2] }" }
 end
 
-guard 'rspec', bundler: true, all_after_pass: false, all_on_start: false, cli: '--tty' do
+guard 'rspec', bundler: true, all_after_pass: false, all_on_start: ENV['GUARD_ALL_ON_START'] || false, cli: '--tty' do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }

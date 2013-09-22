@@ -258,6 +258,9 @@ Run specs via guard. If you change some code or spec file then proper spec will 
     $ foreman start
     // wait until loaded and press Enter to run all specs
 
+    // or set flag to run all specs on start
+    $ GUARD_ALL_ON_START=1 foreman start
+
 Run specific spec via `zeus`:
 
     $ zeus rspec spec/models/user_spec.rb
