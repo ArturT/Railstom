@@ -192,6 +192,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'rspec-sidekiq'
   gem 'timecop'
+  gem 'json_spec'
 end
 
 group :production do

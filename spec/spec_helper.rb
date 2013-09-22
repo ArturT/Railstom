@@ -153,6 +153,8 @@ Spork.prefork do
 
     config.include LoginFeatureHelper, :type => :feature
     config.include LoginRequestHelper, :type => :request
+
+    config.include JsonSpec::Helpers
   end
 
   CarrierWave.configure do |config|
