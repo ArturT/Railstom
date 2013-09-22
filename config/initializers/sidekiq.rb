@@ -1,4 +1,6 @@
 require 'sidekiq/middleware/i18n'
+require 'dependor'
+require 'dependor/shorty'
 
 sidekiq_redis = {
   url: Figaro.env.redis_url,
