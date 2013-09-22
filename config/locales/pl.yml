@@ -56,9 +56,9 @@ pl:
       hello: "Witaj Świecie"
   _my_account:
     title: 'Moje konto'
-    account_settings: 'Ustawienia konta'
+    account_settings: 'Zmień email & hasło'
     user_settings: 'Ustawienia użytkownika'
-    cancel_account: 'Inne'
+    cancel_account: 'Anuluj konto'
   registrations:
     edit:
       facebook:

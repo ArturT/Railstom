@@ -59,9 +59,9 @@ en:
       hello: "Hello World"
   _my_account:
     title: 'My account'
-    account_settings: 'Account settings'
+    account_settings: 'Edit email & password'
     user_settings: 'User settings'
-    cancel_account: 'Other'
+    cancel_account: 'Cancel account'
   registrations:
     edit:
       facebook:
