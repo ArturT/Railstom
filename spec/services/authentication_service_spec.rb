@@ -68,7 +68,7 @@ describe AuthenticationService do
         end
 
         it 'returns true' do
-          subject.user_linked?(authentication, user).should be_true
+          expect(subject.user_linked?(authentication, user)).to be_true
         end
       end
 
@@ -78,7 +78,7 @@ describe AuthenticationService do
         end
 
         it 'returns false' do
-          subject.user_linked?(authentication, user).should be_false
+          expect(subject.user_linked?(authentication, user)).to be_false
         end
       end
     end
@@ -90,7 +90,7 @@ describe AuthenticationService do
         end
 
         it 'returns true' do
-          subject.user_linked?(authentication).should be_true
+          expect(subject.user_linked?(authentication)).to be_true
         end
       end
 
@@ -100,7 +100,7 @@ describe AuthenticationService do
         end
 
         it 'returns false' do
-          subject.user_linked?(authentication).should be_false
+          expect(subject.user_linked?(authentication)).to be_false
         end
       end
     end
@@ -118,6 +118,25 @@ describe AuthenticationService do
       it 'updates attribute user for authentication with current user' do
         expect(authentication).to receive(:update_attribute).with(:user, current_user)
         subject.user_link_with(authentication)
+      end
+    end
+  end
+
+  describe '#has_user?' do
+    context 'when authentication is linked with user' do
+      it 'returns true' do
+        authentication.stub(:user).and_return(user)
+        expect(subject.has_user?(authentication)).to be_true
+      end
+    end
+
+    context 'when authentication is not linked with user' do
+      it 'returns false' do
+        authentication.stub(:user).and_return(nil)
+        expect(subject.has_user?(authentication)).to be_false
+
+        authentication.stub(:user).and_return('')
+        expect(subject.has_user?(authentication)).to be_false
       end
     end
   end
