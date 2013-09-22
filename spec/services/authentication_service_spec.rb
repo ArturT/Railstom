@@ -10,7 +10,9 @@ describe AuthenticationService do
       'uid' => uid
     }
   end
-  let(:current_user) { double }
+  let(:authentication) { mock_model(Authentication) }
+  let(:current_user) { mock_model(User) }
+  let(:user) { mock_model(User) }
 
   subject { isolate(AuthenticationService) }
 
@@ -55,6 +57,52 @@ describe AuthenticationService do
         uid: uid.to_s
       })
       subject.build_with_omniauth
+    end
+  end
+
+  describe '#user_linked?' do
+    context 'when user argument is given' do
+      context 'when user is linked' do
+        before do
+          authentication.stub(:user).and_return(user)
+        end
+
+        it 'returns true' do
+          subject.user_linked?(authentication, user).should be_true
+        end
+      end
+
+      context 'when user is not linked' do
+        before do
+          authentication.stub(:user).and_return(nil)
+        end
+
+        it 'returns false' do
+          subject.user_linked?(authentication, user).should be_false
+        end
+      end
+    end
+
+    context 'when user argument is not given then use current_user' do
+      context 'when current user is linked' do
+        before do
+          authentication.stub(:user).and_return(current_user)
+        end
+
+        it 'returns true' do
+          subject.user_linked?(authentication).should be_true
+        end
+      end
+
+      context 'when current user is not linked' do
+        before do
+          authentication.stub(:user).and_return(nil)
+        end
+
+        it 'returns false' do
+          subject.user_linked?(authentication).should be_false
+        end
+      end
     end
   end
 end
