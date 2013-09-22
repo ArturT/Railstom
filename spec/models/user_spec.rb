@@ -8,6 +8,33 @@ describe User do
   it { should be_valid }
   it { should have_many(:authentications) }
 
+  describe 'nickname' do
+    it { should validate_uniqueness_of(:nickname) }
+    it { should ensure_length_of(:nickname).is_at_least(3).is_at_most(20) }
+
+    it 'allow to create multiple users with nil nickname' do
+      create(:user, nickname: nil)
+      create(:user, nickname: nil)
+    end
+
+    context 'valid format' do
+      it { should allow_value(nil).for(:nickname) }
+
+      it { should allow_value('UserName').for(:nickname) }
+      it { should allow_value('123456').for(:nickname) }
+      it { should allow_value('User123').for(:nickname) }
+    end
+
+    context 'invalid format' do
+      it { should_not allow_value('').for(:nickname) }
+
+      it { should_not allow_value('User Name').for(:nickname) }
+      it { should_not allow_value('123 456').for(:nickname) }
+      it { should_not allow_value('User 123').for(:nickname) }
+      it { should_not allow_value('żółw').for(:nickname) }
+    end
+  end
+
   its(:admin) { should be_false }
   its(:blocked) { should be_false }
   its(:blocked_at) { should be_nil }

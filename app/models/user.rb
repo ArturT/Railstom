@@ -19,6 +19,11 @@ class User < ActiveRecord::Base
   scope :with_enabled_newsletter, -> { where(enabled_newsletter: true) }
   scope :with_disabled_newsletter, -> { where(enabled_newsletter: false) }
 
+  validates :nickname,
+    uniqueness: { case_sensitive: false },
+    length: { in: 3..20 },
+    format: { with: /\A([a-z0-9])+\Z/i },
+    allow_nil: true
   validates :preferred_language, presence: true
   validate :valid_preferred_language
 

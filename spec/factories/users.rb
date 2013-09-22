@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :user do
+    sequence(:nickname) { |n| "nickname#{n}" }
     sequence(:email) { |n| "user#{n}@example.com" }
     password 'password'
     preferred_language I18n.default_locale

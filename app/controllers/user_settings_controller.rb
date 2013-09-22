@@ -19,6 +19,6 @@ class UserSettingsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:avatar, :avatar_cache, :remove_avatar, :enabled_newsletter, :preferred_language)
+    params.require(:user).permit(:nickname, :avatar, :avatar_cache, :remove_avatar, :enabled_newsletter, :preferred_language)
   end
 end

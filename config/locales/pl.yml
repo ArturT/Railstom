@@ -73,10 +73,13 @@ pl:
     edit:
       title: 'Ustawienia użytkownika'
       labels:
+        nickname: 'Nazwa użytkownika'
         avatar: 'Twój avatar'
         remove_avatar: 'Usuń avatar (zostanie ustawiony jako domyślny gravatar)'
         enabled_newsletter: 'Zapisz mnie na newsletter'
         preferred_language: 'Preferowany język powiadomień mailowych'
+      hints:
+        nickname: 'Powinna składać się z liter lub cyfr bez polskich znaków.'
     update:
       successfully_saved: 'Pomyślnie zapisano ustawienia!'
     authentication:

@@ -2,6 +2,12 @@
   <h2><%= t('.title') %></h2>
 
   <%= simple_form_for(current_user, url: user_settings_path) do |f| %>
+    <div class="row extra-margin-top">
+      <div class="large-12 columns">
+        <%= f.input :nickname, label: t('.labels.nickname'), hint: t('.hints.nickname') %>
+      </div>
+    </div>
+
     <div class="row">
       <div class="large-12 columns">
         <%= image_tag current_user.avatar.normal.url, class: 'th' %>
