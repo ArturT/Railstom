@@ -61,7 +61,7 @@ describe AuthenticationService do
   end
 
   describe '#user_linked?' do
-    context 'when user argument is given' do
+    context 'when checking if given user is linked' do
       context 'when user is linked' do
         before do
           authentication.stub(:user).and_return(user)
@@ -83,7 +83,7 @@ describe AuthenticationService do
       end
     end
 
-    context 'when user argument is not given then use current_user' do
+    context 'when checking if current user is linked' do
       context 'when current user is linked' do
         before do
           authentication.stub(:user).and_return(current_user)
