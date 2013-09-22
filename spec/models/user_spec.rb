@@ -13,50 +13,6 @@ describe User do
   its(:enabled_newsletter) { should be_true }
   its(:preferred_language) { should eql I18n.default_locale }
 
-  describe '.build_with_omniauth' do
-    let(:email) { 'email@example.com' }
-    let(:avatar) { 'https://graph.facebook.com/username/picture?type=large' }
-    let(:auth) do
-      {
-        'info' => {
-          'email' => email,
-          'avatar' => avatar
-        }
-      }
-    end
-
-    subject { User.build_with_omniauth(auth) }
-
-    it { should be_new_record }
-    its(:email) { should eql(email) }
-    its(:password) { should_not be_nil }
-    its(:confirmed_at) { should_not be_nil }
-    # FIXME find way how to test it
-    # its(:remote_avatar_url) { should eql(avatar) }
-  end
-
-  describe '#confirm' do
-    before do
-      subject.confirmed_at = nil
-      subject.confirmation_token = 'token'
-
-      subject.confirm
-    end
-
-    its(:confirmed_at) { should_not be_nil }
-    its(:confirmation_token) { should be_nil }
-  end
-
-  describe '#generate_password' do
-    before do
-      subject.password = nil
-
-      subject.generate_password
-    end
-
-    its(:password) { should_not be_nil }
-  end
-
   describe '#has_provider?' do
     subject { create(:user) }
 

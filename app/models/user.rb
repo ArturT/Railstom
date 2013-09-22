@@ -22,30 +22,6 @@ class User < ActiveRecord::Base
   validates :preferred_language, presence: true
   validate :valid_preferred_language
 
-  def self.build_with_omniauth(auth)
-    user = self.new
-
-    if auth['info']
-      user.email = auth['info']['email']
-      user.remote_avatar_url = auth['info']['image']
-    end
-    user.generate_password
-    user.confirm
-    user.password_changed = false
-    user.preferred_language = I18n.locale
-
-    user
-  end
-
-  def confirm
-    self.confirmation_token = nil
-    self.confirmed_at = Time.now.utc
-  end
-
-  def generate_password
-    self.password = SecureRandom.urlsafe_base64[0..7]
-  end
-
   def has_provider?(provider)
     self.authentications.where(provider: provider).present?
   end
