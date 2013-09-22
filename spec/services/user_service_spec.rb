@@ -23,13 +23,17 @@ describe UserService do
 
   describe '#build_with_omniauth' do
     it 'returns a new user with proper attributes' do
-      expect(generator_service).to receive(:password).with(8).and_return(password)
-      expect(user_repository).to receive(:build).with({
-        email: email,
-        remote_avatar_url: avatar,
-        password: password
-      })
-      subject.build_with_omniauth
+      Timecop.freeze do
+        expect(generator_service).to receive(:password).with(8).and_return(password)
+        expect(user_repository).to receive(:build).with({
+          email: email,
+          remote_avatar_url: avatar,
+          password: password,
+          confirmation_token: nil,
+          confirmed_at: Time.now.utc
+        })
+        subject.build_with_omniauth
+      end
     end
   end
 end
