@@ -49,4 +49,13 @@ describe UserSettingsController do
       it { should render_template(:edit) }
     end
   end
+
+  describe '#authentication' do
+    before do
+      get :authentication, locale: I18n.locale
+    end
+
+    it { should be_success }
+    it { should render_template(:authentication) }
+  end
 end

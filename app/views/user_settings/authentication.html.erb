@@ -1,0 +1,7 @@
+<% content_for :my_account_content do %>
+  <h2><%= t('.title') %></h2>
+
+  <%= display_link_to_connect_with_provider(:facebook, 'facebook-sign', t('.providers.link_facebook'), t('.providers.linked_facebook')) %>
+<% end %>
+
+<%= render 'common/my_account' %>

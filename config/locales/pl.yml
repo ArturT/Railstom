@@ -58,6 +58,7 @@ pl:
     title: 'Moje konto'
     account_settings: 'Zmień email & hasło'
     user_settings: 'Ustawienia użytkownika'
+    authentication: 'Metody logowania'
     cancel_account: 'Anuluj konto'
   registrations:
     edit:
@@ -78,6 +79,11 @@ pl:
         preferred_language: 'Preferowany język powiadomień mailowych'
     update:
       successfully_saved: 'Pomyślnie zapisano ustawienia!'
+    authentication:
+      title: 'Metody logowania'
+      providers:
+        link_facebook: 'Powiąż swoje konto z Facebookiem.'
+        linked_facebook: 'Twoje konto jest już powiązane z Facebookiem.'
 
   controllers:
     application:

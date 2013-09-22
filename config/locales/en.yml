@@ -61,6 +61,7 @@ en:
     title: 'My account'
     account_settings: 'Edit email & password'
     user_settings: 'User settings'
+    authentication: 'Authentication methods'
     cancel_account: 'Cancel account'
   registrations:
     edit:
@@ -81,6 +82,11 @@ en:
         preferred_language: 'Preferred language for email notification'
     update:
       successfully_saved: 'Your settings has been successfully saved!'
+    authentication:
+      title: 'Authentication methods'
+      providers:
+        link_facebook: 'Connect your account with Facebook.'
+        linked_facebook: 'Your account is linked with Facebook.'
 
   controllers:
     application:

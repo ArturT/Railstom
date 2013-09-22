@@ -13,6 +13,9 @@ class UserSettingsController < ApplicationController
     end
   end
 
+  def authentication
+  end
+
   private
 
   def user_params
