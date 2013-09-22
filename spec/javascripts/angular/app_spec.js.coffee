@@ -1,4 +1,4 @@
-#= require angular/app
+#= require angular/app/app
 
 describe 'App', ->
   beforeEach module('App')

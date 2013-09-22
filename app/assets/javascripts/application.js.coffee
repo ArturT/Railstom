@@ -21,7 +21,7 @@
 #= require turbolinks
 #
 # TODO add manual files which should be included
-#= require_tree ./angular
+#= require ./angular/index
 #= require global
 #
 #= require_tree ../../../vendor/assets/javascripts
