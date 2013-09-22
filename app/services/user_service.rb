@@ -5,7 +5,9 @@ class UserService
     attrs = {
       password: generator_service.password(8),
       confirmation_token: nil,
-      confirmed_at: Time.now.utc
+      confirmed_at: Time.now.utc,
+      password_changed: false,
+      preferred_language: I18n.locale
     }
 
     if omniauth_hash['info']

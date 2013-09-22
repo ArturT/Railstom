@@ -32,7 +32,9 @@ describe UserService do
           remote_avatar_url: avatar,
           password: password,
           confirmation_token: nil,
-          confirmed_at: Time.now.utc
+          confirmed_at: Time.now.utc,
+          password_changed: false,
+          preferred_language: I18n.locale
         })
         subject.build_with_omniauth
       end
