@@ -105,4 +105,20 @@ describe AuthenticationService do
       end
     end
   end
+
+  describe '#user_link_with' do
+    context 'when link given user' do
+      it 'updates attribute user for authentication with given user' do
+        expect(authentication).to receive(:update_attribute).with(:user, user)
+        subject.user_link_with(authentication, user)
+      end
+    end
+
+    context 'when link current user' do
+      it 'updates attribute user for authentication with current user' do
+        expect(authentication).to receive(:update_attribute).with(:user, current_user)
+        subject.user_link_with(authentication)
+      end
+    end
+  end
 end
