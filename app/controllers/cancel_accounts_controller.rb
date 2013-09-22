@@ -1,4 +1,6 @@
 class CancelAccountsController < ApplicationController
+  inject :user_service
+
   before_action :authenticate_user!
 
   def edit
@@ -7,8 +9,7 @@ class CancelAccountsController < ApplicationController
 
   def destroy
     if current_user.valid_password?(params[:user][:current_password])
-      current_user.blocked = true
-      current_user.save!
+      user_service.cancel_account!
       sign_out :user
       flash[:success] = t('controllers.cancel_accounts.flash.account_deleted')
       redirect_to after_sign_out_path_for(current_user)

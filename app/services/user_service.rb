@@ -1,5 +1,5 @@
 class UserService
-  takes :user_repository, :omniauth_hash, :generator_service
+  takes :user_repository, :omniauth_hash, :generator_service, :current_user
 
   def build_with_omniauth
     attrs = {
@@ -14,5 +14,12 @@ class UserService
     end
 
     user_repository.build(attrs)
+  end
+
+  def cancel_account!(user = current_user)
+    user.update_attributes({
+      blocked: true,
+      blocked_at: Time.now.utc
+    })
   end
 end

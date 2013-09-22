@@ -10,6 +10,7 @@ describe User do
 
   its(:admin) { should be_false }
   its(:blocked) { should be_false }
+  its(:blocked_at) { should be_nil }
   its(:enabled_newsletter) { should be_true }
   its(:preferred_language) { should eql I18n.default_locale }
 

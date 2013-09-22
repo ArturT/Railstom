@@ -41,8 +41,6 @@ describe CancelAccountsController do
       before do
         controller.current_user.stub(:valid_password?).and_return(true)
 
-        expect(controller.current_user).to receive(:blocked=).with(true)
-        expect(controller.current_user).to receive(:save!)
         expect(controller).to receive(:sign_out).with(:user)
 
         delete :destroy, locale: I18n.locale, user: {}
@@ -53,6 +51,12 @@ describe CancelAccountsController do
       end
 
       its(:response) { expect(response.code).to eql '302' }
+
+      it 'blocks user account' do
+        user.reload
+        expect(user.blocked?).to be_true
+        expect(user.blocked_at).not_to be_nil
+      end
     end
 
     context 'invalid password' do

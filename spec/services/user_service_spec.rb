@@ -18,6 +18,8 @@ describe UserService do
   let(:generator_service) do
     double(:generator_service, password: password, nickname_with_omniauth: nickname)
   end
+  let(:current_user) { mock_model(User) }
+  let(:user) { mock_model(User) }
 
   subject { isolate(UserService) }
 
@@ -33,6 +35,32 @@ describe UserService do
           confirmed_at: Time.now.utc
         })
         subject.build_with_omniauth
+      end
+    end
+  end
+
+  describe '#cancel_account!' do
+    context 'when user is given' do
+      it 'blocks given user account' do
+        Timecop.freeze do
+          expect(user).to receive(:update_attributes).with({
+            blocked: true,
+            blocked_at: Time.now.utc
+          })
+          subject.cancel_account!(user)
+        end
+      end
+    end
+
+    context 'when user is not given' do
+      it 'blocks current user account' do
+        Timecop.freeze do
+          expect(current_user).to receive(:update_attributes).with({
+            blocked: true,
+            blocked_at: Time.now.utc
+          })
+          subject.cancel_account!
+        end
       end
     end
   end

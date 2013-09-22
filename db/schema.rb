@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130908200410) do
+ActiveRecord::Schema.define(version: 20130922122223) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "resource_id",   null: false
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20130908200410) do
     t.string   "avatar"
     t.boolean  "enabled_newsletter",     default: true,  null: false
     t.string   "preferred_language",     default: "",    null: false
+    t.datetime "blocked_at"
   end
 
   add_index "users", ["blocked"], name: "index_users_on_blocked", using: :btree
@@ -104,6 +105,6 @@ ActiveRecord::Schema.define(version: 20130908200410) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
 
-  add_foreign_key "authentications", "users", :name => "authentications_user_id_fk"
+  add_foreign_key "authentications", "users", name: "authentications_user_id_fk"
 
 end

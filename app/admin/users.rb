@@ -14,6 +14,8 @@ ActiveAdmin.register User do
     column :provider_names do |user|
       user.provider_names.join(', ')
     end
+    column :blocked
+    column :blocked_at
     column :current_sign_in_at
     column :last_sign_in_at
     column :current_sign_in_ip
