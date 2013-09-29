@@ -174,6 +174,7 @@ group :development, :test do
   gem 'ffaker'
   gem 'forgery'
   gem 'brakeman', require: false
+  gem 'byebug'
 end
 
 group :test do
