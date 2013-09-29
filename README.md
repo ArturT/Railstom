@@ -344,13 +344,21 @@ Sidekiq provides a few options for testing your workers.
 
 ## Tips
 
+    # start all services
     $ cap production deploy:start
+
+    # restart all services
     $ cap production deploy:restart
+
+    # stop all services
     $ cap production deploy:stop
 
-    $ cap production sidekiq:start
-    $ cap production sidekiq:restart
-    $ cap production sidekiq:stop
+
+    # Sidekiq service
+    $ cap production deploy:services:sidekiq:start
+    $ cap production deploy:services:sidekiq:restart
+    $ cap production deploy:services:sidekiq:stop
+    $ cap production deploy:services:sidekiq:status
 
 
 Run a task on a remote server:
