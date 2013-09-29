@@ -166,7 +166,7 @@ group :development, :test do
   gem 'bullet'
   gem 'thin'
   gem 'rspec-rails'
-  gem 'jasmine-rails', github: 'searls/jasmine-rails'
+  gem 'jasmine-rails'
   gem 'guard-jasmine'
   gem 'factory_girl_rails'
   gem 'quiet_assets'
