@@ -1,5 +1,3 @@
-require 'dependor/shorty'
-
 class Injector
   include Dependor::AutoInject
   extend Dependor::Let
