@@ -56,7 +56,7 @@ gem 'devise-i18n-views'
 gem 'font-awesome-rails'
 
 # simple form
-gem 'simple_form', github: 'plataformatec/simple_form'
+gem 'simple_form'
 
 gem 'kaminari'
 #gem 'bootstrap-kaminari-views'
@@ -87,7 +87,7 @@ gem 'omniauth-openid'
 gem 'fb_graph'
 
 gem 'formtastic', github: 'justinfrench/formtastic'
-gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'cancan'
 gem 'rolify'
