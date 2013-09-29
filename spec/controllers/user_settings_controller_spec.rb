@@ -29,11 +29,12 @@ describe UserSettingsController do
         'nickname' => nickname
       }
     end
+    let(:expected_user_params) { user_params }
 
     context 'valid user params' do
       shared_examples 'update user attributes' do
         before do
-          expect(controller.current_user).to receive(:update_attributes).with(user_params).and_return(true)
+          expect(controller.current_user).to receive(:update_attributes).with(expected_user_params).and_return(true)
           patch :update, locale: I18n.locale, user: user_params
         end
 
@@ -41,15 +42,29 @@ describe UserSettingsController do
         it { should redirect_to edit_user_settings_url }
       end
 
-      context 'when nickname is blank' do
-        let(:nickname) { '' }
-        # user_params won't contain nickname
-        before { user_params.delete('nickname') }
-        it_behaves_like 'update user attributes'
+      context 'when user has nickname' do
+        context 'when nickname in params is blank' do
+          let(:nickname) { '' }
+          it_behaves_like 'update user attributes'
+        end
+
+        context 'when nickname in params is not blank' do
+          it_behaves_like 'update user attributes'
+        end
       end
 
-      context 'when nickname is not blank' do
-        it_behaves_like 'update user attributes'
+      context 'when user has no nickname' do
+        let(:user) { create(:user, nickname: nil) }
+
+        context 'when nickname in params is blank' do
+          let(:nickname) { '' }
+          before { expected_user_params.delete('nickname') }
+          it_behaves_like 'update user attributes'
+        end
+
+        context 'when nickname in params is not blank' do
+          it_behaves_like 'update user attributes'
+        end
       end
     end
 

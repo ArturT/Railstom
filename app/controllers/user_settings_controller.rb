@@ -20,8 +20,11 @@ class UserSettingsController < ApplicationController
 
   def user_params
     permitted = [:avatar, :avatar_cache, :remove_avatar, :enabled_newsletter, :preferred_language]
-    # don't update nickname if blank
-    permitted << :nickname unless params[:user][:nickname].blank?
+
+    if params[:user][:nickname].present? || current_user.nickname.present?
+      permitted << :nickname
+    end
+
     params.require(:user).permit(*permitted)
   end
 end
