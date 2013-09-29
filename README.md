@@ -13,6 +13,10 @@ Rails Custom
 
 ## Dependencies
 
+### Ruby
+
+You must use ruby 2.0.0-p247 or higher.
+
 ### Libs
 
 #### Linux
