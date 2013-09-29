@@ -6,8 +6,8 @@
 # loadIconSize="icon-large" [optional] add class icon-large to the icon
 angular.module('App').directive 'loadIcon', ->
   (scope, element, attrs) ->
-    $(element).attr('data-no-turbolink', true)
-    $(element).click (e) ->
+    element.attr('data-no-turbolink', true)
+    element.click (e) ->
       # Don't run twice when double click
       if $(this).hasClass('prevent-default')
         e.preventDefault()
