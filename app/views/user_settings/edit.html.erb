@@ -42,7 +42,7 @@
     <div class="row extra-margin-top">
       <div class="large-12 columns">
         <%= f.hidden_field :avatar_cache %>
-        <%= f.button :submit, t('layouts.application.buttons.save') %>
+        <%= button_tag t('layouts.application.buttons.save'), data: { 'load-icon' => 'append', 'load-icon-margin' => 'left:10px' } %>
       </div>
     </div>
   <% end %>
