@@ -44,8 +44,8 @@ pickle-email-*.html
 # $ brakeman -o brakeman.html
 /brakeman.html
 
-# Ignore uploaded files
-/public/uploads/*
+# Ignore uploads dir (must be ignored to make symlink via capistrano)
+/public/uploads
 
 # Ignore application configuration
 /config/application.yml

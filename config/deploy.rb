@@ -77,7 +77,7 @@ namespace :deploy do
   task :symlink_shared do
     cmd = "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     cmd << " && ln -nfs #{shared_path}/config/application.yml #{release_path}/config/application.yml"
-    cmd << " && ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
+    cmd << " && ln -nfs #{shared_path}/uploads #{release_path}/public"
     cmd << " && ln -nfs #{shared_path}/config/unicorn.cfg.rb #{release_path}/config/unicorn.cfg.rb"
     run cmd
   end
