@@ -115,6 +115,8 @@ gem 'sass-rails', '~> 4.0.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
+gem 'non-stupid-digest-assets'
+
 gem 'zurb-foundation'
 gem 'foundation-icons-sass-rails'
 
