@@ -117,10 +117,18 @@ Spork.prefork do
     config.before(:each) do
       DatabaseCleaner.start
       Capybara.current_driver = :selenium if example.metadata[:selenium]
-      # https://github.com/mperham/sidekiq/wiki/Testing#testing-worker-queueing
-      load 'sidekiq/testing.rb' if example.metadata[:sidekiq]
+
+      # https://github.com/mperham/sidekiq/wiki/Testing#testing-worker-queueing-fake
+      if example.metadata[:sidekiq]
+        load 'sidekiq/testing.rb'
+        Sidekiq::Testing.fake!
+      end
+
       # https://github.com/mperham/sidekiq/wiki/Testing#testing-workers-inline
-      load 'sidekiq/testing/inline.rb' if example.metadata[:sidekiq_inline]
+      if example.metadata[:sidekiq_inline]
+        require 'sidekiq/testing'
+        Sidekiq::Testing.inline!
+      end
     end
 
     config.after(:each) do
@@ -128,11 +136,7 @@ Spork.prefork do
       Capybara.use_default_driver if example.metadata[:selenium]
 
       if example.metadata[:sidekiq] || example.metadata[:sidekiq_inline]
-        Sidekiq::Client.class_eval do
-          singleton_class.class_eval do
-            alias_method :raw_push, :raw_push_old
-          end
-        end
+        Sidekiq::Testing.disable!
       end
     end
 
