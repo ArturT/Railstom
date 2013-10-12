@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 3074ed519a9cd85cefda650475adc73ddcfce1ee
+  revision: 3d0fb31a07427acec4e6f4fb0ea7c03659733c47
   specs:
     activeadmin (0.6.1)
       arbre (~> 1.0)
