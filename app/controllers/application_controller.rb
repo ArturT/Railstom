@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
+  add_flash_types :success, :info, :warning, :error
+
   before_action :logout_blocked_user
   before_action :set_locale
   around_action :set_time_zone
