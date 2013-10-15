@@ -23,11 +23,11 @@ class NewsletterService
   end
 
   def recipients_all
-    User.where('id > ?', last_user_id).take(recipients_limit)
+    User.active.where('id > ?', last_user_id).take(recipients_limit)
   end
 
   def recipients_with_preferred_language
-    User.where('id > ?', last_user_id).where(preferred_language: newsletter.language).take(recipients_limit)
+    User.active.where('id > ?', last_user_id).where(preferred_language: newsletter.language).take(recipients_limit)
   end
 
   def last_user_id

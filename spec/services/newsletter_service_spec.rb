@@ -134,8 +134,9 @@ describe NewsletterService do
     end
 
     it 'returns limited amount of users with id greater than last_user_id' do
-      users = double
-      expect(User).to receive(:where).with('id > ?', last_user_id).and_return(users)
+      users, active_users = double, double
+      expect(User).to receive(:active).and_return(active_users)
+      expect(active_users).to receive(:where).with('id > ?', last_user_id).and_return(users)
       expect(users).to receive(:take).with(recipients_limit)
       subject.recipients_all
     end
@@ -148,8 +149,9 @@ describe NewsletterService do
     end
 
     it 'returns limited amount of users with id greater than last_user_id and preferred language' do
-      users, users_with_preferred_language = double, double
-      expect(User).to receive(:where).with('id > ?', last_user_id).and_return(users)
+      users, active_users, users_with_preferred_language = double, double, double
+      expect(User).to receive(:active).and_return(active_users)
+      expect(active_users).to receive(:where).with('id > ?', last_user_id).and_return(users)
       expect(users).to receive(:where).with(preferred_language: newsletter.language).and_return(users_with_preferred_language)
       expect(users_with_preferred_language).to receive(:take).with(recipients_limit)
       subject.recipients_with_preferred_language
