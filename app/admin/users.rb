@@ -31,6 +31,7 @@ ActiveAdmin.register User do
     f.inputs 'Edit user' do
       f.input :email
       f.input :admin
+      f.input :blocked
     end
     f.actions
   end
