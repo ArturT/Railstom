@@ -10,6 +10,7 @@
  *
  *= require foundation_and_overrides
  *= require font-awesome
+ *= require_tree ../../../vendor/assets/stylesheets/autoload
  *= require_self
  */
 // TODO add manual files which should be included

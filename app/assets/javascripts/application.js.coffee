@@ -24,7 +24,7 @@
 #= require ./angular/index
 #= require global
 #
-#= require_tree ../../../vendor/assets/javascripts
+#= require_tree ../../../vendor/assets/javascripts/autoload
 
 @onPageLoad ->
   angular.bootstrap(document, ['App'])
