@@ -26,7 +26,7 @@
 #
 #= require_tree ../../../vendor/assets/javascripts
 
-ready = ->
+@onPageLoad ->
   angular.bootstrap(document, ['App'])
   $(document).foundation()
   window.lazyImageLoader('body')
@@ -49,7 +49,3 @@ ready = ->
 
   # detect browser time zone and store in cookie
   $.cookie 'browser.time_zone', jstz.determine().name(), { expires: 365, path: '/' }
-
-
-$(document).ready(ready)
-$(document).on('page:load', ready)

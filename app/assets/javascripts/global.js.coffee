@@ -1,3 +1,8 @@
+@onPageLoad = (func) ->
+  $(document).ready(func)
+  $(document).on('page:load', func)
+
+
 @goToByScroll = (obj, allowed_margin, up_limit) ->
   if $(obj).length > 0
     allowed_max = allowed_min = current = destination = undefined
