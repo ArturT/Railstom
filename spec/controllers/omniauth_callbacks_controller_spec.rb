@@ -36,6 +36,16 @@ describe OmniauthCallbacksController do
       end
 
       context 'authentication is not linked to user' do
+        before do
+          sign_in user
+          get :facebook
+        end
+
+        it { should redirect_to(root_path) }
+        its('flash notice') { flash[:notice].should == I18n.t('controllers.omniauth_callbacks.flash.successfully_linked_account') }
+      end
+
+      context 'authentication is linked to other user' do
         let!(:other_user) { create(:user) }
         let!(:authentication_facebook) { create(:authentication_facebook, user: other_user) }
 
@@ -45,7 +55,7 @@ describe OmniauthCallbacksController do
         end
 
         it { should redirect_to(root_path) }
-        its('flash notice') { flash[:notice].should == I18n.t('controllers.omniauth_callbacks.flash.successfully_linked_account') }
+        its('flash notice') { flash[:notice].should == I18n.t('controllers.omniauth_callbacks.flash.provider_linked_with_other_account_html', provider: 'facebook') }
       end
     end
 

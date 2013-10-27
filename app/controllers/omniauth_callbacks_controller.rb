@@ -49,11 +49,13 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       # is the current user. So the authentication is already associated with
       # this user. So let's display an error message.
       redirect_to root_path, notice: t('controllers.omniauth_callbacks.flash.already_linked_account')
-    else
+    elsif authentication.new_record?
       # The authentication is not associated with the current_user so lets
       # associate the authentication
       authentication_service.user_link_with(authentication)
       redirect_to root_path, notice: t('controllers.omniauth_callbacks.flash.successfully_linked_account')
+    else
+      redirect_to root_path, notice: t('controllers.omniauth_callbacks.flash.provider_linked_with_other_account_html', provider: authentication.provider)
     end
   end
 
