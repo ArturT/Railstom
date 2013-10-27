@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe 'routes for /' do
   it { expect(get '/').to route_to("home#locale_root") }
-  it { expect(get '/en').to route_to("home#index", locale: 'en') }
-  it { expect(get '/pl').to route_to("home#index", locale: 'pl') }
+
+  I18n.available_locales.each do |locale|
+    it { expect(get "/#{locale}").to route_to("home#index", locale: locale.to_s) }
+  end
 end

@@ -8,7 +8,7 @@ Railstom::Application.routes.draw do
   # angular's templates
   get '/templates/*id' => 'templates#show', :as => :template, :format => false
 
-  scope '/:locale', constraints: { locale: /[a-z]{2}/ } do
+  scope '/:locale', constraints: { locale: /[a-zA-Z_-]{2,5}/ } do
     root :to => 'home#index'
 
     devise_for :users, controllers: {
