@@ -3,7 +3,7 @@
     <ul class="title-area">
       <!-- Title Area -->
       <li class="name">
-        <h1><a href="<%= root_path %>"><i class="icon-terminal"></i> Railstom</a></h1>
+        <h1><a href="<%= root_path %>"><i class="fa fa-terminal"></i> Railstom</a></h1>
       </li>
       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
       <li class="toggle-topbar menu-icon"><a href="#"><span><%= t('layouts.application.words.menu') %></span></a></li>
@@ -13,7 +13,7 @@
       <!-- Left Nav Section -->
       <ul class="left">
         <li class="divider"></li>
-        <li class="has-dropdown"><a href="#"><i class="icon-globe icon-large"></i> <%= I18n.locale %></a>
+        <li class="has-dropdown"><a href="#"><i class="fa fa-globe fa-lg"></i> <%= I18n.locale %></a>
           <ul class="dropdown">
             <% Locale.supported_languages.each do |locale| %>
               <li><%= link_to I18n.name_for_locale(locale), (request.get? ? url_for(locale: locale) : root_path(locale: locale)) %></li>
@@ -31,13 +31,13 @@
           <%= menu_items(
             # My account
             { name: t('layouts.application.words.my_account'),
-              icon: 'icon-wrench',
+              icon: 'fa-wrench',
               path: edit_user_settings_path,
               divider: true },
 
             # Link to active admin
             { name: 'Admin',
-              icon: 'icon-cog',
+              icon: 'fa-cog',
               path: admin_root_path,
               condition: current_user.admin?,
               data: { 'no-turbolink' => '' },
@@ -52,15 +52,15 @@
           <!-- user is signed out -->
           <li class="has-dropdown"><a href="#"><span id="sign-in-icon-container"></span><%= t('layouts.application.words.sign_in') %></a>
             <ul class="dropdown">
-              <li><%= link_to raw(%{<i class="icon-facebook-sign"></i> #{t('layouts.application.sign_up_modal.sign_in_via_facebook')}}), user_omniauth_authorize_path(:facebook), data: { 'load-icon' => '#sign-in-icon-container', 'load-icon-margin' => 'right:10px' } %></li>
-              <li><%= link_to raw(%{<i class="icon-envelope"></i> #{t('layouts.application.words.sign_in_via_email')}}), new_user_session_path %></li>
+              <li><%= link_to raw(%{<i class="fa fa-facebook-square"></i> #{t('layouts.application.sign_up_modal.sign_in_via_facebook')}}), user_omniauth_authorize_path(:facebook), data: { 'load-icon' => '#sign-in-icon-container', 'load-icon-margin' => 'right:10px' } %></li>
+              <li><%= link_to raw(%{<i class="fa fa-envelope"></i> #{t('layouts.application.words.sign_in_via_email')}}), new_user_session_path %></li>
               <li class="divider"></li>
-              <li><%= link_to raw(%{<i class="icon-key"></i> #{t("devise.passwords.new.forgot_your_password")}}), new_user_password_path %></li>
+              <li><%= link_to raw(%{<i class="fa fa-key"></i> #{t("devise.passwords.new.forgot_your_password")}}), new_user_password_path %></li>
             </ul>
           </li>
           <li class="divider"></li>
           <li class="has-form">
-            <%= link_to raw(%{#{t('layouts.application.words.sign_up')} <i class="icon-signin"></i>}), '#', class: 'button', data: { 'reveal-id' => 'signUpModal' } %>
+            <%= link_to raw(%{#{t('layouts.application.words.sign_up')} <i class="fa fa-sign-in"></i>}), '#', class: 'button', data: { 'reveal-id' => 'signUpModal' } %>
           </li>
         <% end %>
       </ul>

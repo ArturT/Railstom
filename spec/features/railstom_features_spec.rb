@@ -62,7 +62,7 @@ describe 'Railstom Features', :railstom, :js do
           click_link 'Load icon in specified element'
 
           within '#icon_load_goes_here' do
-            expect(page).to have_xpath("//i[contains(@class,'icon-spin')]")
+            expect(page).to have_xpath("//i[contains(@class,'fa-spin')]")
           end
         end
 
@@ -70,7 +70,7 @@ describe 'Railstom Features', :railstom, :js do
           within '#load_me' do
             click_link 'Load me'
 
-            expect(page).to have_xpath("//i[contains(@class,'icon-spin')]")
+            expect(page).to have_xpath("//i[contains(@class,'fa-spin')]")
           end
         end
       end

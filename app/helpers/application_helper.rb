@@ -25,7 +25,7 @@ module ApplicationHelper
   # @param *items [Array<Hash>] array of hashes
   #   Params for each hash in above array:
   #   @param name [String] link name
-  #   @param icon [String optional] awesome fonts class for icon i.e. icon-lock
+  #   @param icon [String optional] awesome fonts class for icon i.e. fa-lock
   #   @param path [String or Array<String, Hash>] URI for href, first element in Array is default path. Hash i.e. {controller: 'registrations', action: 'update'}
   #   @param condition [Boolean optional] when true or nil link will be displayed
   #   @param data [Hash optional] html data attributes
@@ -50,7 +50,7 @@ module ApplicationHelper
           end
         end
 
-        icon = item[:icon].nil? ? '' : %{<i class="#{item[:icon]}"></i>}
+        icon = item[:icon].nil? ? '' : %{<i class="fa #{item[:icon]}"></i>}
         link_name = "#{icon} #{item[:name]}"
         menu_items = %Q{<li class="#{class_name}">#{link_to raw(link_name), paths[0], method: item[:method], data: item[:data]}</li>}
 

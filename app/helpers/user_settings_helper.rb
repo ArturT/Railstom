@@ -1,6 +1,6 @@
 module UserSettingsHelper
   def display_link_to_connect_with_provider(provider, icon, link_message, linked_message)
-    icon_html = %{<i class="icon-#{icon} icon-large"></i>}
+    icon_html = %{<i class="fa fa-#{icon} fa-lg"></i>}
 
     if current_user.has_provider?(provider)
       raw "#{icon_html} #{linked_message}"

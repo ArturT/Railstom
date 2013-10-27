@@ -3,7 +3,7 @@
 # loadIcon="append" add icon append
 # loadIcon="#id|.class" add the load icon to specify element
 # loadIconMargin="left:5px|right:10px" [optional] add specify margin on the left or right side of the icon
-# loadIconSize="icon-large" [optional] add class icon-large to the icon
+# loadIconSize="fa-lg" [optional] add class fa-lg, fa-2x, fa-3x etc to the icon
 angular.module('App').directive 'loadIcon', ->
   (scope, element, attrs) ->
     element.attr('data-no-turbolink', true)
@@ -19,7 +19,7 @@ angular.module('App').directive 'loadIcon', ->
         else
           style = ""
 
-        icon = """<i class="icon-spin icon-refresh #{attrs.loadIconSize}" style="#{style}"></i>"""
+        icon = """<i class="fa fa-spin fa-refresh #{attrs.loadIconSize}" style="#{style}"></i>"""
 
         switch attrs.loadIcon
           when 'prepend' then element.prepend(icon)
