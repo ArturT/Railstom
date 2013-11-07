@@ -16,6 +16,7 @@ ActiveAdmin.register User do
     end
     column :blocked
     column :blocked_at
+    column :sign_in_count
     column :current_sign_in_at
     column :last_sign_in_at
     column :current_sign_in_ip
