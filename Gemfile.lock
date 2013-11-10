@@ -196,7 +196,7 @@ GEM
       rack-oauth2 (>= 0.14.4)
       tzinfo
     ffaker (1.20.0)
-    ffi (1.9.1)
+    ffi (1.9.3)
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
