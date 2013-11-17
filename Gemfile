@@ -89,8 +89,9 @@ gem 'fb_graph'
 gem 'formtastic', github: 'justinfrench/formtastic'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
-gem 'cancan'
-gem 'rolify'
+# uncomment if you need them
+#gem 'cancan'
+#gem 'rolify'
 
 gem 'validates_email_format_of'
 
