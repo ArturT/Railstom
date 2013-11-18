@@ -365,6 +365,11 @@ Sidekiq provides a few options for testing your workers.
     $ cap production deploy:services:sidekiq:status
 
 
+    # force assets compilation
+    $ cap production deploy:assets:force_precompile
+    $ cap production deploy:restart
+
+
 Run a task on a remote server:
 
     $ cap staging do:rake:invoke task=a_certain_task
