@@ -144,8 +144,27 @@ Spork.prefork do
       FileUtils.rm_rf(Dir["#{Rails.root}/tmp/test/carrierwave"])
     end
 
+    class QuietWebkit
+      IGNOREABLE = /CoreText performance|userSpaceScaleFactor/
+
+      def write(message)
+        if message =~ IGNOREABLE
+          0
+        else
+          puts(message)
+          1
+        end
+      end
+    end
+
+    Capybara.register_driver :quiet_webkit do |app|
+      Capybara::Webkit::Driver.new(app, stderr: QuietWebkit.new)
+    end
+
     # Default js driver
-    Capybara.javascript_driver = :webkit
+    # Capybara.javascript_driver = :webkit
+    # https://github.com/thoughtbot/capybara-webkit/issues/581
+    Capybara.javascript_driver = :quiet_webkit
 
     config.include Devise::TestHelpers, type: :view
     config.include Devise::TestHelpers, type: :controller
