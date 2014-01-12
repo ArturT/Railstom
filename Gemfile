@@ -134,7 +134,7 @@ gem 'ngmin-rails'
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder', '~> 2.0'
 
 # To use debugger
 # gem 'debugger'
