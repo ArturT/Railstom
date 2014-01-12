@@ -27,7 +27,6 @@
 #= require_tree ../../../vendor/assets/javascripts/autoload
 
 @onPageLoad ->
-  angular.bootstrap(document, ['App'])
   $(document).foundation()
   window.lazyImageLoader('body')
 
