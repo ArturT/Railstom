@@ -91,7 +91,7 @@ namespace :deploy do
     desc "Precompile assets only if it is needed"
     task :precompile, :roles => :web, :except => { :no_release => true } do
       from = source.next_revision(current_revision) rescue nil
-      if from.nil? || capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ lib/assets/ app/assets/ | wc -l").to_i > 0
+      if from.nil? || capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ lib/assets/ app/assets/ config/i18n-js.yml | wc -l").to_i > 0
         run "cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile"
       else
         logger.info "No changes on assets. Skipping pre-compilation."
