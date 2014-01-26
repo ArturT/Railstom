@@ -8,11 +8,14 @@ Railstom::Application.routes.draw do
   # angular's templates
   get '/templates/*id' => 'templates#show', :as => :template, :format => false
 
+  devise_for :users, only: :omniauth_callbacks, controllers: {
+    omniauth_callbacks: 'omniauth_callbacks'
+  }
+
   scope '/:locale', constraints: { locale: /[a-z]{2}((-|_)[a-zA-Z]{2})?/ } do
     root :to => 'home#index'
 
-    devise_for :users, controllers: {
-      omniauth_callbacks: 'omniauth_callbacks',
+    devise_for :users, skip: :omniauth_callbacks, controllers: {
       registrations: 'registrations'
     }
 
