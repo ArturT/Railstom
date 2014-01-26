@@ -17,7 +17,7 @@ SUPPORTED_LANGUAGES: en pl
 # Capistrano
 CAPISTRANO_APP_NAME: railstom # only lower case
 CAPISTRANO_REPOSITORY: git@github.com:ArturT/Railstom.git
-CAPISTRANO_RVM_RUBY_STRING: 2.0.0
+CAPISTRANO_RVM_RUBY_STRING: 2.1.0
 CAPISTRANO_USER: rubyuser
 CAPISTRANO_APP_HOST_PRODUCTION: railstom-production.com
 CAPISTRANO_APP_HOST_STAGING: railstom-staging.com
