@@ -46,7 +46,7 @@ pl:
       confirmed: 'Aktywowaliśmy Twoje konto. Proszę zaloguj się.'
     registrations:
       signed_up: 'Witaj! Zarejestrowałeś się pomyślnie.'
-      signed_up_but_unconfirmed: 'E-mail z linkiem aktywacyjnym został wysłany na Twój adres e-mail. Sprawdź e-mail, aby dokończyć rejestrację.'
+      signed_up_but_unconfirmed: 'Wiadomość z linkiem aktywacyjnym została wysłana na Twój adres e-mail. Sprawdź e-mail, aby dokończyć rejestrację.'
       signed_up_but_inactive: 'Zarejestrowałeś się pomyślnie. Niemniej jednak nie zostałeś zalogowany, ponieważ Twoje konto nie zostało jeszcze aktywowane.'
       signed_up_but_locked: 'Zarejestrowałeś się pomyślnie. Niemniej jednak nie zostałeś zalogowany, ponieważ Twoje konto zostało zablokowane.'
       updated: 'Zaktualizowałeś swoje dane.'

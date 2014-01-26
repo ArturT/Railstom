@@ -19,7 +19,7 @@ en:
         language: 'Leave blank to send newsletter to all users or choose language then only users with preferred language will receive newsletter.'
         enabled_force: 'Send newsletter to all users even if they disagree for it.'
         stopped: 'Stops sending newsletter. Newsletter will continue sending if you uncheck it.'
-        started_at: "Choose date when newsletter should be send. Newsletter will be send instantly if you won't choose date."
+        started_at: "Choose date when newsletter should be send. Newsletter will be send instantly if you don't choose date."
         preview_email: 'If you set preview email then newsletter will be send only to this address. Leave blank to send newsletter to all users.'
 
   layouts:
@@ -40,7 +40,7 @@ en:
         main_page: 'Main page'
         characters_remaining: '%{amount} characters remaining'
         too_long_text: 'Too long text'
-        please_try_later: 'Please try later.'
+        please_try_later: 'Please try again later.'
         menu: 'Menu'
       placeholders:
         email: 'email@example.com'
@@ -51,7 +51,7 @@ en:
         keywords: ''
       sign_up_modal:
         header: 'Sign up'
-        body: 'You can sign up using your Facebook account.'
+        body: 'You can sign up with your Facebook account.'
         registration_form: 'Registration form'
         sign_in_via_facebook: 'Login with Facebook'
   home:
@@ -59,7 +59,7 @@ en:
       hello: "Hello World"
   _my_account:
     title: 'My account'
-    account_settings: 'Edit email & password'
+    account_settings: 'Edit email and password'
     user_settings: 'User settings'
     authentication: 'Authentication methods'
     cancel_account: 'Cancel account'
@@ -67,11 +67,11 @@ en:
     edit:
       facebook:
         reset_password:
-          message_html: 'You signed in with facebook. You should use %{reset_password_link} to set your password.'
+          message_html: 'You signed in with Facebook. If you want to login with your own email and password use %{reset_password_link} to set your password.'
           link: 'reset password form'
   cancel_accounts:
     edit:
-      message: 'Please use current password to confirm cancel account operation. This operation cannot be undone. Only administrator can unblock your account.'
+      message: 'In order to cancel your account type in your password below and confirm. Notice that this operation cannot be undone and only administrator can unblock your account.'
   user_settings:
     edit:
       title: 'User settings'
@@ -79,33 +79,33 @@ en:
         nickname: 'Your nickname'
         avatar: 'Your avatar'
         remove_avatar: 'Remove avatar (gravatar will be set as your default avatar)'
-        enabled_newsletter: 'Enabled newsletter'
-        preferred_language: 'Preferred language for email notification'
+        enabled_newsletter: 'I want to receive newsletter'
+        preferred_language: 'Preferred language for email notifications'
       hints:
-        nickname: 'Use only letters or numbers.'
+        nickname: 'Use letters and numbers only.'
     update:
       successfully_saved: 'Your settings has been successfully saved!'
     authentication:
       title: 'Authentication methods'
       providers:
         link_facebook: 'Connect your account with Facebook.'
-        linked_facebook: 'Your account is linked with Facebook.'
+        linked_facebook: 'Your account is already linked with Facebook.'
 
   controllers:
     application:
       flash:
-        not_supported_language: "You've chosen not supported language. You've been redirected to index page."
+        not_supported_language: "You've chosen not supported language. You've been redirected to the index page."
         you_are_not_an_admin: 'You are not an admin, sorry.'
         your_account_is_blocked: 'Your account is blocked, sorry.'
     cancel_accounts:
       flash:
-        not_valid_password: 'Current password is not valid.'
+        not_valid_password: 'The specified password is not valid.'
         not_set_password_html: |
           You need to <a href="%{url}">set your password</a> first if you want to use below form.
         account_deleted: 'Your account was blocked.'
     omniauth_callbacks:
       flash:
-        already_linked_account: 'Already linked that account!'
+        already_linked_account: 'You have already linked that account!'
         successfully_linked_account: 'Successfully linked that account!'
         provider_linked_with_other_account_html: 'Sorry but your <strong>%{provider}</strong> account is already linked with other account.'
         invalid_provider: 'Invalid data from provider!'

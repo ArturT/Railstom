@@ -16,7 +16,7 @@ pl:
         language: 'Pozostaw puste aby wysłać newsletter do wszystkich użytkowników lub wybierz język, aby wysłać newsletter tylko do osób, które wybrały dany język jako preferowany.'
         enabled_force: 'Wyślij newsletter także do osób, ktore nie wyraziły zgody na jego otrzymywanie.'
         stopped: 'Zatrzymaj wysyłanie newslettera. Jeśli odznaczysz to wysyłanie newslettera będzie kontynuowane.'
-        started_at: 'Wybierz datę kiedy ma zostać rozpoczęte wysyłanie newslettera. Jeśli nie wybierzesz daty to newsletter będzie wysłany natychmiast.'
+        started_at: 'Wybierz datę kiedy ma zostać rozpoczęte wysyłanie newslettera. Jeśli tego nie zrobisz newsletter zostanie wysłany natychmiast.'
         preview_email: 'Jeśli podasz email i zatwierdzisz formularz to newsletter zostanie wysłany tylko na ten adres, a Ty będziesz mógł nadal edytować treść newslettera. Jeśli uznasz, że newsletter jest gotowy to pozostaw puste pole, a wtedy zostanie on wysłany do wszystkich użytkowników.'
 
   layouts:
@@ -56,30 +56,30 @@ pl:
       hello: "Witaj Świecie"
   _my_account:
     title: 'Moje konto'
-    account_settings: 'Zmień email & hasło'
+    account_settings: 'Zmień email i hasło'
     user_settings: 'Ustawienia użytkownika'
     authentication: 'Metody logowania'
-    cancel_account: 'Anuluj konto'
+    cancel_account: 'Zablokuj konto'
   registrations:
     edit:
       facebook:
         reset_password:
-          message_html: 'Zalogowałeś się przy pomocy Facebooka. Jeśli chcesz logować się do serwisu używając także emaila i własnego wybranego hasła to możesz ustawić swoje hasło korzystając z %{reset_password_link}.'
+          message_html: 'Zalogowałeś się przy pomocy Facebooka. Jeśli chcesz logować się do serwisu używając także emaila i wybranego hasła to możesz ustawić je korzystając z %{reset_password_link}.'
           link: 'formularza resetowania hasła'
   cancel_accounts:
     edit:
-      message: 'Jeśli chcesz zablokować konto możesz to zrobić wpisując bieżące hasło przed potwierdzeniem operacji. Jeśli zechcesz odblokować konto będziesz musiał skontaktować się z administratorem.'
+      message: 'Aby zablokować konto wpisz poniżej swoje hasło i potwierdź operacje. Uwaga, aby je później odblokować będziesz musiał skontaktować się z administratorem strony.'
   user_settings:
     edit:
       title: 'Ustawienia użytkownika'
       labels:
         nickname: 'Nazwa użytkownika'
         avatar: 'Twój avatar'
-        remove_avatar: 'Usuń avatar (zostanie ustawiony jako domyślny gravatar)'
+        remove_avatar: 'Usuń avatar (jako domyślny zostanie ustawiony gravatar)'
         enabled_newsletter: 'Zapisz mnie na newsletter'
         preferred_language: 'Preferowany język powiadomień mailowych'
       hints:
-        nickname: 'Powinna składać się z liter lub cyfr bez polskich znaków.'
+        nickname: 'Powinna składać się z liter bez polskich znaków lub cyfr.'
     update:
       successfully_saved: 'Pomyślnie zapisano ustawienia!'
     authentication:
@@ -106,4 +106,4 @@ pl:
         successfully_linked_account: 'Pomyślnie połączono to konto!'
         provider_linked_with_other_account_html: 'Nie można powiązać konta ponieważ inne konto w naszym serwisie jest już powiązane z Twoim kontem <strong>%{provider}</strong>.'
         invalid_provider: 'Niepoprawne dane od dostawcy!'
-        sign_in_before_link_account_html: 'Konto założone na Twój adres <strong>%{email}</strong> już istnieje w bazie. Proszę zalogować się na nie, a następnie w ustawieniach będzie można powiązać je z kontem <strong>%{provider}</strong>.'
+        sign_in_before_link_account_html: 'Konto założone na Twój adres <strong>%{email}</strong> już istnieje w bazie. Proszę zalogować się na nie, a następnie w ustawieniach powiązać je z kontem <strong>%{provider}</strong>.'

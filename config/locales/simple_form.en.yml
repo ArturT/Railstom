@@ -18,7 +18,7 @@ en:
         current_password: 'Current password'
       user:
         new:
-          email: 'E-mail to sign in'
+          email: 'E-mail'
         edit:
           email: 'E-mail'
     hints:

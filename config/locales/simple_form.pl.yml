@@ -18,7 +18,7 @@ pl:
         current_password: 'Bieżące hasło'
       user:
         new:
-          email: 'E-mail logowania'
+          email: 'E-mail'
         edit:
           email: 'E-mail'
     hints:
