@@ -104,6 +104,8 @@ gem 'sidekiq'
 gem 'sidekiq-failures'
 gem 'sidekiq-benchmark'
 
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+
 
 ################################################################################
 # Gems used only for assets and not required
