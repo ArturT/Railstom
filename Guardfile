@@ -14,7 +14,7 @@ guard 'jasmine', server: :thin, server_mount: '/specs', all_on_start: ENV['GUARD
   watch(%r{app/assets/javascripts/(.+?)\.(js\.coffee|js|coffee)(?:\.\w+)*$}) { |m| "spec/javascripts/#{ m[1] }_spec.#{ m[2] }" }
 end
 
-guard 'rspec', bundler: true, all_after_pass: false, all_on_start: ENV['GUARD_ALL_ON_START'] || false, cli: '--tty' do
+guard 'rspec', cmd: 'bundle exec rspec --tty', all_after_pass: false, all_on_start: ENV['GUARD_ALL_ON_START'] || false do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }
