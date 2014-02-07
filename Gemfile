@@ -65,7 +65,7 @@ gem 'high_voltage'
 
 ################################################################################
 # Deployment stuff
-gem 'capistrano'
+gem 'capistrano', '~> 2.15'
 gem 'capistrano-ext'
 gem 'rvm-capistrano'
 gem 'whenever', require: false
