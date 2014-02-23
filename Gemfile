@@ -171,7 +171,7 @@ group :development, :test do
   gem 'bullet'
   gem 'thin'
   gem 'rspec-rails'
-  gem 'jasmine-rails'
+  gem 'jasmine-rails', '~> 0.5.6'
   gem 'guard-jasmine'
   gem 'factory_girl_rails'
   gem 'quiet_assets'
