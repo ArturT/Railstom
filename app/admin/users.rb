@@ -5,6 +5,12 @@ ActiveAdmin.register User do
   scope :with_enabled_newsletter
   scope :with_disabled_newsletter
 
+  controller do
+    def scoped_collection
+      super.includes :authentications
+    end
+  end
+
   index do
     column :id
     column :email
