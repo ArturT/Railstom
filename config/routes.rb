@@ -20,7 +20,8 @@ Railstom::Application.routes.draw do
     }
 
     devise_scope :user do
-      get '/users/reset_password' => 'registrations#reset_password', :as => 'reset_password_user_registration'
+      get '/users/reset_password', to: 'registrations#reset_password', as: :reset_password_user_registration
+      post 'auth/:provider/new', to: 'omniauth_callbacks#new', as: :auth_at_provider
     end
 
     get '/locale_pages/*id' => 'pages#locale_show', :as => :locale_page, :format => false

@@ -90,6 +90,9 @@ en:
       providers:
         link_facebook: 'Connect your account with Facebook.'
         linked_facebook: 'Your account is already linked with Facebook.'
+  omniauth_callbacks:
+    ask_for_email:
+      header: 'Enter your email address'
 
   controllers:
     application:

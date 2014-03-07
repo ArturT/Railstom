@@ -1,6 +1,11 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   inject :authentication_service, :user_service, :user_repository, :omniauth_hash
 
+  def new
+    session[:email] = params[:email]
+    redirect_to user_omniauth_authorize_path(params[:provider])
+  end
+
   def facebook
     handle_omniauth(:facebook)
   end
@@ -22,10 +27,18 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         user = user_repository.find_with_omniauth
 
         if user.present?
-          redirect_to new_user_session_path, notice: t('controllers.omniauth_callbacks.flash.sign_in_before_link_account_html', email: omniauth_hash['info'].try(:[], 'email'), provider: provider_name)
+          redirect_to new_user_session_path, notice: t('controllers.omniauth_callbacks.flash.sign_in_before_link_account_html', email: omniauth_email, provider: provider_name)
         else
           # No user associated with the authentication so we need to create a new one
           user = user_service.build_with_omniauth
+
+          if user_has_missing_only_email?(user)
+            if session[:email]
+              user.email = session[:email]
+            else
+              render 'ask_for_email' and return
+            end
+          end
 
           if user.save
             # And assign it to authentication object
@@ -62,5 +75,13 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def sign_in_and_redirect_with_notice(user, provider_name)
     sign_in_and_redirect user, event: :authentication # this will throw if user is not activated
     set_flash_message(:notice, :success, kind: provider_name.to_s.capitalize)
+  end
+
+  def omniauth_email
+    omniauth_hash['info'].try(:[], 'email')
+  end
+
+  def user_has_missing_only_email?(user)
+    !omniauth_hash.empty? && !user.valid? && user.errors.size == 1 && user.email.blank?
   end
 end

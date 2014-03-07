@@ -87,6 +87,9 @@ pl:
       providers:
         link_facebook: 'Powiąż swoje konto z Facebookiem.'
         linked_facebook: 'Twoje konto jest już powiązane z Facebookiem.'
+  omniauth_callbacks:
+    ask_for_email:
+      header: 'Podaj swój email'
 
   controllers:
     application:

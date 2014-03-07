@@ -1,13 +1,24 @@
 require 'spec_helper'
 
 describe OmniauthCallbacksController do
+  let(:email) { 'email@example.com' }
+
   before do
     @request.env['devise.mapping'] = Devise.mappings[:user]
   end
 
-  describe '#facebook' do
-    let(:email) { 'email@example.com' }
+  describe '#new' do
+    let(:provider) { 'facebook' }
 
+    before do
+      post :new, locale: I18n.locale, provider: provider, email: email
+    end
+
+    it { should redirect_to user_omniauth_authorize_path(provider) }
+    it { expect(session[:email]).to eql email }
+  end
+
+  describe '#facebook' do
     before do
       @request.env['omniauth.auth'] = {
         'provider' => 'facebook',
@@ -94,6 +105,34 @@ describe OmniauthCallbacksController do
 
             it { should redirect_to(root_path) }
             its('flash notice') { flash[:notice].should == I18n.t('devise.omniauth_callbacks.success', kind: 'Facebook') }
+          end
+
+          context 'a new user has missing email' do
+            context 'when email provided in session' do
+              before do
+                session[:email] = email
+                @request.env['omniauth.auth'] = {
+                  'provider' => 'facebook',
+                  'uid' => 'uid_facebook',
+                }
+                get :facebook
+              end
+
+              it { should redirect_to(root_path) }
+              its('flash notice') { flash[:notice].should == I18n.t('devise.omniauth_callbacks.success', kind: 'Facebook') }
+            end
+
+            context 'when email not provided in session' do
+              before do
+                @request.env['omniauth.auth'] = {
+                  'provider' => 'facebook',
+                  'uid' => 'uid_facebook',
+                }
+                get :facebook
+              end
+
+              it { should render_template(:ask_for_email) }
+            end
           end
 
           context 'a new user is not valid' do
