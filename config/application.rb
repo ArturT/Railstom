@@ -52,7 +52,7 @@ module Railstom
 
     config.generators do |g|
       g.test_framework :rspec
-      # use one of those: :erb, :haml, :slim
+      # use one of those: :erb, :haml
       g.template_engine :erb
     end
 

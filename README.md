@@ -124,7 +124,7 @@ Set your default template engine:
 
     # config/application.rb
     config.generators do |g|
-      # use one of those: :erb, :haml, :slim
+      # use one of those: :erb, :haml
       g.template_engine :erb
     end
 
@@ -136,9 +136,9 @@ Edit `config/i18n-js.yml` to add a new translation namespace for [I18n-js](https
 
 ### AngularJS templates
 
-Put your angular template `your_template_name.html.erb` in `app/views/pages/templates/` if you need use erb/slim/haml. Access to this template is through the route `/templates/your_template_name`.
+Put your angular template `your_template_name.html.erb` in `app/views/pages/templates/` if you need use erb/haml. Access to this template is through the route `/templates/your_template_name`.
 
-If you use only html without erb/slim/haml then put your angular template `your_template_name.html` in `/public/templates/`.
+If you use only html without erb/haml then put your angular template `your_template_name.html` in `/public/templates/`.
 
 
 ### HighVoltage
