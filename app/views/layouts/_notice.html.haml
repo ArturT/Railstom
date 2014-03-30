@@ -1,11 +1,11 @@
-/ green alert
+-# green alert
 = alert_box(:success, flash[:success])
 
-/ red alert
+-# red alert
 = alert_box(:error, flash[:error] || alert)
 
-/ blue alert
+-# blue alert
 = alert_box(:info, flash[:info] || flash[:notice] || notice)
 
-/ yellow alert
+-# yellow alert
 = alert_box(:warning, flash[:warning])

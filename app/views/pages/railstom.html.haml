@@ -1,36 +1,36 @@
-div.panel id="huge-box" style="min-height:1400px"
+%div.panel(id="huge-box" style="min-height:1400px")
 
-  h2 Form example
-  div
+  %h2 Form example
+  %div
     = simple_form_for 'form_example', url: '/' do |f|
       = f.input :message, as: :text, hint: 'Hint to message', input_html: { value: 'This text is too long', data: { 'max-characters' => '10' } }
       = f.input :second_message, as: :text, hint: 'Hint to second message', input_html: { data: { 'max-characters' => '15' } }
 
 
-  | <test-angular-template></test-angular-template>
+  %test-angular-template
 
 
-  span id="icon_load_goes_here"
+  %span(id="icon_load_goes_here")
   = link_to 'Load icon in specified element', '#', data: { 'load-icon' => '#icon_load_goes_here', 'load-icon-margin' => 'right:10px' }
 
-  div id="load_me"
+  %div(id="load_me")
     = link_to 'Load me', '#', data: { 'load-icon' => 'append', 'load-icon-margin' => 'right:10px' }
 
 
-  div
-    h3 Users
+  %div
+    %h3 Users
     = paginate User.order(:email).page(params[:page]).per(1), theme: 'foundation'
 
 
-  div id="turbolinks"
-    ' Click reload to check if turbolinks work with AngularJS
+  %div(id="turbolinks")
+    Click reload to check if turbolinks work with AngularJS
     = link_to 'Reload', default_page_path('railstom')
 
 
-  div style="padding-top:900px;"
-    h2 Lazy loading image
+  %div(style="padding-top:900px;")
+    %h2 Lazy loading image
     = image_tag 'spinner.png', data: { deferred: image_path('check.png') }, id: 'check_sign'
 
 
-div.breadcrumbs id="footer_breadcrumbs"
+%div.breadcrumbs(id="footer_breadcrumbs")
   = link_to 'Go up', '#', data: { 'go-to-by-scroll' => '#huge-box', 'allowed-margin' => 0, 'up-limit' => 20 }
