@@ -99,7 +99,7 @@ gem 'mini_magick'
 
 # if you require 'sinatra' you get the DSL extended to Object
 gem 'sinatra', require: nil
-gem 'sidekiq'
+gem 'sidekiq', '~> 2.17.7'
 gem 'sidekiq-failures'
 gem 'sidekiq-benchmark'
 
@@ -159,7 +159,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'certified'
-  gem 'mailcatcher', github: 'sj26/mailcatcher', require: false
+  gem 'mailcatcher', github: 'sj26/mailcatcher', ref: '5b9424c6501fd15a0c7a474d55b09a8edd3c7927', require: false
   gem 'meta_request'
   gem 'rails_best_practices', require: false
   gem 'foreman'
