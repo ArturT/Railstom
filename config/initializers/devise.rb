@@ -228,6 +228,7 @@ Devise.setup do |config|
   config.omniauth :facebook, Figaro.env.provider_facebook_app_id, Figaro.env.provider_facebook_app_secret, {
     scope: Figaro.env.provider_facebook_scope,
     image_size: 'large',
+    secure_image_url: true,
     client_options: {
       ssl: {
         ca_path: '/etc/ssl/certs'
