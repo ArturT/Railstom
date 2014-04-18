@@ -172,11 +172,7 @@ Using [foreman](https://github.com/ddollar/foreman) you can declare the various 
 
     $ foreman start
 
-Foreman will start mailcatcher, sidekiq and guard.
-
-#### Tips
-
-* If you already running mailcatcher please kill it before you start foreman.
+Foreman will start sidekiq and guard.
 
 
 ### Sidekiq
@@ -190,9 +186,13 @@ To run sidekiq:
 
 ### MailCatcher
 
-To run mailcatcher:
+Please install [MailCatcher](http://mailcatcher.me). App is already configured to work with it in development environment.
 
-    $ mailcatcher
+    $ gem install mailcatcher
+
+To run mailcatcher in foreground:
+
+    $ mailcatcher -f
     Starting MailCatcher
     ==> smtp://127.0.0.1:1025
     ==> http://127.0.0.1:1080

@@ -159,7 +159,6 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'certified'
-  gem 'mailcatcher', github: 'sj26/mailcatcher', ref: '5b9424c6501fd15a0c7a474d55b09a8edd3c7927', require: false
   gem 'meta_request'
   gem 'rails_best_practices', require: false
   gem 'foreman'
@@ -173,7 +172,6 @@ group :development, :test do
   gem 'guard-jasmine'
   gem 'factory_girl_rails'
   gem 'quiet_assets'
-  gem 'shoulda-matchers'
   gem 'ffaker'
   gem 'forgery'
   gem 'brakeman', require: false
@@ -197,6 +195,7 @@ group :test do
   gem 'rspec-sidekiq'
   gem 'timecop'
   gem 'json_spec'
+  gem 'shoulda-matchers'
 end
 
 group :production do
