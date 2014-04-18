@@ -172,13 +172,11 @@ Using [foreman](https://github.com/ddollar/foreman) you can declare the various 
 
     $ foreman start
 
-Foreman will start mailcatcher, sidekiq, guard and zeus.
+Foreman will start mailcatcher, sidekiq and guard.
 
 #### Tips
 
 * If you already running mailcatcher please kill it before you start foreman.
-
-* Use `zeus server` in order to run rails server faster.
 
 
 ### Sidekiq
@@ -265,25 +263,12 @@ Run specs via guard. If you change some code or spec file then proper spec will 
     // or set flag to run all specs on start
     $ GUARD_ALL_ON_START=1 foreman start
 
-Run specific spec via `zeus`:
-
-    $ zeus rspec spec/models/user_spec.rb
-
-    // run spec at line 8
-    $ zeus rspec spec/models/user_spec.rb:8
-
-    // run specs with flag railstom
-    $ zeus rspec --tag=railstom spec
-
 
 ### Jasmine
 
 Run jasmine specs:
 
     $ rake spec:javascript
-
-    // or use zeus to get speed
-    $ zeus rake spec:javascript
 
 Run jasmine specs in browser: [http://127.0.0.1:3000/specs](http://127.0.0.1:3000/specs)
 

@@ -163,7 +163,6 @@ group :development do
   gem 'meta_request'
   gem 'rails_best_practices', require: false
   gem 'foreman'
-  gem 'zeus'
 end
 
 group :development, :test do
