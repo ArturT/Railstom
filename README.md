@@ -181,8 +181,6 @@ To run sidekiq:
 
     $ bundle exec sidekiq -C config/sidekiq.yml
 
-[Sidekiq Benchmark](https://github.com/kosmatov/sidekiq-benchmark) adds benchmarking methods to Sidekiq workers.
-
 
 ### MailCatcher
 

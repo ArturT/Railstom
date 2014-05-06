@@ -101,7 +101,6 @@ gem 'mini_magick'
 gem 'sinatra', require: nil
 gem 'sidekiq', '~> 2.17.7'
 gem 'sidekiq-failures', '~> 0.3.0'
-gem 'sidekiq-benchmark'
 
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
