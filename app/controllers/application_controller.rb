@@ -42,7 +42,19 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def locale_request
+  def has_session_locale
+    params[:locale].nil? && Locale.supported_language?(session[:locale])
+  end
+
+  def has_request_locale
+    params[:locale].nil? && Locale.supported_language?(request_locale)
+  end
+
+  def has_param_locale
+    Locale.supported_language?(params[:locale])
+  end
+
+  def request_locale
     if request.env['HTTP_ACCEPT_LANGUAGE'].nil?
       nil
     else
@@ -50,18 +62,22 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def remove_fake_locale
+    # remove unnecessary fake locale param from url
+    redirect_to root_path, notice: t('controllers.application.flash.not_supported_language') unless params[:locale].blank?
+  end
+
   def set_locale
-    if params[:locale].nil? && Locale.supported_language?(session[:locale])
+    if has_session_locale
       I18n.locale = session[:locale]
-    elsif params[:locale].nil? && Locale.supported_language?(locale_request)
-      I18n.locale = locale_request
+    elsif has_request_locale
+      I18n.locale = request_locale
       session[:locale] = I18n.locale
-    elsif Locale.supported_language?(params[:locale])
+    elsif has_param_locale
       I18n.locale = params[:locale]
       session[:locale] = I18n.locale
     else
-      # remove unnecessary fake locale param from url
-      redirect_to root_path, notice: t('controllers.application.flash.not_supported_language') unless params[:locale].blank?
+      remove_fake_locale
     end
   end
 
