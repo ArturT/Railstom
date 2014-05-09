@@ -63,7 +63,6 @@ class ApplicationController < ActionController::Base
   end
 
   def remove_fake_locale
-    # remove unnecessary fake locale param from url
     redirect_to root_path, notice: t('controllers.application.flash.not_supported_language') unless params[:locale].blank?
   end
 
