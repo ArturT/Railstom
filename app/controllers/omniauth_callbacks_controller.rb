@@ -19,39 +19,47 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if user_signed_in?
       link_current_user_with_authentication(authentication)
     else
-      if authentication_service.has_user?(authentication)
-        # The authentication we found had a user associated with it so let's
-        # just log them in here
-        sign_in_and_redirect_with_notice(authentication.user, provider_name)
+      handle_omniauth_for_guest(provider_name, authentication)
+    end
+  end
+
+  def handle_omniauth_for_guest(provider_name, authentication)
+    if authentication_service.has_user?(authentication)
+      # The authentication we found had a user associated with it so let's
+      # just log them in here
+      sign_in_and_redirect_with_notice(authentication.user, provider_name)
+    else
+      user = user_repository.find_with_omniauth
+
+      if user.present?
+        redirect_to new_user_session_path, notice: t('controllers.omniauth_callbacks.flash.sign_in_before_link_account_html', email: omniauth_email, provider: provider_name)
       else
-        user = user_repository.find_with_omniauth
-
-        if user.present?
-          redirect_to new_user_session_path, notice: t('controllers.omniauth_callbacks.flash.sign_in_before_link_account_html', email: omniauth_email, provider: provider_name)
-        else
-          # No user associated with the authentication so we need to create a new one
-          user = user_service.build_with_omniauth
-
-          if user_has_missing_only_email?(user)
-            if session[:email]
-              user.email = session[:email]
-            else
-              render 'ask_for_email' and return
-            end
-          end
-
-          if user.save
-            # And assign it to authentication object
-            authentication_service.user_link_with(authentication, user)
-
-            # Finally log in the user
-            sign_in_and_redirect_with_notice(user, provider_name)
-          else
-            session['devise.user.omniauth_data'] = omniauth_hash
-            redirect_to new_user_registration_path, notice: t('controllers.omniauth_callbacks.flash.invalid_provider')
-          end
-        end
+        handle_omniauth_for_new_user(provider_name, authentication)
       end
+    end
+  end
+
+  def handle_omniauth_for_new_user(provider_name, authentication)
+    # No user associated with the authentication so we need to create a new one
+    user = user_service.build_with_omniauth
+
+    if user_has_missing_only_email?(user)
+      if session[:email]
+        user.email = session[:email]
+      else
+        render 'ask_for_email' and return
+      end
+    end
+
+    if user.save
+      # And assign it to authentication object
+      authentication_service.user_link_with(authentication, user)
+
+      # Finally log in the user
+      sign_in_and_redirect_with_notice(user, provider_name)
+    else
+      session['devise.user.omniauth_data'] = omniauth_hash
+      redirect_to new_user_registration_path, notice: t('controllers.omniauth_callbacks.flash.invalid_provider')
     end
   end
 
