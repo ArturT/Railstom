@@ -1,5 +1,5 @@
 # Add data-max-characters="250" to textarea field
-angular.module('App').directive 'maxCharacters', ->
+angular.module('App.directives.railstom').directive 'maxCharacters', ->
   scope: {}
 
   characters_counter = (counterId, maxCharacters, inputValue) ->
