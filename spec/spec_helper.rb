@@ -24,7 +24,6 @@ Spork.prefork do
 
       SimpleCov.start 'rails' do
         add_group 'Decorators', 'app/decorators'
-        add_group 'Modules', 'app/modules'
         add_group 'Presenters', 'app/presenters'
         add_group 'Services', 'app/services'
         add_group 'Uploaders', 'app/uploaders'
