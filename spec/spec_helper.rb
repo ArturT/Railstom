@@ -106,7 +106,6 @@ Spork.prefork do
 
     # Database Cleaner configuration
     config.before(:suite) do
-      config.raise_errors_for_deprecations!
       DatabaseCleaner.strategy = :transaction
       DatabaseCleaner.clean_with(:transaction)
     end
