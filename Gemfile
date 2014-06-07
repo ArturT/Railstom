@@ -191,9 +191,9 @@ group :test do
   gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'capybara'
-  gem 'capybara-webkit'
   gem 'capybara-angular'
   gem 'selenium-webdriver'
+  gem 'poltergeist'
   gem 'rspec-sidekiq'
   gem 'timecop'
   gem 'json_spec'

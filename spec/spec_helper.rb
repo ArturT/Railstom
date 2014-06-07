@@ -56,6 +56,7 @@ Spork.prefork do
   require 'dependor/rspec'
   require 'factory_girl'
   require 'sidekiq'
+  require 'capybara/poltergeist'
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
@@ -150,7 +151,7 @@ Spork.prefork do
     end
 
     # Default js driver
-    Capybara.javascript_driver = :webkit
+    Capybara.javascript_driver = :poltergeist
 
     config.include Devise::TestHelpers, type: :view
     config.include Devise::TestHelpers, type: :controller
