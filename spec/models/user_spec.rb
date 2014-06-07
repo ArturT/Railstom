@@ -36,10 +36,10 @@ describe User do
     end
   end
 
-  its(:admin) { should be_false }
-  its(:blocked) { should be_false }
+  its(:admin) { should be false }
+  its(:blocked) { should be false }
   its(:blocked_at) { should be_nil }
-  its(:enabled_newsletter) { should be_true }
+  its(:enabled_newsletter) { should be true }
   its(:preferred_language) { should eql I18n.default_locale }
 
   describe '#has_provider?' do
@@ -51,13 +51,13 @@ describe User do
       end
 
       it 'returns true' do
-        expect(subject.has_provider?(:facebook)).to be_true
+        expect(subject.has_provider?(:facebook)).to be true
       end
     end
 
     context 'when has not facebook provider' do
       it 'returns false' do
-        expect(subject.has_provider?(:facebook)).to be_false
+        expect(subject.has_provider?(:facebook)).to be false
       end
     end
   end
@@ -77,7 +77,7 @@ describe User do
 
   describe '#provider_names' do
     context 'password_changed is true' do
-      it { expect(user.password_changed).to be_true }
+      it { expect(user.password_changed).to be true }
 
       context 'user has provider' do
         it 'email' do
@@ -95,7 +95,7 @@ describe User do
     context 'password_changed is false' do
       before { user.password_changed = false }
 
-      it { expect(user.password_changed).to be_false }
+      it { expect(user.password_changed).to be false }
 
       context 'user has not provider' do
         it 'email' do

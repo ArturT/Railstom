@@ -21,7 +21,7 @@ describe RegistrationsController do
       end
 
       it 'show_change_password_form should be false' do
-        expect(assigns(:show_change_password_form)).to be_false
+        expect(assigns(:show_change_password_form)).to be false
       end
 
       it { should be_success }
@@ -34,7 +34,7 @@ describe RegistrationsController do
       end
 
       it 'show_change_password_form should be true' do
-        expect(assigns(:show_change_password_form)).to be_true
+        expect(assigns(:show_change_password_form)).to be true
       end
 
       it { should be_success }
@@ -49,7 +49,7 @@ describe RegistrationsController do
       end
 
       it 'show_change_password_form should be false' do
-        expect(assigns(:show_change_password_form)).to be_false
+        expect(assigns(:show_change_password_form)).to be false
       end
 
       it { should be_success }
@@ -62,7 +62,7 @@ describe RegistrationsController do
       end
 
       it 'show_change_password_form should be true' do
-        expect(assigns(:show_change_password_form)).to be_true
+        expect(assigns(:show_change_password_form)).to be true
       end
 
       it { should be_success }

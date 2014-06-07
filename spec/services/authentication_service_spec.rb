@@ -68,7 +68,7 @@ describe AuthenticationService do
         end
 
         it 'returns true' do
-          expect(subject.user_linked?(authentication, user)).to be_true
+          expect(subject.user_linked?(authentication, user)).to be true
         end
       end
 
@@ -78,7 +78,7 @@ describe AuthenticationService do
         end
 
         it 'returns false' do
-          expect(subject.user_linked?(authentication, user)).to be_false
+          expect(subject.user_linked?(authentication, user)).to be false
         end
       end
     end
@@ -90,7 +90,7 @@ describe AuthenticationService do
         end
 
         it 'returns true' do
-          expect(subject.user_linked?(authentication)).to be_true
+          expect(subject.user_linked?(authentication)).to be true
         end
       end
 
@@ -100,7 +100,7 @@ describe AuthenticationService do
         end
 
         it 'returns false' do
-          expect(subject.user_linked?(authentication)).to be_false
+          expect(subject.user_linked?(authentication)).to be false
         end
       end
     end
@@ -126,17 +126,17 @@ describe AuthenticationService do
     context 'when authentication is linked with user' do
       it 'returns true' do
         authentication.stub(:user).and_return(user)
-        expect(subject.has_user?(authentication)).to be_true
+        expect(subject.has_user?(authentication)).to be true
       end
     end
 
     context 'when authentication is not linked with user' do
       it 'returns false' do
         authentication.stub(:user).and_return(nil)
-        expect(subject.has_user?(authentication)).to be_false
+        expect(subject.has_user?(authentication)).to be false
 
         authentication.stub(:user).and_return('')
-        expect(subject.has_user?(authentication)).to be_false
+        expect(subject.has_user?(authentication)).to be false
       end
     end
   end

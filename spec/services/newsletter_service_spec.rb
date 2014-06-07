@@ -44,26 +44,26 @@ describe NewsletterService do
     context 'when newsletter is nil' do
       let(:fake_newsletter) { nil }
 
-      its(:can_be_send?) { should be_false }
+      its(:can_be_send?) { should be false }
     end
 
     context 'when newsletter is stopped' do
       let(:fake_newsletter) { build(:newsletter, stopped: true) }
 
-      its(:can_be_send?) { should be_false }
+      its(:can_be_send?) { should be false }
     end
 
     context 'when newsletter is not stopped' do
       context 'when newsletter is finished' do
         let(:fake_newsletter) { build(:newsletter, stopped: false) }
 
-        its(:can_be_send?) { should be_false }
+        its(:can_be_send?) { should be false }
       end
 
       context 'when newsletter is not finished' do
         let(:fake_newsletter) { build(:newsletter, stopped: false, finished_at: nil) }
 
-        its(:can_be_send?) { should be_true }
+        its(:can_be_send?) { should be true }
       end
     end
   end
@@ -214,7 +214,7 @@ describe NewsletterService do
       let(:user) { build(:user, enabled_newsletter: true) }
 
       it 'returns true' do
-        expect(subject.can_send_to_user?(user)).to be_true
+        expect(subject.can_send_to_user?(user)).to be true
       end
     end
 
@@ -225,7 +225,7 @@ describe NewsletterService do
         let(:newsletter) { create(:newsletter, enabled_force: true) }
 
         it 'returns true' do
-          expect(subject.can_send_to_user?(user)).to be_true
+          expect(subject.can_send_to_user?(user)).to be true
         end
       end
 
@@ -233,7 +233,7 @@ describe NewsletterService do
         let(:newsletter) { create(:newsletter, enabled_force: false) }
 
         it 'returns false' do
-          expect(subject.can_send_to_user?(user)).to be_false
+          expect(subject.can_send_to_user?(user)).to be false
         end
       end
     end

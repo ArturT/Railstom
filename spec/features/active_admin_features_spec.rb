@@ -40,7 +40,7 @@ describe 'Active Admin Features', :js do
       click_on 'Update User'
 
       expect(page).to have_content 'User was successfully updated'
-      expect(User.find_by(id: user.id).admin).to be_true
+      expect(User.find_by(id: user.id).admin).to be true
     end
   end
 end

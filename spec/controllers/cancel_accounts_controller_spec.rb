@@ -54,7 +54,7 @@ describe CancelAccountsController do
 
       it 'blocks user account' do
         user.reload
-        expect(user.blocked?).to be_true
+        expect(user.blocked?).to be true
         expect(user.blocked_at).not_to be_nil
       end
     end

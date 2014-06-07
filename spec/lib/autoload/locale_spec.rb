@@ -9,15 +9,15 @@ describe Locale do
 
   describe '.supported_language?' do
     it 'should accept string as language' do
-      expect(subject.supported_language?('en')).to be_true
-      expect(subject.supported_language?('pl')).to be_true
-      expect(subject.supported_language?('xy')).to be_false
+      expect(subject.supported_language?('en')).to be true
+      expect(subject.supported_language?('pl')).to be true
+      expect(subject.supported_language?('xy')).to be false
     end
 
     it 'should accept symbol as language' do
-      expect(subject.supported_language?(:en)).to be_true
-      expect(subject.supported_language?(:pl)).to be_true
-      expect(subject.supported_language?(:xy)).to be_false
+      expect(subject.supported_language?(:en)).to be true
+      expect(subject.supported_language?(:pl)).to be true
+      expect(subject.supported_language?(:xy)).to be false
     end
   end
 

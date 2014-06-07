@@ -8,10 +8,10 @@ describe Newsletter do
   it { should be_valid }
   it { should validate_presence_of(:subject) }
   it { should validate_presence_of(:body) }
-  its(:enabled_force) { should be_false }
-  its(:stopped) { should be_false }
+  its(:enabled_force) { should be false }
+  its(:stopped) { should be false }
   its(:last_user_id) { should eql 0 }
-  its(:preview_email) { should be_blank }
+  its(:preview_email) { should be blank }
 
   describe 'private methods' do
     describe '#send_newsletter' do
