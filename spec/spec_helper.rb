@@ -97,6 +97,9 @@ Spork.prefork do
     # Symbols like [:js] will be treated as metadata keys with a value of `true`
     config.treat_symbols_as_metadata_keys_with_true_values = true
 
+    # infer an example group's spec type from the file location
+    config.infer_spec_type_from_file_location!
+
     # FactoryGirl methods
     config.include FactoryGirl::Syntax::Methods
 
