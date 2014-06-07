@@ -11,7 +11,7 @@ describe Newsletter do
   its(:enabled_force) { should be false }
   its(:stopped) { should be false }
   its(:last_user_id) { should eql 0 }
-  its(:preview_email) { should be blank }
+  its(:preview_email) { should be_blank }
 
   describe 'private methods' do
     describe '#send_newsletter' do
