@@ -9,7 +9,10 @@ DEVISE_SECRET_KEY: 2cedb43098ac63e48f95b107b82bcbef5233df3be40a423a1d4ba51930058
 
 HOST: 127.0.0.1:3000
 MAILER_SENDER: Railstom <notification@railstom-development.com>
+
 PROVIDER_FACEBOOK_SCOPE: email,user_birthday,user_about_me,user_education_history,user_work_history,user_hometown,user_interests,user_likes,user_location,user_photos,user_website,publish_stream
+PROVIDER_FACEBOOK_APP_ID: ID
+PROVIDER_FACEBOOK_APP_SECRET: SECRET_HASH
 
 # I18n
 SUPPORTED_LANGUAGES: en pl
@@ -31,22 +34,13 @@ REDIS_URL: redis://localhost:6379/0
 development:
   SIDEKIQ_NAMESPACE: railstom:development:sidekiq
 
-  PROVIDER_FACEBOOK_APP_ID: ID
-  PROVIDER_FACEBOOK_APP_SECRET: SECRET_HASH
-
 test:
   SIDEKIQ_NAMESPACE: railstom:test:sidekiq
-
-  PROVIDER_FACEBOOK_APP_ID: ID
-  PROVIDER_FACEBOOK_APP_SECRET: SECRET_HASH
 
 staging:
   HOST: railstom-staging.com
 
   SIDEKIQ_NAMESPACE: railstom:staging:sidekiq
-
-  PROVIDER_FACEBOOK_APP_ID: ID
-  PROVIDER_FACEBOOK_APP_SECRET: SECRET_HASH
 
   MAILER_SENDER: Railstom Staging <notification@railstom-staging.com>
   MAILER_USER_NAME: notification@railstom-staging.com
@@ -57,9 +51,6 @@ production:
   HOST: railstom-production.com
 
   SIDEKIQ_NAMESPACE: railstom:production:sidekiq
-
-  PROVIDER_FACEBOOK_APP_ID: ID
-  PROVIDER_FACEBOOK_APP_SECRET: SECRET_HASH
 
   MAILER_SENDER: Railstom <notification@railstom-production.com>
   MAILER_USER_NAME: notification@railstom-production.com
