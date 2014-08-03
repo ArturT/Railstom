@@ -165,7 +165,7 @@ describe NewsletterService do
   describe '#mark_as_finished' do
     it 'sets finished_at for newsletter' do
       Timecop.freeze do
-        expect(subject.newsletter).to receive(:update_attribute).with(:finished_at, DateTime.now)
+        expect(subject.newsletter).to receive(:update_attribute).with(:finished_at, Time.now)
         subject.mark_as_finished
       end
     end

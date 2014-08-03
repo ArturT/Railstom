@@ -35,7 +35,7 @@ class NewsletterService
   end
 
   def mark_as_finished
-    newsletter.update_attribute(:finished_at, DateTime.now)
+    newsletter.update_attribute(:finished_at, Time.now)
   end
 
   def send_newsletter
