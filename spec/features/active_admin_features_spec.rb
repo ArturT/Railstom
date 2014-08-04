@@ -27,7 +27,7 @@ describe 'Active Admin Features', :js do
 
     before do
       within '#header' do
-        click_link 'User'
+        click_link 'Users'
       end
     end
 
