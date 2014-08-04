@@ -134,7 +134,7 @@ describe ApplicationController do
       let(:browser_time_zone) { 'Asia/Hong_Kong' }
 
       before do
-        controller.stub(:browser_time_zone).and_return(browser_time_zone)
+        expect(controller).to receive(:browser_time_zone).twice.and_return(browser_time_zone)
       end
 
       def dispatch
