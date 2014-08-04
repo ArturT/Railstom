@@ -281,12 +281,12 @@ Example how to run js spec and how to open it in browser:
 
       # run with webkit without opening browser
       scenario 'should have text Hello', :js do
-        page.should have_content 'Hello'
+        expect(page).to have_content 'Hello'
       end
 
       # run with selenium in firefox
       scenario 'should have text World', :selenium do
-        page.should have_content 'World'
+        expect(page).to have_content 'World'
       end
     end
 
