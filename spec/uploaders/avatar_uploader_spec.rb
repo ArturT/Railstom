@@ -16,18 +16,18 @@ describe AvatarUploader do
   end
 
   context 'the small version' do
-    it 'should scale down a landscape image to be exactly 64 by 64 pixels' do
-      @uploader.small.should have_dimensions(64, 64)
+    it 'scales down a landscape image to be exactly 64 by 64 pixels' do
+      expect(@uploader.small).to have_dimensions(64, 64)
     end
   end
 
   context 'the normal version' do
-    it 'should scale down a landscape image to be exactly 160 by 160 pixels' do
-      @uploader.normal.should have_dimensions(160, 160)
+    it 'scales down a landscape image to be exactly 160 by 160 pixels' do
+      expect(@uploader.normal).to have_dimensions(160, 160)
     end
   end
 
   it 'avatar has permissions 0644' do
-    @uploader.should have_permissions(0644)
+    expect(@uploader).to have_permissions(0644)
   end
 end

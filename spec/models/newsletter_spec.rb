@@ -19,7 +19,7 @@ describe Newsletter do
         let(:started_at) { 1.minutes.from_now }
 
         before do
-          subject.stub(:started_at).and_return(started_at)
+          expect(subject).to receive(:started_at).twice.and_return(started_at)
         end
 
         it 'calls NewsletterWorker.perform_at' do
@@ -30,7 +30,7 @@ describe Newsletter do
 
       context 'when started_at is not set' do
         before do
-          subject.stub(:started_at).and_return(nil)
+          expect(subject).to receive(:started_at).and_return(nil)
         end
 
         it 'calls NewsletterWorker.perform_async' do
@@ -43,12 +43,12 @@ describe Newsletter do
     describe '#resume_newsletter' do
       context 'when stopped changed' do
         before do
-          subject.stub(:stopped_changed?).and_return(true)
+          expect(subject).to receive(:stopped_changed?).and_return(true)
         end
 
         context 'when stopped is true' do
           before do
-            subject.stub(:stopped).and_return(true)
+            expect(subject).to receive(:stopped).and_return(true)
           end
 
           it "doesn't call NewsletterWorker.perform_async" do
@@ -59,7 +59,7 @@ describe Newsletter do
 
         context 'when stopped is false' do
           before do
-            subject.stub(:stopped).and_return(false)
+            expect(subject).to receive(:stopped).and_return(false)
           end
 
           it 'calls NewsletterWorker.perform_async' do
@@ -71,7 +71,7 @@ describe Newsletter do
 
       context "when stopped didn't change" do
         before do
-          subject.stub(:stopped_changed?).and_return(false)
+          expect(subject).to receive(:stopped_changed?).and_return(false)
         end
 
         it "doesn't call NewsletterWorker.perform_async" do

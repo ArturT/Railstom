@@ -87,7 +87,7 @@ describe ApplicationController do
         end
 
         it 'response success' do
-          response.should be_success
+          expect(response).to be_success
         end
       end
     end
@@ -118,7 +118,7 @@ describe ApplicationController do
         end
 
         it { expect(flash[:notice]).to eql I18n.t('controllers.application.flash.not_supported_language') }
-        it { response.should redirect_to root_path(@current_locale) }
+        it { expect(response).to redirect_to root_path(@current_locale) }
       end
     end
   end

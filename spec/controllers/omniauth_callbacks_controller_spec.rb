@@ -43,7 +43,7 @@ describe OmniauthCallbacksController do
         end
 
         it { should redirect_to(root_path) }
-        its('flash notice') { flash[:notice].should == I18n.t('controllers.omniauth_callbacks.flash.already_linked_account') }
+        its('flash notice') { expect(flash[:notice]).to eql I18n.t('controllers.omniauth_callbacks.flash.already_linked_account') }
       end
 
       context 'authentication is not linked to user' do
@@ -53,7 +53,7 @@ describe OmniauthCallbacksController do
         end
 
         it { should redirect_to(root_path) }
-        its('flash notice') { flash[:notice].should == I18n.t('controllers.omniauth_callbacks.flash.successfully_linked_account') }
+        its('flash notice') { expect(flash[:notice]).to eql I18n.t('controllers.omniauth_callbacks.flash.successfully_linked_account') }
       end
 
       context 'authentication is linked to other user' do
@@ -66,7 +66,7 @@ describe OmniauthCallbacksController do
         end
 
         it { should redirect_to(root_path) }
-        its('flash notice') { flash[:notice].should == I18n.t('controllers.omniauth_callbacks.flash.provider_linked_with_other_account_html', provider: 'facebook') }
+        its('flash notice') { expect(flash[:notice]).to eql I18n.t('controllers.omniauth_callbacks.flash.provider_linked_with_other_account_html', provider: 'facebook') }
       end
     end
 
@@ -80,7 +80,7 @@ describe OmniauthCallbacksController do
         end
 
         it { should redirect_to(root_path) }
-        its('flash notice') { flash[:notice].should == I18n.t('devise.omniauth_callbacks.success', kind: 'Facebook') }
+        its('flash notice') { expect(flash[:notice]).to eql I18n.t('devise.omniauth_callbacks.success', kind: 'Facebook') }
       end
 
       context 'authentication is not linked to user' do
@@ -92,7 +92,7 @@ describe OmniauthCallbacksController do
           end
 
           it { should redirect_to(new_user_session_path) }
-          its('flash notice') { flash[:notice].should == I18n.t('controllers.omniauth_callbacks.flash.sign_in_before_link_account_html', email: email, provider: 'facebook') }
+          its('flash notice') { expect(flash[:notice]).to eql I18n.t('controllers.omniauth_callbacks.flash.sign_in_before_link_account_html', email: email, provider: 'facebook') }
         end
 
         context "user with provider email doesn't exist in db" do
@@ -104,7 +104,7 @@ describe OmniauthCallbacksController do
             end
 
             it { should redirect_to(root_path) }
-            its('flash notice') { flash[:notice].should == I18n.t('devise.omniauth_callbacks.success', kind: 'Facebook') }
+            its('flash notice') { expect(flash[:notice]).to eql I18n.t('devise.omniauth_callbacks.success', kind: 'Facebook') }
           end
 
           context 'a new user has missing email' do
@@ -119,7 +119,7 @@ describe OmniauthCallbacksController do
               end
 
               it { should redirect_to(root_path) }
-              its('flash notice') { flash[:notice].should == I18n.t('devise.omniauth_callbacks.success', kind: 'Facebook') }
+              its('flash notice') { expect(flash[:notice]).to eql I18n.t('devise.omniauth_callbacks.success', kind: 'Facebook') }
             end
 
             context 'when email not provided in session' do
@@ -142,7 +142,7 @@ describe OmniauthCallbacksController do
             end
 
             it { should redirect_to(new_user_registration_path) }
-            its('flash notice') { flash[:notice].should == I18n.t('controllers.omniauth_callbacks.flash.invalid_provider') }
+            its('flash notice') { expect(flash[:notice]).to eql I18n.t('controllers.omniauth_callbacks.flash.invalid_provider') }
           end
         end
       end

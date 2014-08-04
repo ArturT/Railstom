@@ -51,7 +51,6 @@ Spork.prefork do
   ENV['RAILS_ENV'] ||= 'test'
   require File.expand_path('../../config/environment', __FILE__)
   require 'rspec/rails'
-  require 'rspec/autorun'
   require 'dependor/shorty'
   require 'dependor/rspec'
   require 'factory_girl'
@@ -94,9 +93,6 @@ Spork.prefork do
     # the seed, which is printed after each run.
     #     --seed 1234
     config.order = 'random'
-
-    # Symbols like [:js] will be treated as metadata keys with a value of `true`
-    config.treat_symbols_as_metadata_keys_with_true_values = true
 
     # infer an example group's spec type from the file location
     config.infer_spec_type_from_file_location!

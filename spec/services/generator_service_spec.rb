@@ -16,15 +16,15 @@ describe GeneratorService do
 
   describe '#password' do
     it 'returns password with specified length' do
-      subject.password(6).length.should eql 6
-      subject.password(8).length.should eql 8
+      expect(subject.password(6).length).to eql 6
+      expect(subject.password(8).length).to eql 8
     end
   end
 
   describe '#nickname_with_omniauth' do
     context 'when nickname has value' do
       it 'returns nickname' do
-        subject.nickname_with_omniauth.should eql nickname
+        expect(subject.nickname_with_omniauth).to eql nickname
       end
     end
 
@@ -32,14 +32,14 @@ describe GeneratorService do
       let(:nickname) { nil }
 
       it 'returns name' do
-        subject.nickname_with_omniauth.should eql name
+        expect(subject.nickname_with_omniauth).to eql name
       end
 
       context 'when nickname has spaces and dots' do
         let(:name) { 'First Middle Last.' }
 
         it 'returns name without spaces and dots' do
-          subject.nickname_with_omniauth.should eql 'FirstMiddleLast'
+          expect(subject.nickname_with_omniauth).to eql 'FirstMiddleLast'
         end
       end
     end

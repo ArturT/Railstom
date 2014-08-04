@@ -9,7 +9,7 @@ module CustomMatchers
       "expected #{@actual.inspect} to exist in database"
     end
 
-    def negative_failure_message
+    def failure_message_when_negated
       "expected #{@actual.inspect} not to exist in database"
     end
 
