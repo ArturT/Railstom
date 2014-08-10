@@ -161,6 +161,8 @@ group :development do
   gem 'meta_request'
   gem 'rails_best_practices', require: false
   gem 'foreman'
+  gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 group :development, :test do
