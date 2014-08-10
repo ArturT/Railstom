@@ -128,7 +128,7 @@ gem 'therubyracer', '~> 0.12.0', platforms: :ruby
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-gem 'ngmin-rails'
+gem 'ngannotate-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
