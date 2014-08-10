@@ -439,7 +439,7 @@ GEM
     rspec-its (1.0.1)
       rspec-core (>= 2.99.0.beta1)
       rspec-expectations (>= 2.99.0.beta1)
-    rspec-mocks (3.0.0)
+    rspec-mocks (3.0.3)
       rspec-support (~> 3.0.0)
     rspec-rails (3.0.2)
       actionpack (>= 3.0)
@@ -642,6 +642,7 @@ DEPENDENCIES
   rb-fsevent
   rb-inotify
   rename
+  rspec (~> 3.0.0)
   rspec-activemodel-mocks
   rspec-its
   rspec-rails

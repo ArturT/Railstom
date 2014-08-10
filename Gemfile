@@ -168,6 +168,7 @@ end
 group :development, :test do
   gem 'bullet'
   gem 'thin'
+  gem 'rspec', '~> 3.0.0'
   gem 'rspec-rails'
   gem 'rspec-its'
   gem 'rspec-activemodel-mocks'
