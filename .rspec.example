@@ -1,5 +1,4 @@
 --color
-#--drb
 --format documentation
 #--tag=~local_off # uncomment if you dont want to run some specs local
 #--tag=~js # uncomment if you dont want to run capybara js specs
