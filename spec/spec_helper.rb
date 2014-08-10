@@ -56,13 +56,18 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 RSpec.configure do |config|
   #config.raise_errors_for_deprecations!
 
-  # ## Mock Framework
-  #
-  # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
-  #
-  # config.mock_with :mocha
-  # config.mock_with :flexmock
-  # config.mock_with :rr
+  # rspec-mocks config goes here. You can use an alternate test double
+  # library (such as bogus or mocha) by changing the `mock_with` option here.
+  config.mock_with :rspec do |mocks|
+    # Enable only the newer, non-monkey-patching expect syntax.
+    # For more details, see:
+    #   - http://teaisaweso.me/blog/2013/05/27/rspecs-new-message-expectation-syntax/
+    mocks.syntax = :expect
+
+    # Prevents you from mocking or stubbing a method that does not exist on
+    # a real object. This is generally recommended.
+    mocks.verify_partial_doubles = true
+  end
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures/"
