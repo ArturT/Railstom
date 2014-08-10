@@ -171,7 +171,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-its'
   gem 'rspec-activemodel-mocks'
-  gem 'rspec-collection_matchers'
   gem 'jasmine-rails', '~> 0.5.6'
   gem 'guard-jasmine'
   gem 'factory_girl_rails'

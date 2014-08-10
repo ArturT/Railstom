@@ -431,8 +431,6 @@ GEM
       activemodel (>= 3.0)
       activesupport (>= 3.0)
       rspec-mocks (>= 2.99, < 4.0)
-    rspec-collection_matchers (1.0.0)
-      rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.0.3)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.3)
@@ -645,7 +643,6 @@ DEPENDENCIES
   rb-inotify
   rename
   rspec-activemodel-mocks
-  rspec-collection_matchers
   rspec-its
   rspec-rails
   rspec-sidekiq

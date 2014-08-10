@@ -91,7 +91,7 @@ describe Newsletter do
 
         it 'has no error on preview_email' do
           newsletter.valid?
-          expect(newsletter.errors).to have(0).error_on(:preview_email)
+          expect(newsletter.errors[:preview_email]).not_to be_present
         end
       end
 
@@ -100,7 +100,7 @@ describe Newsletter do
 
         it 'has error on preview email' do
           newsletter.valid?
-          expect(newsletter.errors).to have(1).error_on(:preview_email)
+          expect(newsletter.errors[:preview_email]).to be_present
         end
 
         it 'delays newsletter' do
