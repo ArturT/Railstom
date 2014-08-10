@@ -22,7 +22,7 @@ describe 'Active Admin Features', :js do
     expect(page).to have_content I18n.t('controllers.application.flash.you_are_not_an_admin')
   end
 
-  describe 'Users', :local_off do
+  describe 'Users' do
     let!(:user) { create(:user) }
 
     before do
