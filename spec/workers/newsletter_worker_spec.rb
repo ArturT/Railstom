@@ -11,7 +11,7 @@ describe NewsletterWorker do
     let(:interval) { NewsletterWorker::INTERVAL.seconds.from_now }
 
     before do
-      subject.stub(:interval_seconds_from_now) { interval }
+      allow(subject).to receive(:interval_seconds_from_now) { interval }
 
       expect(NewsletterService).to receive(:new).with(newsletter.id, NewsletterWorker::RECIPIENTS_LIMIT).and_return(newsletter_service)
       expect(newsletter_service).to receive(:run).and_return(run_return)

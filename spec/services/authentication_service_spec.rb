@@ -21,8 +21,8 @@ describe AuthenticationService do
     let(:result_build_with_omniauth) { double }
 
     before do
-      authentication_repository.stub(:find_by_provider_and_uid).with(provider, uid).and_return(result_find_by_provider_and_uid)
-      subject.stub(:build_with_omniauth).and_return(result_build_with_omniauth)
+      allow(authentication_repository).to receive(:find_by_provider_and_uid).with(provider, uid).and_return(result_find_by_provider_and_uid)
+      allow(subject).to receive(:build_with_omniauth).and_return(result_build_with_omniauth)
       subject.find_or_build
     end
 
@@ -64,7 +64,7 @@ describe AuthenticationService do
     context 'when checking if given user is linked' do
       context 'when user is linked' do
         before do
-          authentication.stub(:user).and_return(user)
+          expect(authentication).to receive(:user).and_return(user)
         end
 
         it 'returns true' do
@@ -74,7 +74,7 @@ describe AuthenticationService do
 
       context 'when user is not linked' do
         before do
-          authentication.stub(:user).and_return(nil)
+          expect(authentication).to receive(:user).and_return(nil)
         end
 
         it 'returns false' do
@@ -86,7 +86,7 @@ describe AuthenticationService do
     context 'when checking if current user is linked' do
       context 'when current user is linked' do
         before do
-          authentication.stub(:user).and_return(current_user)
+          expect(authentication).to receive(:user).and_return(current_user)
         end
 
         it 'returns true' do
@@ -96,7 +96,7 @@ describe AuthenticationService do
 
       context 'when current user is not linked' do
         before do
-          authentication.stub(:user).and_return(nil)
+          expect(authentication).to receive(:user).and_return(nil)
         end
 
         it 'returns false' do
@@ -125,17 +125,17 @@ describe AuthenticationService do
   describe '#has_user?' do
     context 'when authentication is linked with user' do
       it 'returns true' do
-        authentication.stub(:user).and_return(user)
+        expect(authentication).to receive(:user).and_return(user)
         expect(subject.has_user?(authentication)).to be true
       end
     end
 
     context 'when authentication is not linked with user' do
       it 'returns false' do
-        authentication.stub(:user).and_return(nil)
+        expect(authentication).to receive(:user).and_return(nil)
         expect(subject.has_user?(authentication)).to be false
 
-        authentication.stub(:user).and_return('')
+        expect(authentication).to receive(:user).and_return('')
         expect(subject.has_user?(authentication)).to be false
       end
     end

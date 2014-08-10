@@ -4,7 +4,7 @@ describe Locale do
   subject { Locale } # subject is a class, not an instance
 
   before do
-    subject.stub(:supported_languages).and_return(['en', 'pl'])
+    allow(subject).to receive(:supported_languages).at_least(1).and_return(['en', 'pl'])
   end
 
   describe '.supported_language?' do

@@ -20,7 +20,7 @@ describe CancelAccountsController do
     context 'when user has no own password' do
       before do
         sign_in user
-        controller.current_user.stub(:password_changed?).and_return(false)
+        expect(controller.current_user).to receive(:password_changed?).and_return(false)
         get :edit, locale: I18n.locale
       end
 
@@ -39,7 +39,7 @@ describe CancelAccountsController do
 
     context 'valid password' do
       before do
-        controller.current_user.stub(:valid_password?).and_return(true)
+        expect(controller.current_user).to receive(:valid_password?).and_return(true)
 
         expect(controller).to receive(:sign_out).with(:user)
 
@@ -61,7 +61,7 @@ describe CancelAccountsController do
 
     context 'invalid password' do
       before do
-        controller.current_user.stub(:valid_password?).and_return(false)
+        expect(controller.current_user).to receive(:valid_password?).and_return(false)
         delete :destroy, locale: I18n.locale, user: {}
       end
 

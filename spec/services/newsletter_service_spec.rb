@@ -38,7 +38,7 @@ describe NewsletterService do
 
   describe '#can_be_send?' do
     before do
-      subject.stub(:newsletter) { fake_newsletter }
+      expect(subject).to receive(:newsletter).at_least(1) { fake_newsletter }
     end
 
     context 'when newsletter is nil' do
@@ -86,7 +86,7 @@ describe NewsletterService do
   describe '#process' do
     context 'when list of recipients is empty' do
       before do
-        subject.stub(:recipients) { [] }
+        expect(subject).to receive(:recipients) { [] }
       end
 
       it 'calls mark_as_finished' do
@@ -97,7 +97,7 @@ describe NewsletterService do
 
     context 'when list of recipients is not empty' do
       before do
-        subject.stub(:recipients) { [double] }
+        expect(subject).to receive(:recipients) { [double] }
       end
 
       it 'calls send_newsletter' do
@@ -129,8 +129,8 @@ describe NewsletterService do
 
   describe '#recipients_all' do
     before do
-      subject.stub(:last_user_id) { last_user_id }
-      subject.stub(:recipients_limit) { recipients_limit }
+      expect(subject).to receive(:last_user_id) { last_user_id }
+      expect(subject).to receive(:recipients_limit) { recipients_limit }
     end
 
     it 'returns limited amount of users with id greater than last_user_id' do
@@ -144,8 +144,8 @@ describe NewsletterService do
 
   describe '#recipients_with_preferred_language' do
     before do
-      subject.stub(:last_user_id) { last_user_id }
-      subject.stub(:recipients_limit) { recipients_limit }
+      expect(subject).to receive(:last_user_id) { last_user_id }
+      expect(subject).to receive(:recipients_limit) { recipients_limit }
     end
 
     it 'returns limited amount of users with id greater than last_user_id and preferred language' do
