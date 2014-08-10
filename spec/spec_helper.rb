@@ -113,7 +113,7 @@ Spork.prefork do
       I18n.locale = :en
     end
 
-    config.before(:type => :feature) do
+    config.before(type: :feature) do
       DatabaseCleaner.strategy = :truncation
     end
 
@@ -153,13 +153,13 @@ Spork.prefork do
     config.include Devise::TestHelpers, type: :view
     config.include Devise::TestHelpers, type: :controller
 
-    config.extend ControllerMacros, :type => :controller
+    config.extend ControllerMacros, type: :controller
 
     config.include CustomMatchers
     config.include CarrierWave::Test::Matchers
 
-    config.include LoginFeatureHelper, :type => :feature
-    config.include LoginRequestHelper, :type => :request
+    config.include LoginFeatureHelper, type: :feature
+    config.include LoginRequestHelper, type: :request
 
     config.include JsonSpec::Helpers
   end
