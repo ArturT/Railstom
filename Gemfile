@@ -104,6 +104,7 @@ gem 'sidekiq-failures', '~> 0.3.0'
 
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
+gem 'knapsack'
 
 ################################################################################
 # Gems used only for assets and not required

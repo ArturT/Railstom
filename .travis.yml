@@ -11,6 +11,9 @@ env:
     - RAILS_ENV=test
     - COVERALLS=1
     - DISPLAY=:99.0
+  matrix:
+    - CI_NODE_TOTAL=2 CI_NODE_INDEX=0
+    - CI_NODE_TOTAL=2 CI_NODE_INDEX=1
 services:
   - redis-server
 before_install:
