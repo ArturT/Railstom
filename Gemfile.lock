@@ -15,15 +15,6 @@ GIT
       ransack (~> 1.0)
       sass-rails
 
-GIT
-  remote: git://github.com/rails/activerecord-session_store.git
-  revision: e879bf087eb684452aaddb734efa20b95588b141
-  specs:
-    activerecord-session_store (0.1.0)
-      actionpack (>= 4.0.0, < 5)
-      activerecord (>= 4.0.0, < 5)
-      railties (>= 4.0.0, < 5)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -47,6 +38,10 @@ GEM
       activemodel (= 4.1.4)
       activesupport (= 4.1.4)
       arel (~> 5.0.0)
+    activerecord-session_store (0.1.0)
+      actionpack (>= 4.0.0, < 5)
+      activerecord (>= 4.0.0, < 5)
+      railties (>= 4.0.0, < 5)
     activesupport (4.1.4)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
@@ -553,7 +548,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
-  activerecord-session_store!
+  activerecord-session_store
   angularjs-rails
   awesome_print
   better_errors
