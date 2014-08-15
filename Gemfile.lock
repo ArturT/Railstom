@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: ac85139e308d26cc5706e0f431ea07553fff45d5
+  revision: b8e89c74788199d383963267f4735dccbf292f20
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -14,13 +14,6 @@ GIT
       rails (>= 3.2, < 4.2)
       ransack (~> 1.0)
       sass-rails
-
-GIT
-  remote: git://github.com/justinfrench/formtastic.git
-  revision: d107e18f307f90df60e854c0875d225e330a8854
-  specs:
-    formtastic (2.3.0.rc3)
-      actionpack (>= 3.2.13)
 
 GIT
   remote: git://github.com/rails/activerecord-session_store.git
@@ -196,6 +189,8 @@ GEM
       thor (~> 0.19.1)
     forgery (0.6.0)
     formatador (0.2.5)
+    formtastic (2.3.0.rc4)
+      actionpack (>= 3.0)
     foundation-icons-sass-rails (3.0.0)
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
@@ -589,7 +584,6 @@ DEPENDENCIES
   foreigner
   foreman
   forgery
-  formtastic!
   foundation-icons-sass-rails
   guard-bundler
   guard-jasmine

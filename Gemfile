@@ -66,7 +66,6 @@ gem 'omniauth-openid'
 
 gem 'fb_graph'
 
-gem 'formtastic', github: 'justinfrench/formtastic'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'validates_email_format_of'
