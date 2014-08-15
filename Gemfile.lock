@@ -1,13 +1,4 @@
 GIT
-  remote: git://github.com/fnando/i18n-js.git
-  revision: 4e5c525ff6e1ec4d3449852746fa5651a0577d68
-  ref: 4e5c525ff6e1ec4d3449852746fa5651a0577d68
-  branch: rewrite
-  specs:
-    i18n-js (3.0.0.rc5)
-      i18n
-
-GIT
   remote: git://github.com/gregbell/active_admin.git
   revision: ac85139e308d26cc5706e0f431ea07553fff45d5
   specs:
@@ -242,6 +233,8 @@ GEM
     hike (1.2.3)
     httpclient (2.4.0)
     i18n (0.6.11)
+    i18n-js (3.0.0.rc6)
+      i18n (~> 0.6)
     immigrant (0.1.8)
       activerecord (>= 3.0)
       foreigner (>= 1.2.1)
@@ -607,7 +600,7 @@ DEPENDENCIES
   haml-rails
   high_voltage
   highline
-  i18n-js!
+  i18n-js (~> 3.0.0.rc6)
   immigrant
   jasmine-rails (~> 0.5.6)
   jbuilder (~> 2.0)
