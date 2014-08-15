@@ -2,5 +2,5 @@
 
 <%= form_tag auth_at_provider_path(params[:action]) do %>
   <%= text_field_tag :email, nil, placeholder: t('layouts.application.placeholders.email') %>
-  <%= submit_link t('layouts.application.buttons.save'), class: 'button button-pink' %>
+  <%= submit_link t('layouts.application.buttons.save'), class: 'button' %>
 <% end %>
