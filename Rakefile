@@ -5,6 +5,3 @@
 require File.expand_path('../config/application', __FILE__)
 
 Railstom::Application.load_tasks
-
-require 'knapsack'
-Knapsack.load_tasks
