@@ -94,7 +94,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'non-stupid-digest-assets'
 
-gem 'zurb-foundation'
+gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
 
 gem 'execjs'
