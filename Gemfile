@@ -14,16 +14,7 @@ gem 'foreigner'
 # JS stuff
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
-# http://rubydoc.info/gems/jquery-ui-rails/1.0.0/frames
 gem 'jquery-ui-rails'
-
-#gem 'jquery_datepicker'
-
-# https://github.com/kostia/jquery-minicolors-rails
-#gem 'jquery-minicolors-rails'
-
-#gem 'select2-rails'
 
 gem 'i18n-js', '~> 3.0.0.rc6'
 
@@ -48,16 +39,11 @@ gem 'devise'
 gem 'devise-async'
 gem 'devise-i18n-views'
 
-# twitter bootstrap
-#gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-
 gem 'font-awesome-rails'
 
-# simple form
 gem 'simple_form'
 
 gem 'kaminari'
-#gem 'bootstrap-kaminari-views'
 
 gem 'high_voltage'
 
@@ -77,7 +63,6 @@ gem 'draper'
 
 gem 'dependor'
 
-# omniauth with google openid
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-openid'
@@ -86,10 +71,6 @@ gem 'fb_graph'
 
 gem 'formtastic', github: 'justinfrench/formtastic'
 gem 'activeadmin', github: 'gregbell/active_admin'
-
-# uncomment if you need them
-#gem 'cancan'
-#gem 'rolify'
 
 gem 'validates_email_format_of'
 
