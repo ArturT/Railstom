@@ -6,7 +6,6 @@
 # loadIconSize="fa-lg" [optional] add class fa-lg, fa-2x, fa-3x etc to the icon
 angular.module('App.directives.railstom').directive 'loadIcon', ->
   (scope, element, attrs) ->
-    element.attr('data-no-turbolink', true)
     element.click (e) ->
       # Don't run twice when double click
       if $(this).hasClass('prevent-default')

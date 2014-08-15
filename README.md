@@ -156,14 +156,6 @@ Perform caching is enabled in `config/environments/development.rb`:
     config.action_controller.perform_caching = true
 
 
-### Turbolinks
-
-[Turbolinks](https://github.com/rails/turbolinks/) are enabled by default. If you like to turn them off please add to your body `data-no-turbolink`:
-
-    # app/views/layouts/application.html.erb
-    <body data-no-turbolink>
-
-
 ## Tools
 
 ### Foreman

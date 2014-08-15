@@ -122,15 +122,4 @@ describe 'Railstom Features', :railstom, :js do
       end
     end
   end
-
-  context 'when page was loaded via turbolinks' do
-    before do
-      within '#turbolinks' do
-        click_link 'Reload'
-        sleep 1
-      end
-    end
-
-    it_behaves_like 'railstom features specs'
-  end
 end
