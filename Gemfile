@@ -170,7 +170,7 @@ group :test do
   gem 'capybara-angular'
   gem 'selenium-webdriver'
   gem 'poltergeist'
-  gem 'rspec-sidekiq'
+  gem 'rspec-sidekiq', '~> 2.0.0.beta'
   gem 'timecop'
   gem 'json_spec'
   gem 'shoulda-matchers'

@@ -432,8 +432,8 @@ GEM
       rspec-expectations (~> 3.0.0)
       rspec-mocks (~> 3.0.0)
       rspec-support (~> 3.0.0)
-    rspec-sidekiq (1.0.0)
-      rspec (>= 2.0.0)
+    rspec-sidekiq (2.0.0.beta)
+      rspec (>= 3.0.0)
       sidekiq (>= 2.4.0)
     rspec-support (3.0.4)
     ruby-openid (2.5.0)
@@ -620,7 +620,7 @@ DEPENDENCIES
   rspec-activemodel-mocks
   rspec-its
   rspec-rails
-  rspec-sidekiq
+  rspec-sidekiq (~> 2.0.0.beta)
   rvm-capistrano
   sass-rails (~> 4.0.0)
   sdoc
