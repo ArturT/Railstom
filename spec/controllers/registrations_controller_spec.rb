@@ -8,6 +8,7 @@ describe RegistrationsController do
   describe '#reset_password' do
     # logout path is defined in after_sign_out_path_for in application_controller.rb
     it 'redirects to /:locale/users/password/new after logout user' do
+      expect(controller).to receive(:sign_out).with(:user)
       get :reset_password, locale: I18n.locale
       expect(response).to redirect_to(new_user_password_path)
     end

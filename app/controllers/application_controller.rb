@@ -115,7 +115,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_out_path_for(resource_or_scope)
-    allowed_paths = [new_user_password_path]
+    allowed_paths = [new_user_password_path].map(&:to_sym)
 
     return resource_or_scope if allowed_paths.include?(resource_or_scope)
     root_path
