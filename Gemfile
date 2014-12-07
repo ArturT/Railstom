@@ -87,10 +87,10 @@ gem 'activerecord-session_store'
 gem 'less-rails'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails'
 
 gem 'non-stupid-digest-assets'
 

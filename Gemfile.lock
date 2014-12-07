@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 5af560b2b6cd18526d397331c0c5cca90dfcbaeb
+  revision: e4f8dbbbb8046b719e100fddf83319b9e6cb8796
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0, >= 1.0.2)
@@ -116,7 +116,7 @@ GEM
     code_analyzer (0.4.5)
       sexp_processor
     coderay (1.1.0)
-    coffee-rails (4.0.1)
+    coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
     coffee-script (2.3.0)
@@ -203,7 +203,7 @@ GEM
     guard-bundler (2.0.0)
       bundler (~> 1.0)
       guard (~> 2.2)
-    guard-compat (0.2.0)
+    guard-compat (0.3.0)
     guard-jasmine (1.19.2)
       childprocess
       guard (>= 2.0.0)
@@ -401,7 +401,7 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    rdoc (4.1.2)
+    rdoc (4.2.0)
       json (~> 1.4)
     redis (3.1.0)
     redis-namespace (1.5.1)
@@ -569,7 +569,7 @@ DEPENDENCIES
   capybara-angular
   carrierwave
   certified
-  coffee-rails (~> 4.0.0)
+  coffee-rails
   coveralls
   database_cleaner
   dependor
@@ -628,7 +628,7 @@ DEPENDENCIES
   rspec-rails
   rspec-sidekiq (~> 2.0.0.beta)
   rvm-capistrano
-  sass-rails (~> 4.0.0)
+  sass-rails
   sdoc
   selenium-webdriver
   shoulda-matchers
