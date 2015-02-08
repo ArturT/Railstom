@@ -5,7 +5,7 @@
 
 ---
 :verbose: true
-:concurrency: 25
+:concurrency: 5
 :queues:
   - [mailer, 10]
   - [newsletter, 10]
