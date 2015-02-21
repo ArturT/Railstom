@@ -6,6 +6,7 @@ database:
     - cp config/application.yml.example config/application.yml
     - cp config/database.yml.example config/database.yml
     - rake parallel:create
+    - rake db:migrate
     - rake parallel:prepare
 test:
   pre:
