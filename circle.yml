@@ -7,5 +7,5 @@ database:
 test:
   pre:
     - cp .rspec.example .rspec
-  #override:
-    #- rspec spec
+  override:
+    - rspec spec
