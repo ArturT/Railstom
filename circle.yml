@@ -5,8 +5,8 @@ database:
   pre:
     - cp config/application.yml.example config/application.yml
     - cp config/database.yml.example config/database.yml
+    - bundle exec rake db:test:load
     - rake parallel:create
-    - rake db:migrate
     - rake parallel:prepare
 test:
   pre:
