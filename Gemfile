@@ -157,6 +157,7 @@ group :development, :test do
   gem 'brakeman', require: false
   gem 'byebug'
   gem 'parallel_tests'
+  gem 'knapsack'
 end
 
 group :test do

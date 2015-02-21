@@ -1,4 +1,7 @@
 require 'rubygems'
+require 'knapsack'
+
+Knapsack::Adapters::RspecAdapter.bind
 
 if ENV['COVERALLS']
   require 'coveralls'

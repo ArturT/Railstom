@@ -271,6 +271,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.9.2)
+    knapsack (1.0.4)
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (2.6.0)
@@ -610,6 +611,7 @@ DEPENDENCIES
   jquery-ui-rails
   json_spec
   kaminari
+  knapsack
   less-rails
   libv8
   meta_request
