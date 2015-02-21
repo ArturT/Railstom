@@ -1,3 +1,7 @@
 machine:
   ruby:
     version: 2.2.0
+test:
+  pre:
+    - cp .rspec.example .rspec
+    - cp config/application.yml.example config/application.yml
