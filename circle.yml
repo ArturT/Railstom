@@ -14,4 +14,5 @@ test:
     - cp .rspec.example .rspec
   override:
     #- rspec spec
-    - rake parallel:spec
+    #- rake parallel:spec
+    - parallel_test -n 4 -e 'CI_NODE_TOTAL=4 CI_NODE_INDEX=#{ENV[:TEST_ENV_NUMBER].to_i-1} bundle exec rake knapsack:rspec'
