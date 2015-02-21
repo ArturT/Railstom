@@ -333,6 +333,9 @@ GEM
       omniauth (~> 1.0)
       rack-openid (~> 1.3.1)
     orm_adapter (0.5.0)
+    parallel (1.4.0)
+    parallel_tests (1.1.1)
+      parallel
     phantomjs (1.9.7.1)
     poltergeist (1.5.1)
       capybara (~> 2.1)
@@ -618,6 +621,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   omniauth-openid
+  parallel_tests
   poltergeist
   pry-rails
   quiet_assets

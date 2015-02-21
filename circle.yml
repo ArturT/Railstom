@@ -4,8 +4,10 @@ machine:
 database:
   pre:
     - cp config/application.yml.example config/application.yml
+    - cp config/database.yml.example config/database.yml
 test:
   pre:
     - cp .rspec.example .rspec
   override:
-    - rspec spec
+    #- rspec spec
+    - rake parallel:spec
